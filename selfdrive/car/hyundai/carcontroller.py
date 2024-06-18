@@ -98,7 +98,7 @@ class CarController(CarControllerBase):
       # 2000 0x7d0 - fwdRadar
       addr, bus = 0x7d0, 0
       if self.CP.flags & HyundaiFlags.CANFD_HDA2.value:
-        addr, bus = 0x730, 5
+        addr, bus = 0x730, self.CAN.ECAN
       can_sends.append([addr, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
 
       # for blinkers
