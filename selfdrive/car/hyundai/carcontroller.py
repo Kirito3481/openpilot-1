@@ -94,9 +94,11 @@ class CarController(CarControllerBase):
     # tester present - w/ no response (keeps relevant ECU disabled)
     if self.frame % 100 == 0 and not (self.CP.flags & HyundaiFlags.CANFD_CAMERA_SCC.value) and self.CP.openpilotLongitudinalControl:
       # for longitudinal control, either radar or ADAS driving ECU
+      # 1840 0x730 - adas
+      # 2000 0x7d0 - fwdRadar
       addr, bus = 0x7d0, 0
       if self.CP.flags & HyundaiFlags.CANFD_HDA2.value:
-        addr, bus = 0x730, self.CAN.ECAN
+        addr, bus = 0x730, 5
       can_sends.append([addr, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
 
       # for blinkers
