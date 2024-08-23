@@ -24,19 +24,19 @@
     </message>
     <message>
         <source>Enable Tethering</source>
-        <translation>테더링 사용</translation>
+        <translation>개인용 핫스팟</translation>
     </message>
     <message>
         <source>Tethering Password</source>
-        <translation>테더링 비밀번호</translation>
+        <translation>핫스팟 암호</translation>
     </message>
     <message>
         <source>EDIT</source>
-        <translation>편집</translation>
+        <translation>변경</translation>
     </message>
     <message>
         <source>Enter new tethering password</source>
-        <translation>새 테더링 비밀번호를 입력하세요</translation>
+        <translation>새로운 핫스팟 암호 입력</translation>
     </message>
     <message>
         <source>IP Address</source>
@@ -44,7 +44,7 @@
     </message>
     <message>
         <source>Enable Roaming</source>
-        <translation>로밍 사용</translation>
+        <translation>데이터 로밍</translation>
     </message>
     <message>
         <source>APN Setting</source>
@@ -56,23 +56,23 @@
     </message>
     <message>
         <source>leave blank for automatic configuration</source>
-        <translation>자동 설정하려면 빈 칸으로 두세요</translation>
+        <translation>자동으로 설정하려면 비워두세요.</translation>
     </message>
     <message>
         <source>Cellular Metered</source>
-        <translation>데이터 요금제</translation>
+        <translation>셀룰러 데이터 제한</translation>
     </message>
     <message>
         <source>Prevent large data uploads when on a metered connection</source>
-        <translation>데이터 요금제 연결 시 대용량 데이터 업로드를 방지합니다</translation>
+        <translation>셀룰러 데이터에 연결되었을 때 대용량 데이터 업로드를 제한합니다.</translation>
     </message>
     <message>
         <source>Hidden Network</source>
-        <translation>숨겨진 네트워크</translation>
+        <translation>숨겨진 Wi-Fi 네트워크</translation>
     </message>
     <message>
         <source>CONNECT</source>
-        <translation>연결됨</translation>
+        <translation>연결</translation>
     </message>
     <message>
         <source>Enter SSID</source>
@@ -84,90 +84,90 @@
     </message>
     <message>
         <source>for &quot;%1&quot;</source>
-        <translation>&quot;%1&quot;에 접속하려면 비밀번호가 필요합니다</translation>
+        <translation>Wi-Fi 네트워크 &quot;%1&quot;에 연결하려고 합니다.</translation>
     </message>
 </context>
 <context>
     <name>AdvancedNetworkingSP</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <source>Enable Tethering</source>
-        <translation type="unfinished">테더링 사용</translation>
+        <translation>개인용 핫스팟</translation>
     </message>
     <message>
         <source>Retain hotspot/tethering state</source>
-        <translation type="unfinished"></translation>
+        <translation>핫스팟 토글 상태 유지</translation>
     </message>
     <message>
         <source>Enabling this toggle will retain the hotspot/tethering toggle state across reboots.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 재시작 후에도 핫스팟 토글 상태가 유지됩니다.</translation>
     </message>
     <message>
         <source>Tethering Password</source>
-        <translation type="unfinished">테더링 비밀번호</translation>
+        <translation>핫스팟 암호</translation>
     </message>
     <message>
         <source>EDIT</source>
-        <translation type="unfinished">편집</translation>
+        <translation>변경</translation>
     </message>
     <message>
         <source>Enter new tethering password</source>
-        <translation type="unfinished">새 테더링 비밀번호를 입력하세요</translation>
+        <translation>새로운 핫스팟 암호 입력</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation type="unfinished">IP 주소</translation>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <source>Enable Roaming</source>
-        <translation type="unfinished">로밍 사용</translation>
+        <translation>데이터 로밍</translation>
     </message>
     <message>
         <source>APN Setting</source>
-        <translation type="unfinished">APN 설정</translation>
+        <translation>APN 설정</translation>
     </message>
     <message>
         <source>Enter APN</source>
-        <translation type="unfinished">APN 입력</translation>
+        <translation>APN 입력</translation>
     </message>
     <message>
         <source>leave blank for automatic configuration</source>
-        <translation type="unfinished">자동 설정하려면 빈 칸으로 두세요</translation>
+        <translation>자동으로 설정하려면 비워두세요.</translation>
     </message>
     <message>
         <source>Cellular Metered</source>
-        <translation type="unfinished">데이터 요금제</translation>
+        <translation>셀룰러 데이터 제한</translation>
     </message>
     <message>
         <source>Prevent large data uploads when on a metered connection</source>
-        <translation type="unfinished">데이터 요금제 연결 시 대용량 데이터 업로드를 방지합니다</translation>
+        <translation>셀룰러 데이터에 연결되었을 때 대용량 데이터 업로드를 제한합니다.</translation>
     </message>
     <message>
         <source>Hidden Network</source>
-        <translation type="unfinished">숨겨진 네트워크</translation>
+        <translation>숨겨진 Wi-Fi 네트워크</translation>
     </message>
     <message>
         <source>CONNECT</source>
-        <translation type="unfinished"></translation>
+        <translation>연결</translation>
     </message>
     <message>
         <source>Enter SSID</source>
-        <translation type="unfinished">SSID 입력</translation>
+        <translation>SSID 입력</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation type="unfinished">비밀번호를 입력하세요</translation>
+        <translation>암호 입력</translation>
     </message>
     <message>
         <source>for &quot;%1&quot;</source>
-        <translation type="unfinished">&quot;%1&quot;에 접속하려면 비밀번호가 필요합니다</translation>
+        <translation>Wi-Fi 네트워크 &quot;%1&quot;에 연결하려고 합니다.</translation>
     </message>
     <message>
         <source>Ngrok Service</source>
-        <translation type="unfinished"></translation>
+        <translation>Ngrok 서비스</translation>
     </message>
 </context>
 <context>
@@ -197,108 +197,108 @@
     <name>AnnotatedCameraWidgetSP</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
     <message>
         <source>MAX</source>
-        <translation type="unfinished">MAX</translation>
+        <translation>MAX</translation>
     </message>
     <message>
         <source>SPEED</source>
-        <translation type="unfinished">SPEED</translation>
+        <translation>SPEED</translation>
     </message>
     <message>
         <source>LIMIT</source>
-        <translation type="unfinished">LIMIT</translation>
+        <translation>LIMIT</translation>
     </message>
 </context>
 <context>
     <name>AutoLaneChangeTimer</name>
     <message>
         <source>Auto Lane Change by Blinker</source>
-        <translation type="unfinished"></translation>
+        <translation>방향지시등으로 자동 차로 변경</translation>
     </message>
     <message>
         <source>Set a timer to delay the auto lane change operation when the blinker is used. No nudge on the steering wheel is required to auto lane change if a timer is set. Default is Nudge.
 Please use caution when using this feature. Only use the blinker when traffic and road conditions permit.</source>
-        <translation type="unfinished"></translation>
+        <translation>방향지시등 사용 시 자동 차로 변경 작동을 지연하도록 타이머를 설정합니다. 타이머를 설정하면 자동 차로 변경 시 스티어링 휠을 조작할 필요가 없습니다. 기본값은 조작 필요입니다.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Nudge</source>
-        <translation type="unfinished"></translation>
+        <translation>조작 필요</translation>
     </message>
     <message>
         <source>Nudgeless</source>
-        <translation type="unfinished"></translation>
+        <translation>조작 필요 없음</translation>
     </message>
 </context>
 <context>
     <name>BackupSettings</name>
     <message>
         <source>Settings backed up for sunnylink Device ID:</source>
-        <translation type="unfinished"></translation>
+        <translation>설정이 백업되었습니다. sunnylink 장치 ID:</translation>
     </message>
     <message>
         <source>Settings updated successfully, but no additional data was returned by the server.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정이 성공적으로 업데이트되었지만, 서버에서 추가 데이터는 반환되지 않았습니다.</translation>
     </message>
     <message>
         <source>OOPS! We made a booboo.</source>
-        <translation type="unfinished"></translation>
+        <translation>앗! 실수를 했어요.</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>나중에 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>Settings restored. Confirm to restart the interface.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정이 복원되었습니다. 인터페이스를 재시작합니다.</translation>
     </message>
     <message>
         <source>No settings found to restore.</source>
-        <translation type="unfinished"></translation>
+        <translation>복원할 설정이 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>BrightnessControl</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>밝기</translation>
     </message>
     <message>
         <source>Manually adjusts the global brightness of the screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>화면의 전체 밝기를 수동으로 조정합니다.</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
 </context>
 <context>
     <name>CameraOffset</name>
     <message>
         <source>Camera Offset - Laneful Only</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 오프셋 - Laneful 전용</translation>
     </message>
     <message>
         <source>Hack to trick vehicle to be left or right biased in its lane. Decreasing the value will make the car keep more left, increasing will make it keep more right. Changes take effect immediately. Default: +4 cm</source>
-        <translation type="unfinished"></translation>
+        <translation>차량이 차로에서 왼쪽 또는 오른쪽으로 치우치게 하는 속임수입니다. 값을 낮추면 차량이 더 왼쪽으로 붙으며, 값을 높이면 더 오른쪽으로 붙습니다. 변경 사항은 바로 적용됩니다. 기본값: +4 cm</translation>
     </message>
     <message>
         <source> cm</source>
-        <translation type="unfinished"></translation>
+        <translation> cm</translation>
     </message>
 </context>
 <context>
@@ -316,7 +316,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>CustomOffsetsSettings</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
 </context>
 <context>
@@ -335,7 +335,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>You must accept the Terms and Conditions in order to use sunnypilot.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot을 사용하려면 이용 약관에 동의해야 합니다.</translation>
     </message>
 </context>
 <context>
@@ -377,7 +377,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Serial</source>
-        <translation>시리얼</translation>
+        <translation>일련번호</translation>
     </message>
     <message>
         <source>Driver Camera</source>
@@ -389,11 +389,11 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Preview the driver facing camera to ensure that driver monitoring has good visibility. (vehicle must be off)</source>
-        <translation>운전자 모니터링이 잘 되는지 확인하기 위해 후면 카메라를 미리 봅니다. (차량 시동이 꺼져 있어야 합니다)</translation>
+        <translation>운전자 감시 시스템이 제대로 시야를 확보할 수 있도록 운전자를 바라보는 카메라를 화면에 표시합니다. (차가 꺼져 있어야 합니다.)</translation>
     </message>
     <message>
         <source>Reset Calibration</source>
-        <translation>캘리브레이션 초기화</translation>
+        <translation>보정 초기화</translation>
     </message>
     <message>
         <source>RESET</source>
@@ -401,23 +401,23 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Are you sure you want to reset calibration?</source>
-        <translation>캘리브레이션을 초기화하시겠습니까?</translation>
+        <translation>보정을 초기화하시겠습니까?</translation>
     </message>
     <message>
         <source>Review Training Guide</source>
-        <translation>트레이닝 가이드 다시보기</translation>
+        <translation>트레이닝 가이드 다시 보기</translation>
     </message>
     <message>
         <source>REVIEW</source>
-        <translation>다시보기</translation>
+        <translation>다시 보기</translation>
     </message>
     <message>
         <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>openpilot의 규칙, 기능 및 제한 다시 확인</translation>
+        <translation>openpilot의 규칙, 기능, 제한 사항을 확인하세요.</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
-        <translation>트레이닝 가이드를 다시 확인하시겠습니까?</translation>
+        <translation>트레이닝 가이드를 확인하시겠습니까?</translation>
     </message>
     <message>
         <source>Regulatory</source>
@@ -437,11 +437,11 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Select a language</source>
-        <translation>언어를 선택하세요</translation>
+        <translation>언어 선택</translation>
     </message>
     <message>
         <source>Reboot</source>
-        <translation>재부팅</translation>
+        <translation>재시작</translation>
     </message>
     <message>
         <source>Power Off</source>
@@ -453,7 +453,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
-        <translation> 사용자의 장치는 %2 %1° 및 %4 %3° 의 방향으로 장착되어 있습니다.</translation>
+        <translation> 장치가 %2 %1° 및 %4 %3° 방향으로 장착되어 있습니다.</translation>
     </message>
     <message>
         <source>down</source>
@@ -473,11 +473,11 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Are you sure you want to reboot?</source>
-        <translation>재부팅하시겠습니까?</translation>
+        <translation>정말 재시작하시겠습니까?</translation>
     </message>
     <message>
         <source>Disengage to Reboot</source>
-        <translation>재부팅하려면 연결을 해제하세요</translation>
+        <translation>재시작하려면 해제하세요.</translation>
     </message>
     <message>
         <source>Are you sure you want to power off?</source>
@@ -485,7 +485,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Disengage to Power Off</source>
-        <translation>전원을 끄려면 연결을 해제하세요</translation>
+        <translation>전원을 끄려면 해제하세요.</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -493,82 +493,82 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Review</source>
-        <translation>다시보기</translation>
+        <translation>다시 보기</translation>
     </message>
     <message>
         <source>Pair your device with comma connect (connect.comma.ai) and claim your comma prime offer.</source>
-        <translation>장치를 comma connect (connect.comma.ai)에서 페어링하고 comma prime 무료 이용권을 사용하세요.</translation>
+        <translation>장치를 comma connect (connect.comma.ai)와 연결하고 comma prime 무료 혜택을 사용해보세요.</translation>
     </message>
     <message>
         <source>Pair Device</source>
-        <translation>장치 동기화</translation>
+        <translation>장치 연결</translation>
     </message>
     <message>
         <source>PAIR</source>
-        <translation>동기화</translation>
+        <translation>연결</translation>
     </message>
     <message>
         <source>sunnypilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. sunnypilot is continuously calibrating, resetting is rarely required.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 장치가 좌우로 4° 이내, 상하로는 5° 위 또는 9° 아래에 장착되어야 합니다. sunnypilot은 지속적으로 보정되며, 초기화는 거의 필요하지 않습니다.</translation>
     </message>
 </context>
 <context>
     <name>DevicePanelSP</name>
     <message>
         <source>TOGGLE</source>
-        <translation type="unfinished"></translation>
+        <translation>토글</translation>
     </message>
     <message>
         <source>Enable or disable PIN requirement for Fleet Manager access.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fleet Manager 접근을 하기 위한 PIN 요구 사항을 켜거나 끕니다.</translation>
     </message>
     <message>
         <source>Are you sure you want to turn off PIN requirement?</source>
-        <translation type="unfinished"></translation>
+        <translation>정말로 PIN 요구 사항을 끄시겠습니까?</translation>
     </message>
     <message>
         <source>Turn Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Error Troubleshoot</source>
-        <translation type="unfinished"></translation>
+        <translation>오류 문제 해결</translation>
     </message>
     <message>
         <source>VIEW</source>
-        <translation type="unfinished">보기</translation>
+        <translation>보기</translation>
     </message>
     <message>
         <source>Display error from the tmux session when an error has occurred from a system process.</source>
-        <translation type="unfinished"></translation>
+        <translation>시스템 프로세스에서 오류가 발생했을 때 tmux 세션에서 오류를 표시합니다.</translation>
     </message>
     <message>
         <source>Reset Access Tokens for Map Services</source>
-        <translation type="unfinished"></translation>
+        <translation>지도 서비스의 액세스 토큰 초기화</translation>
     </message>
     <message>
         <source>RESET</source>
-        <translation type="unfinished">초기화</translation>
+        <translation>초기화</translation>
     </message>
     <message>
         <source>Reset self-service access tokens for Mapbox, Amap, and Google Maps.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapbox, Amap 및 Google Maps의 셀프 서비스 액세스 토큰을 초기화합니다.</translation>
     </message>
     <message>
         <source>Are you sure you want to reset access tokens for all map services?</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 지도 서비스의 액세스 토큰을 초기화하시겠습니까?</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">초기화</translation>
+        <translation>초기화</translation>
     </message>
     <message>
         <source>Reset sunnypilot Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot 설정 초기화</translation>
     </message>
     <message>
         <source>Are you sure you want to reset all sunnypilot settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>정말로 모든 sunnypilot 설정을 초기화하시겠습니까?</translation>
     </message>
     <message>
         <source>Toggle Onroad/Offroad</source>
@@ -608,53 +608,53 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Fleet Manager PIN:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fleet Manager PIN:</translation>
     </message>
 </context>
 <context>
     <name>DisplayPanel</name>
     <message>
         <source>Driving Screen Off: Non-Critical Events</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 화면 끄기: 중요하지 않은 이벤트</translation>
     </message>
     <message>
         <source>When &lt;b&gt;Driving Screen Off Timer&lt;/b&gt; is not set to &lt;b&gt;&quot;Always On&quot;&lt;/b&gt;:</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;주행 화면 꺼짐 시간&lt;/b&gt;이 &lt;b&gt;&quot;항상 켜짐&quot;&lt;/b&gt;으로 설정되어 있지 않을 때:</translation>
     </message>
     <message>
         <source>Enabled: Wake the brightness of the screen to display all events.</source>
-        <translation type="unfinished"></translation>
+        <translation>켜짐: 모든 이벤트를 표시하기 위해 화면을 깨웁니다.</translation>
     </message>
     <message>
         <source>Disabled: Wake the brightness of the screen to display critical events.</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼짐: 중요한 이벤트를 표시하기 위해 화면을 깨웁니다.</translation>
     </message>
 </context>
 <context>
     <name>DriveStats</name>
     <message>
         <source>Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>주행</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>시간</translation>
     </message>
     <message>
         <source>ALL TIME</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 시간</translation>
     </message>
     <message>
         <source>PAST WEEK</source>
-        <translation type="unfinished"></translation>
+        <translation>지난 주</translation>
     </message>
     <message>
         <source>KM</source>
-        <translation type="unfinished"></translation>
+        <translation>KM</translation>
     </message>
     <message>
         <source>Miles</source>
-        <translation type="unfinished"></translation>
+        <translation>마일</translation>
     </message>
 </context>
 <context>
@@ -699,73 +699,76 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>LaneChangeSettings</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <source>Pause Lateral Below Speed with Blinker</source>
-        <translation type="unfinished"></translation>
+        <translation>설정 속도 이하에서 조향 일시 정지</translation>
     </message>
     <message>
         <source>Enable this toggle to pause lateral actuation with blinker when traveling below the desired speed selected below.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 설정한 속도 이하로 주행할 때 방향지시등 작동 시 조향이 일시 정지됩니다.</translation>
     </message>
     <message>
         <source>Auto Lane Change: Delay with Blind Spot</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 차로 변경: 사각지대 차량 감지 시 지연 타이머 활성화</translation>
     </message>
     <message>
         <source>Toggle to enable a delay timer for seamless lane changes when blind spot monitoring (BSM) detects a obstructing vehicle, ensuring safe maneuvering.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 사각지대 모니터링 (BSM)이 방해 차량을 감지했을 때 매끄러운 차로 변경을 위해 지연 타이머를 활성화합니다.</translation>
     </message>
     <message>
         <source>Block Lane Change: Road Edge Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>도로 가장자리가 감지되면 차로 변경 차단</translation>
     </message>
     <message>
         <source>Enable this toggle to block lane change when road edge is detected on the stalk actuated side.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 방향지시등이 작동 중인 쪽에서 도로 가장자리가 감지될 때 차로 변경이 차단됩니다.</translation>
     </message>
 </context>
 <context>
     <name>MadsSettings</name>
     <message>
         <source>Enable ACC+MADS with RES+/SET-</source>
-        <translation type="unfinished"></translation>
+        <translation>RES+/SET- 버튼으로 ACC+MADS 활성화</translation>
     </message>
     <message>
         <source>Engage both M.A.D.S. and ACC with a single press of RES+ or SET- button.</source>
-        <translation type="unfinished"></translation>
+        <translation>RES+ 또는 SET- 버튼을 한 번 누르면 M.A.D.S.와 ACC를 동시에 활성화합니다.</translation>
     </message>
     <message>
         <source>Note: Once M.A.D.S. is engaged via this mode, it will remain engaged until it is manually disabled via the M.A.D.S. button or car shut off.</source>
-        <translation type="unfinished"></translation>
+        <translation>참고: 이 모드를 통해 M.A.D.S.가 활성화되면, M.A.D.S. 버튼을 눌러 수동으로 비활성화하거나 차량을 끌 때까지 계속 유지됩니다.</translation>
     </message>
     <message>
         <source>Toggle M.A.D.S. with Cruise Main</source>
-        <translation type="unfinished"></translation>
+        <translation>크루즈 버튼으로 M.A.D.S. 토글</translation>
     </message>
     <message>
         <source>Allows M.A.D.S. engagement/disengagement with &quot;Cruise Main&quot; cruise control button from the steering wheel.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 스티어링 휠의 &quot;크루즈 버튼&quot;으로 M.A.D.S.를 활성화/비활성화할 수 있습니다.</translation>
     </message>
     <message>
         <source>Remain Active</source>
-        <translation type="unfinished"></translation>
+        <translation>활성 상태 유지</translation>
     </message>
     <message>
         <source>Pause Steering</source>
-        <translation type="unfinished"></translation>
+        <translation>조향 일시 정지</translation>
     </message>
     <message>
         <source>Steering Mode After Braking</source>
-        <translation type="unfinished"></translation>
+        <translation>제동 후 조향 모드</translation>
     </message>
     <message>
         <source>Choose how Automatic Lane Centering (ALC) behaves after the brake pedal is manually pressed in sunnypilot.
 
 Remain Active: ALC will remain active even after the brake pedal is pressed.
 Pause Steering: ALC will be paused after the brake pedal is manually pressed.</source>
-        <translation type="unfinished"></translation>
+        <translation>브레이크 페달을 수동으로 밟은 후 자동 차로 중앙 유지 (ALC)의 동작 방식을 선택하세요.
+
+활성 상태 유지: 브레이크 페달을 밟아도 ALC가 활성 상태로 유지됩니다.
+조향 일시 정지: 브레이크 페달을 밟으면 ALC가 일시 정지됩니다.</translation>
     </message>
 </context>
 <context>
@@ -798,11 +801,11 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>MapWindow</name>
     <message>
         <source>Map Loading</source>
-        <translation>지도 로딩 중</translation>
+        <translation>지도 불러오는 중</translation>
     </message>
     <message>
         <source>Waiting for GPS</source>
-        <translation>GPS 수신 중</translation>
+        <translation>GPS 신호를 기다리는 중</translation>
     </message>
     <message>
         <source>Waiting for route</source>
@@ -813,46 +816,46 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>MapWindowSP</name>
     <message>
         <source>Map Loading</source>
-        <translation type="unfinished">지도 로딩 중</translation>
+        <translation>지도 불러오는 중</translation>
     </message>
     <message>
         <source>Waiting for GPS</source>
-        <translation type="unfinished">GPS 수신 중</translation>
+        <translation>GPS 신호를 기다리는 중</translation>
     </message>
     <message>
         <source>Waiting for route</source>
-        <translation type="unfinished">경로를 기다리는 중</translation>
+        <translation>경로를 기다리는 중</translation>
     </message>
 </context>
 <context>
     <name>MaxTimeOffroad</name>
     <message>
         <source>Max Time Offroad</source>
-        <translation type="unfinished"></translation>
+        <translation>최대 오프로드 시간</translation>
     </message>
     <message>
         <source>Device is automatically turned off after a set time when the engine is turned off (off-road) after driving (on-road).</source>
-        <translation type="unfinished"></translation>
+        <translation>주행(온로드) 후 엔진이 꺼지면(오프로드) 설정된 시간 이후에 장치가 자동으로 꺼집니다.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished">m</translation>
+        <translation>분</translation>
     </message>
     <message>
         <source>hr</source>
-        <translation type="unfinished">시간</translation>
+        <translation>시간</translation>
     </message>
     <message>
         <source>Always On</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 켜짐</translation>
     </message>
     <message>
         <source>Immediate</source>
-        <translation type="unfinished"></translation>
+        <translation>즉시 꺼짐</translation>
     </message>
 </context>
 <context>
