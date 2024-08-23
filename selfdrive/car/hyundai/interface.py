@@ -123,6 +123,8 @@ class CarInterface(CarInterfaceBase):
     # *** feature detection ***
     if candidate in CANFD_CAR:
       ret.enableBsm = 0x1e5 in fingerprint[CAN.ECAN]
+      if ret.openpilotLongitudinalControl:
+        ret.enableBsm = False
 
       if 0x1fa in fingerprint[CAN.ECAN]:
         ret.spFlags |= HyundaiFlagsSP.SP_NAV_MSG.value
