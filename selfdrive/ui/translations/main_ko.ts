@@ -835,7 +835,7 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>Device is automatically turned off after a set time when the engine is turned off (off-road) after driving (on-road).</source>
-        <translation>주행(온로드) 후 엔진이 꺼지면(오프로드) 설정된 시간 이후에 장치가 자동으로 꺼집니다.</translation>
+        <translation>주행(온로드) 후 차가 꺼지면(오프로드) 설정된 시간 이후에 장치가 자동으로 꺼집니다.</translation>
     </message>
     <message>
         <source>s</source>
@@ -862,11 +862,11 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>MonitoringPanel</name>
     <message>
         <source>Enable Hands on Wheel Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>핸들 그립 감지</translation>
     </message>
     <message>
         <source>Monitor and alert when driver is not keeping the hands on the steering wheel.</source>
-        <translation type="unfinished"></translation>
+        <translation>운전자가 스티어링 휠을 잡지 않을 때 이를 감지하고 알림을 줍니다.</translation>
     </message>
 </context>
 <context>
@@ -903,27 +903,27 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>NetworkingSP</name>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>검색</translation>
     </message>
     <message>
         <source>Scanning...</source>
-        <translation type="unfinished"></translation>
+        <translation>검색 중...</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">고급 설정</translation>
+        <translation>고급 설정</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation type="unfinished">비밀번호를 입력하세요</translation>
+        <translation>비밀번호를 입력하세요</translation>
     </message>
     <message>
         <source>for &quot;%1&quot;</source>
-        <translation type="unfinished">&quot;%1&quot;에 접속하려면 비밀번호가 필요합니다</translation>
+        <translation>&quot;%1&quot;에 접속하려면 비밀번호가 필요합니다</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished">비밀번호가 틀렸습니다</translation>
+        <translation>비밀번호가 틀렸습니다</translation>
     </message>
 </context>
 <context>
@@ -939,20 +939,20 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <message>
         <source>Unable to download updates
 %1</source>
-        <translation>업데이트를 다운로드할 수 없습니다
+        <translation>업데이트를 다운로드할 수 없습니다.
 %1</translation>
     </message>
     <message>
         <source>Taking camera snapshots. System won&apos;t start until finished.</source>
-        <translation>카메라 스냅샷 찍기가 완료될 때까지 시스템이 시작되지 않습니다.</translation>
+        <translation>카메라 스냅샷을 찍고 있습니다. 완료될 때까지 시스템이 시작되지 않습니다.</translation>
     </message>
     <message>
         <source>An update to your device&apos;s operating system is downloading in the background. You will be prompted to update when it&apos;s ready to install.</source>
-        <translation>백그라운드에서 운영 체제에 대한 업데이트가 다운로드되고 있습니다. 설치가 준비되면 업데이트 메시지가 표시됩니다.</translation>
+        <translation>장치의 운영 체제 업데이트가 백그라운드에서 다운로드 중입니다. 설치 준비가 완료되면 업데이트를 진행하라는 메시지가 표시됩니다.</translation>
     </message>
     <message>
         <source>Device failed to register. It will not connect to or upload to comma.ai servers, and receives no support from comma.ai. If this is an official device, visit https://comma.ai/support.</source>
-        <translation>장치를 등록하지 못했습니다. comma.ai 서버에 연결하거나 데이터를 업로드하지 않으며 comma.ai에서 지원을 받지 않습니다. 공식 장치인 경우 https://comma.ai/support 에 방문하여 문의하세요.</translation>
+        <translation>장치 등록에 실패했습니다. 이 장치는 comma.ai 서버에 연결하거나 업로드할 수 없으며, comma.ai의 지원을 받을 수 없습니다. 공식 장치인 경우, https://comma.ai/support를 방문해 주시기 바랍니다.</translation>
     </message>
     <message>
         <source>NVMe drive not mounted.</source>
@@ -960,33 +960,35 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>Unsupported NVMe drive detected. Device may draw significantly more power and overheat due to the unsupported NVMe.</source>
-        <translation>지원되지 않는 NVMe 드라이브가 감지되었습니다. 지원되지 않는 NVMe 드라이브는 많은 전력을 소비하고 장치를 과열시킬 수 있습니다.</translation>
+        <translation>지원되지 않는 NVMe 드라이브가 감지되었습니다. 이로 인해 장치가 더 많은 전력을 소모하고 과열될 수 있습니다.</translation>
     </message>
     <message>
         <source>openpilot was unable to identify your car. Your car is either unsupported or its ECUs are not recognized. Please submit a pull request to add the firmware versions to the proper vehicle. Need help? Join discord.comma.ai.</source>
-        <translation>openpilot이 차량을 식별할 수 없었습니다. 지원되지 않는 차량이거나 ECU가 인식되지 않습니다. 해당 차량에 맞는 펌웨어 버전을 추가하려면 PR을 제출하세요. 도움이 필요하시면 discord.comma.ai에 가입하세요.</translation>
+        <translation>openpilot이 차량을 식별하지 못했습니다. 차량이 지원되지 않거나 ECU가 인식되지 않는 것일 수 있습니다. 차량의 펌웨어 버전을 추가하기 위해 풀 리퀘스트를 제출해 주세요. 도움이 필요하시면 discord.comma.ai에 가입해 주세요.</translation>
     </message>
     <message>
         <source>openpilot was unable to identify your car. Check integrity of cables and ensure all connections are secure, particularly that the comma power is fully inserted in the OBD-II port of the vehicle. Need help? Join discord.comma.ai.</source>
-        <translation>openpilot이 차량을 식별할 수 없었습니다. 케이블의 무결성을 점검하고 모든 연결부, 특히 comma power가 차량의 OBD-II 포트에 제대로 삽입되었는지 확인하세요. 도움이 필요하시면 discord.comma.ai에 가입하세요.</translation>
+        <translation>openpilot이 차량을 식별하지 못했습니다. 케이블이 제대로 연결되어 있는지 확인해 보세요. 특히, comma power가 차량의 OBD-II 포트에 완전히 꽂혀 있는지 확인해 주세요. 도움이 필요하시면 discord.comma.ai에 가입해 주세요.</translation>
     </message>
     <message>
         <source>openpilot detected a change in the device&apos;s mounting position. Ensure the device is fully seated in the mount and the mount is firmly secured to the windshield.</source>
-        <translation>openpilot 장치의 장착 위치가 변경되었습니다. 장치가 마운트에 완전히 장착되고 마운트가 앞유리에 단단히 고정되었는지 확인하세요. </translation>
+        <translation>openpilot이 장치의 장착 위치에 변화를 감지했습니다. 장치가 마운트에 완전히 장착되어 있는지 확인하고, 마운트가 앞 유리에 단단히 고정되어 있는지 점검해 주세요.</translation>
     </message>
     <message>
         <source>Device temperature too high. System cooling down before starting. Current internal component temperature: %1</source>
-        <translation>장치 온도가 너무 높습니다. 시작하기 전에 온도를 낮춰주세요. 현재 내부 부품 온도: %1</translation>
+        <translation>장치 온도가 너무 높습니다. 시스템이 시작되기 전에 냉각 중입니다. 현재 내부 부품 온도: %1</translation>
     </message>
     <message>
         <source>OpenStreetMap database is out of date. New maps must be downloaded if you wish to continue using OpenStreetMap data for Enhanced Speed Control and road name display.
 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenStreetMap 데이터베이스가 오래되었습니다. 향상된 속도 제어 및 도로명 표시 기능을 계속 사용하려면 새로운 지도를 다운로드해야 합니다.
+
+%1</translation>
     </message>
     <message>
         <source>sunnypilot is now in Forced Offroad mode. sunnypilot won&apos;t start until Forced Offroad mode is disabled. Go to &quot;Settings&quot; -&gt; &quot;Device&quot; -&gt; &quot;Unforce Offroad&quot; to exit Force Offroad mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot이 현재 강제 오프로드 모드에 있습니다. 강제 오프로드 모드가 해제될 때까지 sunnypilot이 시작되지 않습니다. &quot;설정&quot; -&gt; &quot;장치&quot; -&gt; &quot;오프로드 해제&quot;로 가서 강제 오프로드 모드를 종료해 주세요.</translation>
     </message>
 </context>
 <context>
@@ -1008,133 +1010,135 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>OnroadAlerts</name>
     <message>
         <source>openpilot Unavailable</source>
-        <translation>오픈파일럿을 사용할수없습니다</translation>
+        <translation>openpilot을 사용할 수 없습니다.</translation>
     </message>
     <message>
         <source>Waiting for controls to start</source>
-        <translation>프로세스가 준비중입니다</translation>
+        <translation>제어 시작을 기다리고 있습니다.</translation>
     </message>
     <message>
         <source>TAKE CONTROL IMMEDIATELY</source>
-        <translation>핸들을 잡아주세요</translation>
+        <translation>즉시 스티어링 휠을 조작해주세요.</translation>
     </message>
     <message>
         <source>Controls Unresponsive</source>
-        <translation>프로세스가 응답하지않습니다</translation>
+        <translation type="unfinished">제어가 작동하지 않습니다.</translation>
     </message>
     <message>
         <source>Reboot Device</source>
-        <translation>장치를 재부팅하세요</translation>
+        <translation>장치를 재시작하세요.</translation>
     </message>
 </context>
 <context>
     <name>OnroadScreenOff</name>
     <message>
         <source>Driving Screen Off Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 화면 꺼짐 시간</translation>
     </message>
     <message>
         <source>Turn off the device screen or reduce brightness to protect the screen after driving starts. It automatically brightens or turns on when a touch or event occurs.</source>
-        <translation type="unfinished"></translation>
+        <translation>운전 시작 후 화면을 끄거나 밝기를 줄여 화면을 보호하세요. 터치나 이벤트가 발생하면 자동으로 밝아지거나 켜집니다.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>min</source>
-        <translation type="unfinished">분</translation>
+        <translation>분</translation>
     </message>
     <message>
         <source>Always On</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 켜짐</translation>
     </message>
 </context>
 <context>
     <name>OnroadScreenOffBrightness</name>
     <message>
         <source>Driving Screen Off Brightness (%)</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 화면 꺼짐 밝기 (%)</translation>
     </message>
     <message>
         <source>When using the Driving Screen Off feature, the brightness is reduced according to the automatic brightness ratio.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 화면 꺼짐 기능을 사용할 때, 밝기는 자동 밝기 비율에 따라 줄어듭니다.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>어둡게</translation>
     </message>
 </context>
 <context>
     <name>OnroadSettings</name>
     <message>
         <source>ONROAD OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드 옵션</translation>
     </message>
     <message>
         <source>&lt;b&gt;ONROAD SETTINGS | SUNNYPILOT&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;온로드 설정 | SUNNYPILOT&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
     <name>OsmPanel</name>
     <message>
         <source>Mapd Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapd 버전</translation>
     </message>
     <message>
         <source>Offline Maps ETA</source>
-        <translation type="unfinished"></translation>
+        <translation>오프라인 지도 예상 다운로드 시간</translation>
     </message>
     <message>
         <source>Time Elapsed</source>
-        <translation type="unfinished"></translation>
+        <translation>경과 시간</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드된 지도</translation>
     </message>
     <message>
         <source>DELETE</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>This will delete ALL downloaded maps
 
 Are you sure you want to delete all the maps?</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드된 모든 지도를 삭제합니다.
+
+정말 모든 지도를 삭제하시겠습니까?</translation>
     </message>
     <message>
         <source>Yes, delete all the maps.</source>
-        <translation type="unfinished"></translation>
+        <translation>네, 모든 지도를 삭제하세요.</translation>
     </message>
     <message>
         <source>Database Update</source>
-        <translation type="unfinished"></translation>
+        <translation>데이터베이스 업데이트</translation>
     </message>
     <message>
         <source>CHECK</source>
-        <translation type="unfinished">확인</translation>
+        <translation>확인</translation>
     </message>
     <message>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>국가</translation>
     </message>
     <message>
         <source>SELECT</source>
-        <translation type="unfinished">선택</translation>
+        <translation>선택</translation>
     </message>
     <message>
         <source>Fetching Country list...</source>
-        <translation type="unfinished"></translation>
+        <translation>국가 목록 가져오는 중...</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>주</translation>
     </message>
     <message>
         <source>Fetching State list...</source>
-        <translation type="unfinished"></translation>
+        <translation>주 목록 가져오는 중...</translation>
     </message>
     <message>
         <source>All</source>
@@ -1142,76 +1146,78 @@ Are you sure you want to delete all the maps?</source>
     </message>
     <message>
         <source>REFRESH</source>
-        <translation type="unfinished"></translation>
+        <translation>새로고침</translation>
     </message>
     <message>
         <source>UPDATE</source>
-        <translation type="unfinished">업데이트</translation>
+        <translation>업데이트</translation>
     </message>
     <message>
         <source>Download starting...</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드 시작 중...</translation>
     </message>
     <message>
         <source>Error: Invalid download. Retry.</source>
-        <translation type="unfinished"></translation>
+        <translation>오류: 다운로드가 잘못되었습니다. 다시 시도하세요.</translation>
     </message>
     <message>
         <source>Download complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드가 완료되었습니다!</translation>
     </message>
     <message>
         <source>
 
 Warning: You are on a metered connection!</source>
-        <translation type="unfinished"></translation>
+        <translation>
+
+경고: 현재 셀룰러 데이터에 연결되어 있습니다!</translation>
     </message>
     <message>
         <source>This will start the download process and it might take a while to complete.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 작업을 시작하면 다운로드가 진행되며, 완료까지 시간이 걸릴 수 있습니다.</translation>
     </message>
     <message>
         <source>Continue on Metered</source>
-        <translation type="unfinished"></translation>
+        <translation>셀룰러 데이터로 계속</translation>
     </message>
     <message>
         <source>Start Download</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드 시작</translation>
     </message>
     <message>
         <source>m </source>
-        <translation type="unfinished"></translation>
+        <translation>분 </translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>Calculating...</source>
-        <translation type="unfinished"></translation>
+        <translation>계산 중...</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드 완료</translation>
     </message>
     <message>
         <source>Calculating ETA...</source>
-        <translation type="unfinished"></translation>
+        <translation>남은 시간 계산 중...</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">준비</translation>
     </message>
     <message>
         <source>Time remaining: </source>
-        <translation type="unfinished"></translation>
+        <translation>남은 시간: </translation>
     </message>
 </context>
 <context>
     <name>PairingPopup</name>
     <message>
         <source>Pair your device to your comma account</source>
-        <translation>장치를 comma 계정에 동기화합니다</translation>
+        <translation>장치를 comma 계정에 연결하세요.</translation>
     </message>
     <message>
         <source>Go to https://connect.comma.ai on your phone</source>
@@ -1241,60 +1247,60 @@ Warning: You are on a metered connection!</source>
     <name>ParamControlSP</name>
     <message>
         <source>Enable</source>
-        <translation type="unfinished">활성화</translation>
+        <translation>활성화</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">취소</translation>
+        <translation>취소</translation>
     </message>
 </context>
 <context>
     <name>PathOffset</name>
     <message>
         <source>Path Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>경로 오프셋</translation>
     </message>
     <message>
         <source>Hack to trick the model path to be left or right biased of the lane. Decreasing the value will shift the model more left, increasing will shift the model more right. Changes take effect immediately.</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 경로를 차로의 왼쪽 또는 오른쪽으로 치우치게 하는 속임수입니다. 값을 낮추면 차량이 더 왼쪽으로 붙으며, 값을 높이면 더 오른쪽으로 붙습니다. 변경 사항은 바로 적용됩니다.</translation>
     </message>
     <message>
         <source> cm</source>
-        <translation type="unfinished"></translation>
+        <translation> cm</translation>
     </message>
 </context>
 <context>
     <name>PauseLateralSpeed</name>
     <message>
         <source>Pause lateral actuation with blinker when traveling below the desired speed selected. Default is 20 MPH or 32 km/h.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정한 속도 이하로 주행할 때 방향지시등 작동 시 조향을 일시 정지합니다. 기본값은 20 MPH 또는 32 km/h입니다.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
     <name>PrimeAdWidget</name>
     <message>
         <source>Upgrade Now</source>
-        <translation>지금 업그레이드하세요</translation>
+        <translation>지금 업그레이드하세요.</translation>
     </message>
     <message>
         <source>Become a comma prime member at connect.comma.ai</source>
-        <translation>connect.comma.ai에 접속하여 comma prime 회원으로 등록하세요</translation>
+        <translation>connect.comma.ai에서 comma prime 회원이 되세요.</translation>
     </message>
     <message>
         <source>PRIME FEATURES:</source>
-        <translation>PRIME 기능:</translation>
+        <translation>PRIME 기능들:</translation>
     </message>
     <message>
         <source>Remote access</source>
@@ -1302,15 +1308,15 @@ Warning: You are on a metered connection!</source>
     </message>
     <message>
         <source>24/7 LTE connectivity</source>
-        <translation>항상 LTE 연결</translation>
+        <translation>상시 LTE 연결</translation>
     </message>
     <message>
         <source>Turn-by-turn navigation</source>
-        <translation>내비게이션 경로안내</translation>
+        <translation>내비게이션 경로 안내</translation>
     </message>
     <message>
         <source>1 year of drive storage</source>
-        <translation>1년간 드라이브 로그 저장</translation>
+        <translation>1년간 운전 기록 저장</translation>
     </message>
 </context>
 <context>
@@ -1328,7 +1334,7 @@ Warning: You are on a metered connection!</source>
     <name>QObject</name>
     <message>
         <source>Reboot</source>
-        <translation>재부팅</translation>
+        <translation>재시작</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1374,11 +1380,11 @@ Warning: You are on a metered connection!</source>
     </message>
     <message>
         <source>now</source>
-        <translation>now</translation>
+        <translation>지금</translation>
     </message>
     <message>
         <source>sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Update downloaded. Ready to reboot.</source>
@@ -1446,133 +1452,135 @@ This may take up to a minute.</source>
     <name>SPVehiclesTogglesPanel</name>
     <message>
         <source>Hyundai/Kia/Genesis</source>
-        <translation type="unfinished"></translation>
+        <translation>현대/기아/제네시스</translation>
     </message>
     <message>
         <source>Subaru</source>
-        <translation type="unfinished"></translation>
+        <translation>스바루</translation>
     </message>
     <message>
         <source>Manual Parking Brake: Stop and Go (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>수동 주차 브레이크: 정차 후 재출발 (베타)</translation>
     </message>
     <message>
         <source>Experimental feature to enable stop and go for Subaru Global models with manual handbrake. Models with electric parking brake should keep this disabled. Thanks to martinl for this implementation!</source>
-        <translation type="unfinished"></translation>
+        <translation>수동 주차 브레이크가 장착된 스바루 글로벌 모델에서 정차 후 재출발 기능을 사용할 수 있는 실험적 기능입니다. 전자식 주차 브레이크가 있는 모델은 이 기능을 꺼야합니다. 이 기능을 구현해주신 martinl에게 감사드립니다!</translation>
     </message>
     <message>
         <source>Toyota/Lexus</source>
-        <translation type="unfinished"></translation>
+        <translation>토요타/렉서스</translation>
     </message>
     <message>
         <source>Enable Stock Toyota Longitudinal Control</source>
-        <translation type="unfinished"></translation>
+        <translation>순정 토요타 가감속 제어</translation>
     </message>
     <message>
         <source>sunnypilot will &lt;b&gt;not&lt;/b&gt; take over control of gas and brakes. Stock Toyota longitudinal control will be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 가속과 브레이크 제어를 &lt;b&gt;하지 않습니다&lt;/b&gt;. 순정 토요타 가감속 제어가 사용됩니다.</translation>
     </message>
     <message>
         <source>Allow M.A.D.S. toggling w/ LKAS Button (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>LKAS 버튼으로 M.A.D.S. 토글 허용 (베타)</translation>
     </message>
     <message>
         <source>Allows M.A.D.S. engagement/disengagement with &quot;LKAS&quot; button from the steering wheel.</source>
-        <translation type="unfinished"></translation>
+        <translation>스티어링 휠에 있는 &quot;LKAS&quot; 버튼으로 M.A.D.S.를 켜거나 끌 수 있습니다.</translation>
     </message>
     <message>
         <source>Note: Enabling this toggle may have unexpected behavior with steering control. It is the driver&apos;s responsibility to observe their environment and make decisions accordingly.</source>
-        <translation type="unfinished"></translation>
+        <translation>참고: 이 토글 기능을 사용하면 스티어링 제어에 예상치 못한 동작이 발생할 수 있습니다. 운전자는 주변 상황을 잘 살피고 적절히 대처해야 합니다.</translation>
     </message>
     <message>
         <source>Toyota TSS2 Longitudinal: Custom Tuning</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">토요타 TSS2 가감속: 커스텀 튜닝</translation>
     </message>
     <message>
         <source>Smoother longitudinal performance for Toyota/Lexus TSS2/LSS2 cars. Big thanks to dragonpilot-community for this implementation.</source>
-        <translation type="unfinished"></translation>
+        <translation>토요타/렉서스 TSS2/LSS2 차량들의 가감속 성능을 더 부드럽게 만듭니다. 이 기능을 구현해주신 dragonpilot-community에 감사드립니다.</translation>
     </message>
     <message>
         <source>Enable Enhanced Blind Spot Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>향상된 사각지대 모니터링 기능</translation>
     </message>
     <message>
         <source>Enable Toyota Stop and Go Hack</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">토요타 정차 후 재출발 트릭</translation>
     </message>
     <message>
         <source>sunnypilot will allow some Toyota/Lexus cars to auto resume during stop and go traffic. This feature is only applicable to certain models. Use at your own risk.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 일부 토요타/렉서스 차량에서 정체된 교통 상황에서도 자동으로 다시 출발할 수 있도록 합니다. 이 기능은 특정 모델에서만 사용 가능하며, 사용 시 주의가 필요합니다.</translation>
     </message>
     <message>
         <source>Enable Toyota Door Auto Locking</source>
-        <translation type="unfinished"></translation>
+        <translation>토요타 문 자동 잠금</translation>
     </message>
     <message>
         <source>sunnypilot will attempt to lock the doors when drive above 10 km/h (6.2 mph).
 Reboot Required.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 시속 10 km/h (6.2 mph) 이상으로 주행할 때 자동으로 문을 잠그려고 시도합니다.
+재시작이 필요합니다.</translation>
     </message>
     <message>
         <source>Enable Toyota Door Auto Unlocking</source>
-        <translation type="unfinished"></translation>
+        <translation>토요타 문 자동 잠금 해제</translation>
     </message>
     <message>
         <source>sunnypilot will attempt to unlock the doors when shift to gear P.
 Reboot Required.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 기어가 P로 전환될 때 문 잠금 해제를 시도합니다.
+재시작이 필요합니다.</translation>
     </message>
     <message>
         <source>Volkswagen</source>
-        <translation type="unfinished"></translation>
+        <translation>폭스바겐</translation>
     </message>
     <message>
         <source>Enable CC Only support</source>
-        <translation type="unfinished"></translation>
+        <translation>CC 전용 지원</translation>
     </message>
     <message>
         <source>sunnypilot supports Volkswagen MQB CC only platforms with this toggle enabled. Only enable this toggle if your car does not have ACC from the factory.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 이 기능이 켜져 있으면 폭스바겐 CC 전용 플랫폼을 지원합니다. 차량에 기본적으로 ACC가 없는 경우에만 이 기능을 켜세요.</translation>
     </message>
     <message>
         <source>Start the car to check car compatibility</source>
-        <translation type="unfinished"></translation>
+        <translation>차량 호환성을 확인하려면 시동을 걸어주세요.</translation>
     </message>
     <message>
         <source>This platform is already supported, therefore no need to enable this toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>이 플랫폼은 이미 지원되므로 이 기능을 켤 필요가 없습니다.</translation>
     </message>
     <message>
         <source>This platform is not supported</source>
-        <translation type="unfinished"></translation>
+        <translation>이 플랫폼은 지원되지 않습니다.</translation>
     </message>
     <message>
         <source>This platform can be supported</source>
-        <translation type="unfinished"></translation>
+        <translation>이 플랫폼은 지원됩니다.</translation>
     </message>
     <message>
         <source>sunnypilot will use debugging CAN messages to receive unfiltered BSM signals, allowing detection of more objects.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 디버깅 CAN 메시지를 사용하여 필터링되지 않은 BSM 신호를 수신하고, 이를 통해 더 많은 객체를 감지할 수 있습니다.</translation>
     </message>
     <message>
         <source>Tested on RAV4 TSS1, Lexus LSS1, Toyota TSS1/1.5, and Prius TSS2.</source>
-        <translation type="unfinished"></translation>
+        <translation>RAV4 TSS1, 렉서스 LSS1, 토요타 TSS1/1.5, 및 프리우스 TSS2에서 테스트되었습니다.</translation>
     </message>
     <message>
         <source>HKG: Custom Tuning for New Longitudinal API</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HKG: 새로운 가감속 API를 위한 커스텀 튜닝</translation>
     </message>
     <message>
         <source>HKG CAN: Enable Cruise Main by Default</source>
-        <translation type="unfinished"></translation>
+        <translation>HKG CAN: 기본적으로 크루즈 제어 활성화</translation>
     </message>
     <message>
         <source>WARNING: This feature only applies when &quot;openpilot Longitudinal Control (Alpha)&quot; is enabled under &quot;Toggles&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>경고: 이 기능은 &quot;토글&quot; 메뉴에서 &quot;openpilot 가감속 제어 (알파)&quot;가 켜져 있을 때만 적용됩니다.</translation>
     </message>
     <message>
         <source>Enabling this toggle sets CRUISE MAIN to ON by default when the car starts, without engaging MADS. The user still needs to manually engage MADS.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 차량 시작 시 크루즈가 기본적으로 켜지며, MADS는 자동으로 켜지지 않습니다. 사용자가 직접 MADS를 켜야 합니다.</translation>
     </message>
 </context>
 <context>
@@ -1602,66 +1610,66 @@ Reboot Required.</source>
     <name>SettingsWindowSP</name>
     <message>
         <source>×</source>
-        <translation type="unfinished">×</translation>
+        <translation>×</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">장치</translation>
+        <translation>장치</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">네트워크</translation>
+        <translation>네트워크</translation>
     </message>
     <message>
         <source>sunnylink</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnylink</translation>
     </message>
     <message>
         <source>Toggles</source>
-        <translation type="unfinished">토글</translation>
+        <translation>토글</translation>
     </message>
     <message>
         <source>Software</source>
-        <translation type="unfinished">소프트웨어</translation>
+        <translation>소프트웨어</translation>
     </message>
     <message>
         <source>sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM</translation>
     </message>
     <message>
         <source>Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>모니터링</translation>
     </message>
     <message>
         <source>Visuals</source>
-        <translation type="unfinished"></translation>
+        <translation>시각 요소</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>화면</translation>
     </message>
     <message>
         <source>Trips</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 기록</translation>
     </message>
     <message>
         <source>Vehicle</source>
-        <translation type="unfinished"></translation>
+        <translation>차량</translation>
     </message>
 </context>
 <context>
     <name>Setup</name>
     <message>
         <source>WARNING: Low Voltage</source>
-        <translation>경고: 전압이 낮습니다</translation>
+        <translation>경고: 전압이 낮습니다.</translation>
     </message>
     <message>
         <source>Power your device in a car with a harness or proceed at your own risk.</source>
-        <translation>장치를 하네스를 통해 차량 전원에 연결하세요. USB 전원에서는 예상치 못한 문제가 생길 수 있습니다.</translation>
+        <translation>차량의 하네스에 장치를 연결하거나, 위험을 감수하고 계속 진행하세요.</translation>
     </message>
     <message>
         <source>Power off</source>
@@ -1677,11 +1685,11 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Before we get on the road, let’s finish installation and cover some details.</source>
-        <translation>출발 전 설정을 완료하고 세부 사항을 살펴봅니다.</translation>
+        <translation>도로에 나서기 전에 설치를 완료하고 몇 가지 세부 사항을 살펴보겠습니다.</translation>
     </message>
     <message>
         <source>Connect to Wi-Fi</source>
-        <translation>Wi-Fi 연결</translation>
+        <translation>Wi-Fi에 연결하기</translation>
     </message>
     <message>
         <source>Back</source>
@@ -1689,7 +1697,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Continue without Wi-Fi</source>
-        <translation>Wi-Fi 연결 없이 진행</translation>
+        <translation>Wi-Fi 없이 계속</translation>
     </message>
     <message>
         <source>Waiting for internet</source>
@@ -1713,11 +1721,11 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Ensure the entered URL is valid, and the device’s internet connection is good.</source>
-        <translation>입력된 URL이 유효하고 인터넷 연결이 원활한지 확인하세요.</translation>
+        <translation>입력된 URL이 유효하고, 장치의 인터넷 연결이 안정적인지 확인하세요.</translation>
     </message>
     <message>
         <source>Reboot device</source>
-        <translation>장치 재부팅</translation>
+        <translation>장치 재시작</translation>
     </message>
     <message>
         <source>Start over</source>
@@ -1725,7 +1733,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Something went wrong. Reboot the device.</source>
-        <translation>문제가 발생했습니다. 장치를 재부팅하세요.</translation>
+        <translation>문제가 발생했습니다. 장치를 재시작하세요.</translation>
     </message>
     <message>
         <source>No custom software found at this URL.</source>
@@ -1733,7 +1741,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Select a language</source>
-        <translation>언어를 선택하세요</translation>
+        <translation>언어 선택</translation>
     </message>
     <message>
         <source>Choose Software to Install</source>
@@ -1756,22 +1764,22 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Pair your device with comma connect (connect.comma.ai) and claim your comma prime offer.</source>
-        <translation>장치를 comma connect (connect.comma.ai)에서 페어링하고 comma prime 무료 이용권을 사용하세요.</translation>
+        <translation>장치를 comma connect (connect.comma.ai)에 연결하고 comma prime 무료 이용권을 사용하세요.</translation>
     </message>
     <message>
         <source>Pair device</source>
-        <translation>장치 페어링</translation>
+        <translation>장치 연결</translation>
     </message>
 </context>
 <context>
     <name>Sidebar</name>
     <message>
         <source>CONNECT</source>
-        <translation>커넥트</translation>
+        <translation>CONNECT</translation>
     </message>
     <message>
         <source>OFFLINE</source>
-        <translation>연결 안됨</translation>
+        <translation>오프라인</translation>
     </message>
     <message>
         <source>ONLINE</source>
@@ -1795,7 +1803,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>괜찮음</translation>
     </message>
     <message>
         <source>VEHICLE</source>
@@ -1815,7 +1823,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>SEARCH</source>
-        <translation>검색중</translation>
+        <translation>검색 중</translation>
     </message>
     <message>
         <source>--</source>
@@ -1850,94 +1858,94 @@ Reboot Required.</source>
     <name>SidebarSP</name>
     <message>
         <source>TEMP</source>
-        <translation type="unfinished">온도</translation>
+        <translation>온도</translation>
     </message>
     <message>
         <source>HIGH</source>
-        <translation type="unfinished">높음</translation>
+        <translation>높음</translation>
     </message>
     <message>
         <source>GOOD</source>
-        <translation type="unfinished">좋음</translation>
+        <translation>좋음</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>괜찮음</translation>
     </message>
     <message>
         <source>DISABLED</source>
-        <translation type="unfinished"></translation>
+        <translation>비활성화됨</translation>
     </message>
     <message>
         <source>OFFLINE</source>
-        <translation type="unfinished">연결 안됨</translation>
+        <translation>오프라인</translation>
     </message>
     <message>
         <source>REGIST...</source>
-        <translation type="unfinished"></translation>
+        <translation>등록 중...</translation>
     </message>
     <message>
         <source>ONLINE</source>
-        <translation type="unfinished">온라인</translation>
+        <translation>온라인</translation>
     </message>
     <message>
         <source>ERROR</source>
-        <translation type="unfinished">오류</translation>
+        <translation>오류</translation>
     </message>
     <message>
         <source>SUNNYLINK</source>
-        <translation type="unfinished"></translation>
+        <translation>SUNNYLINK</translation>
     </message>
 </context>
 <context>
     <name>SlcSettings</name>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>User Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 확인</translation>
     </message>
     <message>
         <source>Engage Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>작동 모드</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>고정값</translation>
     </message>
     <message>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>백분율</translation>
     </message>
     <message>
         <source>Limit Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>제한 오프셋</translation>
     </message>
     <message>
         <source>Set speed limit slightly higher than actual speed limit for a more natural drive.</source>
-        <translation type="unfinished"></translation>
+        <translation>보다 자연스러운 주행을 위해 실제 속도 제한보다 약간 높게 설정하세요.</translation>
     </message>
     <message>
         <source>This platform defaults to &lt;b&gt;Auto&lt;/b&gt; mode. &lt;b&gt;User Confirm&lt;/b&gt; mode is not supported on this platform.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 플랫폼은 기본적으로 &lt;b&gt;자동&lt;/b&gt; 모드로 설정되어 있습니다. &lt;b&gt;사용자 확인&lt;/b&gt; 모드는 이 플랫폼에서 지원되지 않습니다.</translation>
     </message>
     <message>
         <source>Select the desired mode to set the cruising speed to the speed limit:</source>
-        <translation type="unfinished"></translation>
+        <translation>원하는 모드를 선택하여 크루즈 속도를 속도 제한에 맞추세요:</translation>
     </message>
     <message>
         <source>Auto: Automatic speed adjustment on motorways based on speed limit data.</source>
-        <translation type="unfinished"></translation>
+        <translation>자동: 고속도로에서 속도 제한 데이터를 기반으로 자동으로 속도를 조정합니다.</translation>
     </message>
     <message>
         <source>User Confirm: Inform the driver to change set speed of Adaptive Cruise Control to help the driver stay within the speed limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 확인: 속도 제한 내에서 주행할 수 있도록 어댑티브 크루즈 컨트롤의 설정 속도를 변경하라는 알림을 줍니다.</translation>
     </message>
 </context>
 <context>
@@ -2019,83 +2027,83 @@ Reboot Required.</source>
     <name>SoftwarePanelSP</name>
     <message>
         <source>Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델</translation>
     </message>
     <message>
         <source>SELECT</source>
-        <translation type="unfinished">선택</translation>
+        <translation>선택</translation>
     </message>
     <message>
         <source>PENDING</source>
-        <translation type="unfinished"></translation>
+        <translation>대기 중</translation>
     </message>
     <message>
         <source>Downloading Driving model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델 다운로드 중</translation>
     </message>
     <message>
         <source>(CACHED)</source>
-        <translation type="unfinished"></translation>
+        <translation>(캐시됨)</translation>
     </message>
     <message>
         <source>Driving model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델</translation>
     </message>
     <message>
         <source>downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드 완료</translation>
     </message>
     <message>
         <source>Downloading Navigation model</source>
-        <translation type="unfinished"></translation>
+        <translation>내비게이션 모델 다운로드 중</translation>
     </message>
     <message>
         <source>Navigation model</source>
-        <translation type="unfinished"></translation>
+        <translation>내비게이션 모델</translation>
     </message>
     <message>
         <source>Downloading Metadata model</source>
-        <translation type="unfinished"></translation>
+        <translation>메타데이터 모델 다운로드 중</translation>
     </message>
     <message>
         <source>Metadata model</source>
-        <translation type="unfinished"></translation>
+        <translation>메타데이터 모델</translation>
     </message>
     <message>
         <source>Downloads have failed, please try swapping the model!</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드에 실패했습니다. 모델을 변경해 보세요!</translation>
     </message>
     <message>
         <source>Failed:</source>
-        <translation type="unfinished"></translation>
+        <translation>실패:</translation>
     </message>
     <message>
         <source>Fetching models...</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 가져오는 중...</translation>
     </message>
     <message>
         <source>Select a Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델 선택</translation>
     </message>
     <message>
         <source>Download has started in the background.</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드가 백그라운드에서 시작되었습니다.</translation>
     </message>
     <message>
         <source>We STRONGLY suggest you to reset calibration. Would you like to do that now?</source>
-        <translation type="unfinished"></translation>
+        <translation>보정 초기화를 강력히 권장합니다. 지금 초기화를 하시겠습니까?</translation>
     </message>
     <message>
         <source>Reset Calibration</source>
-        <translation type="unfinished">캘리브레이션 초기화</translation>
+        <translation>보정 초기화</translation>
     </message>
     <message>
         <source>Warning: You are on a metered connection!</source>
-        <translation type="unfinished"></translation>
+        <translation>경고: 현재 셀룰러 데이터에 연결되어 있습니다!</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished">계속</translation>
+        <translation>계속</translation>
     </message>
     <message>
         <source>on Metered</source>
@@ -2106,31 +2114,31 @@ Reboot Required.</source>
     <name>SpeedLimitPolicySettings</name>
     <message>
         <source>Speed Limit Source Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 소스 정책</translation>
     </message>
     <message>
         <source>Nav</source>
-        <translation type="unfinished"></translation>
+        <translation>내비</translation>
     </message>
     <message>
         <source>Only</source>
-        <translation type="unfinished"></translation>
+        <translation>전용</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"></translation>
+        <translation>지도</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>차량</translation>
     </message>
     <message>
         <source>First</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저</translation>
     </message>
     <message>
         <source>Select the precedence order of sources. Utilized by Speed Limit Control and Speed Limit Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>소스의 우선순위를 선택하세요. 이 설정은 속도 제한 제어와 속도 제한 경고에 사용됩니다.</translation>
     </message>
     <message>
         <source>Nav Only: Data from Mapbox active navigation only.</source>
@@ -2161,85 +2169,85 @@ Reboot Required.</source>
     <name>SpeedLimitValueOffset</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
     <name>SpeedLimitWarningSettings</name>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>표시</translation>
     </message>
     <message>
         <source>Chime</source>
-        <translation type="unfinished"></translation>
+        <translation>경고음</translation>
     </message>
     <message>
         <source>Speed Limit Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 경고</translation>
     </message>
     <message>
         <source>Warning with speed limit flash</source>
-        <translation type="unfinished"></translation>
+        <translation>경고와 함께 속도 제한 표지판 깜빡이기</translation>
     </message>
     <message>
         <source>When Speed Limit Warning is enabled, the speed limit sign will alert the driver when the cruising speed is faster than then speed limit plus the offset.</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 경고가 켜져있으면, 크루즈 속도가 속도 제한과 오프셋을 합한 값보다 빠를 때 속도 제한 표지판이 깜빡이면서 운전자에게 경고합니다.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>고정값</translation>
     </message>
     <message>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>백분율</translation>
     </message>
     <message>
         <source>Warning Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>경고 오프셋</translation>
     </message>
     <message>
         <source>Select the desired offset to warn the driver when the vehicle is driving faster than the speed limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>차량이 속도 제한을 초과할 때 운전자에게 경고할 오프셋 값을 선택하세요.</translation>
     </message>
     <message>
         <source>Off: When the cruising speed is faster than the speed limit plus the offset, there will be no warning.</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기: 크루즈 속도가 속도 제한과 오프셋을 합한 값보다 빨라도 경고하지 않습니다.</translation>
     </message>
     <message>
         <source>Display: The speed on the speed limit sign turns red to alert the driver when the cruising speed is faster than the speed limit plus the offset.</source>
-        <translation type="unfinished"></translation>
+        <translation>표시: 크루즈 속도가 속도 제한과 오프셋을 합한 값보다 빠를 때, 속도 제한 표지판의 숫자가 빨간색으로 변하여 운전자에게 경고합니다.</translation>
     </message>
     <message>
         <source>Chime: The speed on the speed limit sign turns red and chimes to alert the driver when the cruising speed is faster than the speed limit plus the offset.</source>
-        <translation type="unfinished"></translation>
+        <translation>경고음: 크루즈 속도가 속도 제한과 오프셋을 합한 값보다 빠를 때, 속도 제한 표지판의 숫자가 빨간색으로 변하고 경고음을 울려서 운전자에게 경고합니다.</translation>
     </message>
 </context>
 <context>
     <name>SpeedLimitWarningValueOffset</name>
     <message>
         <source>N/A</source>
-        <translation type="unfinished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
@@ -2285,22 +2293,22 @@ Reboot Required.</source>
     <name>SshToggle</name>
     <message>
         <source>Enable SSH</source>
-        <translation>SSH 사용</translation>
+        <translation>SSH</translation>
     </message>
 </context>
 <context>
     <name>SunnylinkPanel</name>
     <message>
         <source>Enable sunnylink</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnylink</translation>
     </message>
     <message>
         <source>Device ID </source>
-        <translation type="unfinished"></translation>
+        <translation>장치 ID </translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>This is the master switch, it will allow you to cutoff any sunnylink requests should you want to do that.</source>
@@ -2438,43 +2446,43 @@ Reboot Required.</source>
     <name>SunnypilotPanel</name>
     <message>
         <source>Enable M.A.D.S.</source>
-        <translation type="unfinished"></translation>
+        <translation>M.A.D.S.</translation>
     </message>
     <message>
         <source>Enable the beloved M.A.D.S. feature. Disable toggle to revert back to stock openpilot engagement/disengagement.</source>
-        <translation type="unfinished"></translation>
+        <translation>인기 있는 기능인 M.A.D.S.를 사용해보세요. 이 기능을 끄면 기본 openpilot의 작동 방식으로 돌아갑니다.</translation>
     </message>
     <message>
         <source>Laneless for Curves in &quot;Auto&quot; Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;자동&quot; 모드에서 커브 주행 시 차선 없는 주행 사용</translation>
     </message>
     <message>
         <source>While in Auto Lane, switch to Laneless for current/future curves.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">자동 차선 모드에서 현재 및 앞으로의 커브 주행 시 차선 없는 모드로 전환합니다.</translation>
     </message>
     <message>
         <source>Speed Limit Control (SLC)</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 제어 (SLC)</translation>
     </message>
     <message>
         <source>When you engage ACC, you will be prompted to set the cruising speed to the speed limit of the road adjusted by the Offset and Source Policy specified, or the current driving speed. The maximum cruising speed will always be the MAX set speed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ACC를 활성화하면, 오프셋과 소스 정책에 따라 조정된 도로의 속도 제한 또는 현재 주행 속도로 크루즈 속도를 설정하라는 메시지가 표시됩니다. 최대 크루즈 속도는 항상 설정된 MAX 속도로 제한 됩니다.</translation>
     </message>
     <message>
         <source>Enable Vision-based Turn Speed Control (V-TSC)</source>
-        <translation type="unfinished"></translation>
+        <translation>비전 기반 커브 속도 제어 (V-TSC)</translation>
     </message>
     <message>
         <source>Use vision path predictions to estimate the appropriate speed to drive through turns ahead.</source>
-        <translation type="unfinished"></translation>
+        <translation>비전 경로 예측을 사용하여 앞에 있는 커브 구간을 통과할 수 있는 적절한 속도를 추정합니다.</translation>
     </message>
     <message>
         <source>Enable Map Data Turn Speed Control (M-TSC) (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>지도 데이터 기반 커브 속도 제어 (M-TSC) (베타)</translation>
     </message>
     <message>
         <source>Use curvature information from map data to define speed limits to take turns ahead.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">지도 데이터의 곡률 정보를 사용하여 앞서 다가오는 커브 구간의 속도 제한을 설정합니다.</translation>
     </message>
     <message>
         <source>ACC +/-: Long Press Reverse</source>
