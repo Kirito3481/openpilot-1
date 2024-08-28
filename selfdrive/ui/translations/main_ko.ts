@@ -215,14 +215,6 @@
         <source>LIMIT</source>
         <translation>LIMIT</translation>
     </message>
-    <message>
-        <source>blended</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>acc</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AutoLaneChangeTimer</name>
@@ -2618,7 +2610,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">자동</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dynamic Lane Profile</source>
@@ -2654,7 +2646,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Start the car to check car compatibility</source>
-        <translation type="unfinished">차량 호환성을 확인하려면 시동을 걸어주세요.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NNLC Not Loaded</source>
@@ -2744,15 +2736,15 @@ Reboot Required.</source>
     <name>TermsPageSP</name>
     <message>
         <source>Terms &amp; Conditions</source>
-        <translation type="unfinished">이용약관</translation>
+        <translation>이용약관</translation>
     </message>
     <message>
         <source>Decline</source>
-        <translation type="unfinished">거절</translation>
+        <translation>거부</translation>
     </message>
     <message>
         <source>Scroll to accept</source>
-        <translation type="unfinished">동의하려면 아래로 스크롤하세요</translation>
+        <translation>동의하려면 아래로 스크롤하세요</translation>
     </message>
 </context>
 <context>
@@ -2767,7 +2759,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
-        <translation>차선 이탈 경고 활성화</translation>
+        <translation>차로 이탈 경고</translation>
     </message>
     <message>
         <source>Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31 mph (50 km/h).</source>
@@ -2863,7 +2855,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Driving Personality</source>
-        <translation>주행 모드</translation>
+        <translation>운전 스타일</translation>
     </message>
     <message>
         <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
@@ -2883,139 +2875,140 @@ Reboot Required.</source>
     </message>
     <message>
         <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 시각화는 낮은 속도에서 도로를 향한 광각 카메라로 전환되어 일부 커브를 더 잘 보여줍니다. 또한, 실험 모드 로고가 오른쪽 상단에 표시됩니다.</translation>
     </message>
     <message>
         <source>Always-On Driver Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 운전자 모니터링</translation>
     </message>
     <message>
         <source>Enable driver monitoring even when openpilot is not engaged.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 sunnypilot이 해제된 상태에서도 운전자를 모니터링 합니다.</translation>
     </message>
     <message>
         <source>Enable sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Use the sunnypilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 시스템을 사용하여 어댑티브 크루즈 컨트롤과 차로 유지 보조 기능을 이용하세요. 이 기능을 사용하려면 항상 주의가 필요합니다. 이 설정을 변경하면 차량 전원이 꺼졌을 때 적용됩니다.</translation>
     </message>
 </context>
 <context>
     <name>TogglesPanelSP</name>
     <message>
         <source>Enable sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Use the sunnypilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 시스템을 사용하여 어댑티브 크루즈 컨트롤과 차로 유지 보조 기능을 이용하세요. 이 기능을 사용하려면 항상 주의가 필요합니다. 이 설정을 변경하면 차량 전원이 꺼졌을 때 적용됩니다.</translation>
     </message>
     <message>
         <source>openpilot Longitudinal Control (Alpha)</source>
-        <translation type="unfinished">openpilot 가감속 제어 (알파)</translation>
+        <translation>openpilot 가감속 제어 (알파)</translation>
     </message>
     <message>
         <source>WARNING: sunnypilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
-        <translation type="unfinished"></translation>
+        <translation>경고: sunnypilot 가감속 제어는 이 차량에서 알파 버전이며, 자동 긴급 제동 (AEB)을 비활성화합니다.</translation>
     </message>
     <message>
         <source>On this car, sunnypilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to sunnypilot longitudinal control. Enabling Experimental mode is recommended when enabling sunnypilot longitudinal control alpha.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 차량에서는 sunnypilot이 기본적으로 차량 내장 ACC를 사용하며, openpilot의 가감속 제어는 사용하지 않습니다. sunnypilot 가감속 제어로 전환하려면 이 기능을 켜세요. sunnypilot 가감속 제어 알파 버전을 사용할 때는 실험 모드를 활성화하는 것을 권장합니다.</translation>
     </message>
     <message>
         <source>Custom Stock Longitudinal Control</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">커스텀 순정 가감속 제어</translation>
     </message>
     <message>
         <source>When enabled, sunnypilot will attempt to control stock longitudinal control with ACC button presses.
 This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
-        <translation type="unfinished"></translation>
+        <translation>기능이 켜지면, sunnypilot은 ACC 버튼을 눌러 순정 가감속 제어를 시도합니다.
+이 기능은 SLC 및/또는, V-TSC, 및/또는 M-TSC와 함께 사용해야 합니다.</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
-        <translation type="unfinished">실험 모드</translation>
+        <translation>실험 모드</translation>
     </message>
     <message>
         <source>Enable Dynamic Experimental Control</source>
-        <translation type="unfinished"></translation>
+        <translation>동적 실험 제어</translation>
     </message>
     <message>
         <source>Enable toggle to allow the model to determine when to use sunnypilot ACC or sunnypilot End to End Longitudinal.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 모델이 sunnypilot ACC 또는 sunnypilot 종단 간 가감속 제어를 언제 사용할지 결정하도록 허용합니다.</translation>
     </message>
     <message>
         <source>Enable Dynamic Personality</source>
-        <translation type="unfinished"></translation>
+        <translation>동적 운전 스타일</translation>
     </message>
     <message>
         <source>Enable this to allow sunnypilot to dynamically adjust following distance and reaction based on your &quot;Driving Personality&quot; setting. Instead of predefined settings for each personality, every personality now adapts dynamically according to your speed and the distance to the lead car.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 sunnypilot이 &quot;운전 스타일&quot; 설정에 따라 차간 거리와 반응을 동적으로 조정할 수 있습니다. 각 스타일에 대해 미리 설정된 값 대신, 이제 모든 스타일이 차량 속도와 전방 차량과의 거리에 따라 동적으로 조정됩니다.</translation>
     </message>
     <message>
         <source>Disengage on Accelerator Pedal</source>
-        <translation type="unfinished">가속페달 조작 시 해제</translation>
+        <translation>가속 페달 조작 시 해제</translation>
     </message>
     <message>
         <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation type="unfinished">활성화된 경우 가속 페달을 밟으면 openpilot이 해제됩니다.</translation>
+        <translation>이 기을 켜면, 가속 페달을 밟을 시 openpilot이 해제됩니다.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
-        <translation type="unfinished">차선 이탈 경고 활성화</translation>
+        <translation>차로 이탈 경고</translation>
     </message>
     <message>
         <source>Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31 mph (50 km/h).</source>
-        <translation type="unfinished">차량이 50km/h(31mph) 이상의 속도로 주행할 때 방향지시등이 켜지지 않은 상태에서 차선을 벗어나면 경고합니다.</translation>
+        <translation>차량이 31 mph (50 km/h) 이상의 속도로 주행 중에 방향 지시등을 켜지 않고 감지된 차선 라인을 넘어가면 원래 차로로 돌아가라는 경고를 보냅니다.</translation>
     </message>
     <message>
         <source>Always-On Driver Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 운전자 모니터링</translation>
     </message>
     <message>
         <source>Enable driver monitoring even when sunnypilot is not engaged.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 sunnypilot이 해제된 상태에서도 운전자를 모니터링 합니다.</translation>
     </message>
     <message>
         <source>Record and Upload Driver Camera</source>
-        <translation type="unfinished">운전자 카메라 녹화 및 업로드</translation>
+        <translation>운전자 카메라 녹화 및 업로드</translation>
     </message>
     <message>
         <source>Upload data from the driver facing camera and help improve the driver monitoring algorithm.</source>
-        <translation type="unfinished">운전자 카메라의 영상 데이터를 업로드하여 운전자 모니터링 알고리즘을 개선합니다.</translation>
+        <translation>운전자 카메라의 영상 데이터를 업로드하여 운전자 모니터링 알고리즘을 개선하는 데 도움을 줍니다.</translation>
     </message>
     <message>
         <source>Disable Onroad Uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중 업로드 차단</translation>
     </message>
     <message>
         <source>Disable uploads completely when onroad. Necessary to avoid high data usage when connected to Wi-Fi hotspot. Turn on this feature if you are looking to utilize map-based features, such as Speed Limit Control (SLC) and Map-based Turn Speed Control (MTSC).</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중에는 업로드를 완전히 차단하여 Wi-Fi 핫스팟에 연결되어 있을 때 데이터 사용량이 과도하게 증가하지 않도록 합니다. 속도 제한 제어 (SLC) 및 지도 데이터 기반 커브 속도 제어 (M-TSC)와 같은 지도 기반 기능을 사용하려는 경우 이 기능을 켜세요.</translation>
     </message>
     <message>
         <source>Use Metric System</source>
-        <translation type="unfinished">미터법 사용</translation>
+        <translation>미터법으로 변경</translation>
     </message>
     <message>
         <source>Display speed in km/h instead of mph.</source>
-        <translation type="unfinished">mph 대신 km/h로 속도를 표시합니다.</translation>
+        <translation>mph 대신 km/h로 속도를 표시합니다.</translation>
     </message>
     <message>
         <source>Show ETA in 24h Format</source>
-        <translation type="unfinished">24시간 형식으로 도착 예정 시간 표시</translation>
+        <translation>도착 예정 시간을 24시간 형식으로 표시</translation>
     </message>
     <message>
         <source>Use 24h format instead of am/pm</source>
-        <translation type="unfinished">오전/오후 대신 24시간 형식 사용</translation>
+        <translation>오전/오후 대신 24 시간 형식을 사용합니다.</translation>
     </message>
     <message>
         <source>Show Map on Left Side of UI</source>
-        <translation type="unfinished">UI 왼쪽에 지도 표시</translation>
+        <translation>UI 왼쪽에 지도 표시</translation>
     </message>
     <message>
         <source>Show map on left side when in split screen view.</source>
-        <translation type="unfinished">분할 화면 보기에서 지도를 왼쪽에 표시합니다.</translation>
+        <translation>분할 화면 보기에서 지도를 왼쪽에 표시합니다.</translation>
     </message>
     <message>
         <source>Aggressive</source>
@@ -3035,7 +3028,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Driving Personality</source>
-        <translation type="unfinished">주행 모드</translation>
+        <translation>운전 스타일</translation>
     </message>
     <message>
         <source>Standard is recommended. In moderate/aggressive mode, sunnypilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode sunnypilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
@@ -3043,15 +3036,15 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Sport</source>
-        <translation type="unfinished"></translation>
+        <translation>스포츠</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>노말</translation>
     </message>
     <message>
         <source>Eco</source>
-        <translation type="unfinished"></translation>
+        <translation>에코</translation>
     </message>
     <message>
         <source>Stock</source>
@@ -3059,7 +3052,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Acceleration Personality</source>
-        <translation type="unfinished"></translation>
+        <translation>가속 스타일</translation>
     </message>
     <message>
         <source>Normal is recommended. In sport mode, sunnypilot will provide aggressive acceleration for a dynamic driving experience. In eco mode, sunnypilot will apply smoother and more relaxed acceleration. On supported cars, you can cycle through these acceleration personality within Onroad Settings on the driving screen.</source>
@@ -3071,39 +3064,39 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>End-to-End Longitudinal Control</source>
-        <translation type="unfinished">E2E 가감속 제어</translation>
+        <translation>종단 간 가감속 제어</translation>
     </message>
     <message>
         <source>Let the driving model control the gas and brakes. sunnypilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델이 가속와 제동을 제어하도록 합니다. sunnypilot은 사람처럼 운전하며, 신호등과 정지 표지판에 따라 정차합니다. 주행 모델이 속도를 결정하므로 설정된 속도는 상한선으로만 작용합니다. 이 기능은 알파 품질로, 오류가 있을 수 있습니다.</translation>
     </message>
     <message>
         <source>New Driving Visualization</source>
-        <translation type="unfinished">새로운 주행 시각화</translation>
+        <translation>새로운 주행 시각화</translation>
     </message>
     <message>
         <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 시각화는 낮은 속도에서 도로를 향한 광각 카메라로 전환되어 일부 커브를 더 잘 보여줍니다. 또한, 실험 모드 로고가 오른쪽 상단에 표시됩니다.</translation>
     </message>
     <message>
         <source>Experimental mode is currently unavailable on this car since the car&apos;s stock ACC is used for longitudinal control.</source>
-        <translation type="unfinished">차량에 장착된 ACC로 가감속을 제어하기 때문에 현재 이 차량에서는 실험 모드를 사용할 수 없습니다.</translation>
+        <translation>이 차량에서는 순정 ACC가 가감속 제어에 사용되기 때문에 실험 모드를 현재 사용할 수 없습니다.</translation>
     </message>
     <message>
         <source>openpilot longitudinal control may come in a future update.</source>
-        <translation type="unfinished">openpilot 가감속 제어는 향후 업데이트에서 지원될 수 있습니다.</translation>
+        <translation>openpilot의 가감속 제어는 향후 업데이트에서 제공될 수 있습니다.</translation>
     </message>
     <message>
         <source>An alpha version of sunnypilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">알파 버전의 sunnypilot 가감속 제어 기능은 실험 모드와 함께 비공식 릴리즈 분기에서 테스트할 수 있습니다.</translation>
     </message>
     <message>
         <source>Enable the sunnypilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>실험 모드를 허용하려면 sunnypilot 가감속 제어(알파)를 켜세요.</translation>
     </message>
     <message>
         <source>Use Planner Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Planner 속도 사용</translation>
     </message>
 </context>
 <context>
@@ -3183,162 +3176,162 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     <name>VehiclePanel</name>
     <message>
         <source>Updating this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 설정을 변경하면 차량 전원이 꺼졌을 때 적용됩니다.</translation>
     </message>
     <message>
         <source>Select your car</source>
-        <translation type="unfinished"></translation>
+        <translation>차량을 선택하세요</translation>
     </message>
 </context>
 <context>
     <name>VisualsPanel</name>
     <message>
         <source>Display Braking Status</source>
-        <translation type="unfinished"></translation>
+        <translation>제동 상태 표시</translation>
     </message>
     <message>
         <source>Enable this will turn the current speed value to red while the brake is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 브레이크를 사용하는 동안 현재 차량 속도 값이 빨간색으로 바뀝니다.</translation>
     </message>
     <message>
         <source>Display Stand Still Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>정차 타이머 표시</translation>
     </message>
     <message>
         <source>Enable this will display time spent at a stop (i.e., at a stop lights, stop signs, traffic congestions).</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 정차 시간(예: 신호 대기, 정지 표지판, 교통 혼잡 등)을 표시합니다.</translation>
     </message>
     <message>
         <source>Display DM Camera in Reverse Gear</source>
-        <translation type="unfinished"></translation>
+        <translation>후진 시 운전자 모니터링 카메라 표시</translation>
     </message>
     <message>
         <source>Show Driver Monitoring camera while the car is in reverse gear.</source>
-        <translation type="unfinished"></translation>
+        <translation>후진 기어 상태에서 운전자 모니터링 카메라를 표시합니다.</translation>
     </message>
     <message>
         <source>OSM: Show debug UI elements</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM: 디버그 UI 요소 표시</translation>
     </message>
     <message>
         <source>OSM: Show UI elements that aid debugging.</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM: 디버깅에 도움이 되는 UI 요소를 표시합니다.</translation>
     </message>
     <message>
         <source>Display Feature Status</source>
-        <translation type="unfinished"></translation>
+        <translation>기능 상태 표시</translation>
     </message>
     <message>
         <source>Display the statuses of certain features on the driving screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 화면에 특정 기능의 상태를 표시합니다.</translation>
     </message>
     <message>
         <source>Enable Onroad Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드 설정</translation>
     </message>
     <message>
         <source>Display the Onroad Settings button on the driving screen to adjust feature options on the driving screen, without navigating into the settings menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정 메뉴로 이동하지 않고 주행 화면에서 기능 옵션을 조정하기 위해 주행 화면에 온로드 설정 버튼을 표시합니다.</translation>
     </message>
     <message>
         <source>Speedometer: Display True Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도계: 실제 속도 표시</translation>
     </message>
     <message>
         <source>Display the true vehicle current speed from wheel speed sensors.</source>
-        <translation type="unfinished"></translation>
+        <translation>휠 속도 센서에서 측정한 차량의 실제 현재 속도를 표시합니다.</translation>
     </message>
     <message>
         <source>Speedometer: Hide from Onroad Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>속도계: 온로드 화면에서 숨기기</translation>
     </message>
     <message>
         <source>Display End-to-end Longitudinal Status (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>종단 간 가감속 상태 표시 (베타)</translation>
     </message>
     <message>
         <source>Enable this will display an icon that appears when the End-to-end model decides to start or stop.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 종단 간 모델이 출발 또는 정지를 결정할 때 나타나는 아이콘이 표시됩니다.</translation>
     </message>
     <message>
         <source>Navigation: Display in Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>내비게이션: 전체 화면으로 표시</translation>
     </message>
     <message>
         <source>Enable this will display the built-in navigation in full screen.&lt;br&gt;To switch back to driving view, &lt;font color=&apos;yellow&apos;&gt;tap on the border edge&lt;/font&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜면 내장된 내비게이션이 전체화면으로 표시됩니다.&lt;br&gt;주행 화면으로 돌아가려면, &lt;font color=&apos;yellow&apos;&gt;테두리를 탭하세요&lt;/font&gt;.</translation>
     </message>
     <message>
         <source>Map: Display 3D Buildings</source>
-        <translation type="unfinished"></translation>
+        <translation>지도: 3D 건물 표시</translation>
     </message>
     <message>
         <source>Parse and display 3D buildings on map. Thanks to jakethesnake420 for this implementation.</source>
-        <translation type="unfinished"></translation>
+        <translation>지도에 3D 건물을 표시합니다. 이 기능을 구현해주신 jakethesnake420에게 감사드립니다.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished">끄기</translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>5 Metrics</source>
-        <translation type="unfinished"></translation>
+        <translation>5개의 지표</translation>
     </message>
     <message>
         <source>10 Metrics</source>
-        <translation type="unfinished"></translation>
+        <translation>10개의 지표</translation>
     </message>
     <message>
         <source>Developer UI</source>
-        <translation type="unfinished"></translation>
+        <translation>개발자 UI</translation>
     </message>
     <message>
         <source>Display real-time parameters and metrics from various sources.</source>
-        <translation type="unfinished"></translation>
+        <translation>다양한 소스의 실시간 파라미터와 지표를 표시합니다.</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Display Metrics Below Chevron</source>
-        <translation type="unfinished"></translation>
+        <translation>삼각형 아래에 지표 표시</translation>
     </message>
     <message>
         <source>Display useful metrics below the chevron that tracks the lead car (only applicable to cars with openpilot longitudinal control).</source>
-        <translation type="unfinished"></translation>
+        <translation>전방 차량을 추적하는 삼각형 아래에 유용한 지표를 표시합니다 (openpilot 가감속 제어 기능이 있는 차량에만 해당).</translation>
     </message>
     <message>
         <source>RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>RAM</translation>
     </message>
     <message>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <source>GPU</source>
-        <translation type="unfinished"></translation>
+        <translation>GPU</translation>
     </message>
     <message>
         <source>Max</source>
-        <translation type="unfinished"></translation>
+        <translation>최대 값</translation>
     </message>
     <message>
         <source>Display Temperature on Sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation>사이드바에 온도 표시</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">시간</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>전부</translation>
     </message>
 </context>
 <context>
@@ -3380,7 +3373,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Forget Wi-Fi Network &quot;%1&quot;?</source>
-        <translation>Wi-Fi &quot;%1&quot;에 자동으로 연결하지 않겠습니까?</translation>
+        <translation>Wi-Fi &quot;%1&quot;을(를) 삭제하시겠습니까?</translation>
     </message>
     <message>
         <source>Forget</source>
@@ -3391,23 +3384,23 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     <name>WifiUISP</name>
     <message>
         <source>Scanning for networks...</source>
-        <translation type="unfinished">네트워크 검색 중...</translation>
+        <translation>네트워크 검색 중...</translation>
     </message>
     <message>
         <source>CONNECTING...</source>
-        <translation type="unfinished">연결 중...</translation>
+        <translation>연결 중...</translation>
     </message>
     <message>
         <source>FORGET</source>
-        <translation type="unfinished">삭제</translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>Forget Wi-Fi Network &quot;%1&quot;?</source>
-        <translation type="unfinished">Wi-Fi &quot;%1&quot;에 자동으로 연결하지 않겠습니까?</translation>
+        <translation>Wi-Fi &quot;%1&quot;을(를) 삭제하시겠습니까?</translation>
     </message>
     <message>
         <source>Forget</source>
-        <translation type="unfinished">삭제</translation>
+        <translation>삭제</translation>
     </message>
 </context>
 </TS>
