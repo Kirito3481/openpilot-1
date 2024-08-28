@@ -215,6 +215,14 @@
         <source>LIMIT</source>
         <translation>LIMIT</translation>
     </message>
+    <message>
+        <source>blended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>acc</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoLaneChangeTimer</name>
@@ -2610,7 +2618,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">자동</translation>
     </message>
     <message>
         <source>Dynamic Lane Profile</source>
@@ -2646,7 +2654,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Start the car to check car compatibility</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">차량 호환성을 확인하려면 시동을 걸어주세요.</translation>
     </message>
     <message>
         <source>NNLC Not Loaded</source>
@@ -3270,7 +3278,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">끄기</translation>
     </message>
     <message>
         <source>5 Metrics</source>
