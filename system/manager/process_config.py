@@ -103,7 +103,7 @@ procs = [
   PythonProcess("hardwared", "system.hardware.hardwared", always_run),
   PythonProcess("tombstoned", "system.tombstoned", always_run, enabled=not PC),
   NativeProcess("updated", "system/updated", ["./updated.py"], only_offroad, enabled=not PC),
-  PythonProcess("uploader", "system.loggerd.uploader", always_run),
+  # PythonProcess("uploader", "system.loggerd.uploader", always_run),
   PythonProcess("statsd", "system.statsd", always_run),
 
   # PFEIFER - MAPD {{
@@ -127,7 +127,7 @@ procs = [
 if os.path.exists("./gitlab_runner.sh"):
   procs += [NativeProcess("gitlab_runner_start", "system/manager", ["./gitlab_runner.sh", "start"], use_gitlab_runner, sigkill=False)]
 
-if os.path.exists("../loggerd/sunnylink_uploader.py"):
-  procs += [PythonProcess("sunnylink_uploader", "system.loggerd.sunnylink_uploader", use_sunnylink_uploader_shim)]
+# if os.path.exists("../loggerd/sunnylink_uploader.py"):
+  # procs += [PythonProcess("sunnylink_uploader", "system.loggerd.sunnylink_uploader", use_sunnylink_uploader_shim)]
 
 managed_processes = {p.name: p for p in procs}
