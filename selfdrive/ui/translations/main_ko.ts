@@ -91,47 +91,47 @@
     <name>AdvancedNetworkingSP</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <source>Enable Tethering</source>
-        <translation type="unfinished">테더링 사용</translation>
+        <translation>테더링</translation>
     </message>
     <message>
         <source>Retain hotspot/tethering state</source>
-        <translation type="unfinished"></translation>
+        <translation>핫스팟/테더링 상태 유지</translation>
     </message>
     <message>
         <source>Enabling this toggle will retain the hotspot/tethering toggle state across reboots.</source>
-        <translation type="unfinished"></translation>
+        <translation>재시작후에도 핫스팟/테더링 토글 상태를 유지합니다.</translation>
     </message>
     <message>
         <source>Tethering Password</source>
-        <translation type="unfinished">테더링 비밀번호</translation>
+        <translation>테더링 비밀번호</translation>
     </message>
     <message>
         <source>EDIT</source>
-        <translation type="unfinished">편집</translation>
+        <translation>변경</translation>
     </message>
     <message>
         <source>Enter new tethering password</source>
-        <translation type="unfinished">새 테더링 비밀번호를 입력하세요</translation>
+        <translation>새 테더링 비밀번호 입력</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation type="unfinished">IP 주소</translation>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <source>Enable Roaming</source>
-        <translation type="unfinished">로밍 사용</translation>
+        <translation>로밍</translation>
     </message>
     <message>
         <source>APN Setting</source>
-        <translation type="unfinished">APN 설정</translation>
+        <translation>APN 설정</translation>
     </message>
     <message>
         <source>Enter APN</source>
-        <translation type="unfinished">APN 입력</translation>
+        <translation>APN 입력</translation>
     </message>
     <message>
         <source>leave blank for automatic configuration</source>
@@ -139,7 +139,7 @@
     </message>
     <message>
         <source>Cellular Metered</source>
-        <translation type="unfinished">데이터 요금제</translation>
+        <translation type="unfinished">데이터 요금제 사용 시 체크</translation>
     </message>
     <message>
         <source>Prevent large data uploads when on a metered connection</source>
@@ -147,19 +147,19 @@
     </message>
     <message>
         <source>Hidden Network</source>
-        <translation type="unfinished">숨겨진 네트워크</translation>
+        <translation>숨겨진 네트워크</translation>
     </message>
     <message>
         <source>CONNECT</source>
-        <translation type="unfinished"></translation>
+        <translation>연결</translation>
     </message>
     <message>
         <source>Enter SSID</source>
-        <translation type="unfinished">SSID 입력</translation>
+        <translation>SSID 입력</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation type="unfinished">비밀번호를 입력하세요</translation>
+        <translation>비밀번호 입력</translation>
     </message>
     <message>
         <source>for &quot;%1&quot;</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Ngrok Service</source>
-        <translation type="unfinished"></translation>
+        <translation>Ngrok 서비스</translation>
     </message>
 </context>
 <context>
@@ -197,51 +197,52 @@
     <name>AnnotatedCameraWidgetSP</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
     <message>
         <source>MAX</source>
-        <translation type="unfinished">MAX</translation>
+        <translation>최대</translation>
     </message>
     <message>
         <source>SPEED</source>
-        <translation type="unfinished">SPEED</translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>LIMIT</source>
-        <translation type="unfinished">LIMIT</translation>
+        <translation>제한</translation>
     </message>
 </context>
 <context>
     <name>AutoLaneChangeTimer</name>
     <message>
         <source>Auto Lane Change by Blinker</source>
-        <translation type="unfinished"></translation>
+        <translation>방향 지시등 사용 시 자동 차로 변경</translation>
     </message>
     <message>
         <source>Set a timer to delay the auto lane change operation when the blinker is used. No nudge on the steering wheel is required to auto lane change if a timer is set. Default is Nudge.
 Please use caution when using this feature. Only use the blinker when traffic and road conditions permit.</source>
-        <translation type="unfinished"></translation>
+        <translation>방향 지시등을 사용할 때 자동 차로 변경을 지연하도록 타이머를 설정합니다. 타이머가 설정된 경우 자동 차로 변경을 위한 조작이 필요하지 않습니다. 기본값은 조작 필요입니다.
+이 기능을 사용할 때는 주의하세요. 방향 지시등은 교통 상황과 도로 상황이 괜찮을 때만 사용하세요.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Nudge</source>
-        <translation type="unfinished"></translation>
+        <translation>조작 필요</translation>
     </message>
     <message>
         <source>Nudgeless</source>
-        <translation type="unfinished"></translation>
+        <translation>조작 불필요</translation>
     </message>
 </context>
 <context>
@@ -275,30 +276,30 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>BrightnessControl</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>밝기</translation>
     </message>
     <message>
         <source>Manually adjusts the global brightness of the screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>화면의 밝기를 수동으로 조정합니다.</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
 </context>
 <context>
     <name>CameraOffset</name>
     <message>
         <source>Camera Offset - Laneful Only</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 오프셋 - 레인풀 전용</translation>
     </message>
     <message>
         <source>Hack to trick vehicle to be left or right biased in its lane. Decreasing the value will make the car keep more left, increasing will make it keep more right. Changes take effect immediately. Default: +4 cm</source>
-        <translation type="unfinished"></translation>
+        <translation>해킹을 통해 차량이 차로에서 왼쪽 또는 오른쪽으로 치우치도록 속입니다. 값이 낮아지면 차량이 왼쪽으로 더 많이 유지되고, 증가하면 오른쪽으로 더 많이 유지됩니다. 변경 사항은 즉시 적용됩니다. 기본값: +4cm</translation>
     </message>
     <message>
         <source> cm</source>
-        <translation type="unfinished"></translation>
+        <translation> cm</translation>
     </message>
 </context>
 <context>
@@ -316,7 +317,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>CustomOffsetsSettings</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
 </context>
 <context>
@@ -335,7 +336,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>You must accept the Terms and Conditions in order to use sunnypilot.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot을 사용하려면 약관에 동의해야 합니다.</translation>
     </message>
 </context>
 <context>
@@ -509,14 +510,14 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>sunnypilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. sunnypilot is continuously calibrating, resetting is rarely required.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot은 장치를 왼쪽 또는 오른쪽 4° 이내, 위쪽 또는 아래쪽 9° 이내로 장착해야 합니다. sunnypilot은 지속적으로 보정되므로 초기화가 거의 필요하지 않습니다.</translation>
     </message>
 </context>
 <context>
     <name>DevicePanelSP</name>
     <message>
         <source>TOGGLE</source>
-        <translation type="unfinished"></translation>
+        <translation>토글</translation>
     </message>
     <message>
         <source>Enable or disable PIN requirement for Fleet Manager access.</source>
@@ -528,15 +529,15 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Turn Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Error Troubleshoot</source>
-        <translation type="unfinished"></translation>
+        <translation>오류 문제 해결</translation>
     </message>
     <message>
         <source>VIEW</source>
-        <translation type="unfinished">보기</translation>
+        <translation>보기</translation>
     </message>
     <message>
         <source>Display error from the tmux session when an error has occurred from a system process.</source>
@@ -544,67 +545,67 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Reset Access Tokens for Map Services</source>
-        <translation type="unfinished"></translation>
+        <translation>지도 서비스의 액세스 토큰 초기화</translation>
     </message>
     <message>
         <source>RESET</source>
-        <translation type="unfinished">초기화</translation>
+        <translation>초기화</translation>
     </message>
     <message>
         <source>Reset self-service access tokens for Mapbox, Amap, and Google Maps.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapbox, Amap, Google Maps의 액세스 토큰을 초기화합니다.</translation>
     </message>
     <message>
         <source>Are you sure you want to reset access tokens for all map services?</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 지도 서비스의 액세스 토큰을 초기화하시겠습니까?</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">초기화</translation>
+        <translation>초기화</translation>
     </message>
     <message>
         <source>Reset sunnypilot Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot 설정 초기화</translation>
     </message>
     <message>
         <source>Are you sure you want to reset all sunnypilot settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 sunnypilot 설정을 초기화 하시겠습니까?</translation>
     </message>
     <message>
         <source>Toggle Onroad/Offroad</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드/오프로드 토글</translation>
     </message>
     <message>
         <source>OFF</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Are you sure you want to unforce offroad?</source>
-        <translation type="unfinished"></translation>
+        <translation>강제 오프로드를 해제하시겠습니까?</translation>
     </message>
     <message>
         <source>Unforce</source>
-        <translation type="unfinished"></translation>
+        <translation>해제</translation>
     </message>
     <message>
         <source>Are you sure you want to force offroad?</source>
-        <translation type="unfinished"></translation>
+        <translation>강제 오프로드를 설정하시겠습니까?</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation type="unfinished"></translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Disengage to Force Offroad</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">강제 오프로드를 설정하려면 openpilot을 해제해야 합니다.</translation>
     </message>
     <message>
         <source>Unforce Offroad</source>
-        <translation type="unfinished"></translation>
+        <translation>강제 오프로드 해제</translation>
     </message>
     <message>
         <source>Force Offroad</source>
-        <translation type="unfinished"></translation>
+        <translation>강제 오프로드</translation>
     </message>
     <message>
         <source>Fleet Manager PIN:</source>
@@ -615,7 +616,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>DisplayPanel</name>
     <message>
         <source>Driving Screen Off: Non-Critical Events</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중 화면 끄기: 중요하지 않은 이벤트</translation>
     </message>
     <message>
         <source>When &lt;b&gt;Driving Screen Off Timer&lt;/b&gt; is not set to &lt;b&gt;&quot;Always On&quot;&lt;/b&gt;:</source>
@@ -699,11 +700,11 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>LaneChangeSettings</name>
     <message>
         <source>Back</source>
-        <translation type="unfinished">뒤로</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <source>Pause Lateral Below Speed with Blinker</source>
-        <translation type="unfinished"></translation>
+        <translation>설정된 속도 이하에서 방향 지시등 작동 시 조향 일시 중단</translation>
     </message>
     <message>
         <source>Enable this toggle to pause lateral actuation with blinker when traveling below the desired speed selected below.</source>
@@ -711,7 +712,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Auto Lane Change: Delay with Blind Spot</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 차로 변경: 사각지대 감지 시 딜레이 추가</translation>
     </message>
     <message>
         <source>Toggle to enable a delay timer for seamless lane changes when blind spot monitoring (BSM) detects a obstructing vehicle, ensuring safe maneuvering.</source>
@@ -719,7 +720,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Block Lane Change: Road Edge Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>도로 가장자리 감지 시 차로 변경 차단</translation>
     </message>
     <message>
         <source>Enable this toggle to block lane change when road edge is detected on the stalk actuated side.</source>
@@ -730,11 +731,11 @@ Please use caution when using this feature. Only use the blinker when traffic an
     <name>MadsSettings</name>
     <message>
         <source>Enable ACC+MADS with RES+/SET-</source>
-        <translation type="unfinished"></translation>
+        <translation>RES+/SET-로 ACC+MADS 켜기</translation>
     </message>
     <message>
         <source>Engage both M.A.D.S. and ACC with a single press of RES+ or SET- button.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 켜고 RES+ 또는 SET- 버튼을 한 번만 누르면 M.A.D.S.와 ACC를 동시에 켤 수 있습니다.</translation>
     </message>
     <message>
         <source>Note: Once M.A.D.S. is engaged via this mode, it will remain engaged until it is manually disabled via the M.A.D.S. button or car shut off.</source>
@@ -742,7 +743,7 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Toggle M.A.D.S. with Cruise Main</source>
-        <translation type="unfinished"></translation>
+        <translation>크루즈 메인으로 M.A.D.S. 전환</translation>
     </message>
     <message>
         <source>Allows M.A.D.S. engagement/disengagement with &quot;Cruise Main&quot; cruise control button from the steering wheel.</source>
@@ -750,15 +751,15 @@ Please use caution when using this feature. Only use the blinker when traffic an
     </message>
     <message>
         <source>Remain Active</source>
-        <translation type="unfinished"></translation>
+        <translation>켜진 상태 유지</translation>
     </message>
     <message>
         <source>Pause Steering</source>
-        <translation type="unfinished"></translation>
+        <translation>조향 일시 중단</translation>
     </message>
     <message>
         <source>Steering Mode After Braking</source>
-        <translation type="unfinished"></translation>
+        <translation>제동 후 조향 모드</translation>
     </message>
     <message>
         <source>Choose how Automatic Lane Centering (ALC) behaves after the brake pedal is manually pressed in sunnypilot.
@@ -836,19 +837,19 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished">m</translation>
+        <translation>분</translation>
     </message>
     <message>
         <source>hr</source>
-        <translation type="unfinished">시간</translation>
+        <translation>시간</translation>
     </message>
     <message>
         <source>Always On</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 켜짐</translation>
     </message>
     <message>
         <source>Immediate</source>
@@ -900,19 +901,19 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>NetworkingSP</name>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>검색</translation>
     </message>
     <message>
         <source>Scanning...</source>
-        <translation type="unfinished"></translation>
+        <translation>검색 중...</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">고급 설정</translation>
+        <translation>고급 설정</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation type="unfinished">비밀번호를 입력하세요</translation>
+        <translation>비밀번호 입력</translation>
     </message>
     <message>
         <source>for &quot;%1&quot;</source>
@@ -920,7 +921,7 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished">비밀번호가 틀렸습니다</translation>
+        <translation>잘못된 비밀번호</translation>
     </message>
 </context>
 <context>
@@ -983,7 +984,7 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>sunnypilot is now in Forced Offroad mode. sunnypilot won&apos;t start until Forced Offroad mode is disabled. Go to &quot;Settings&quot; -&gt; &quot;Device&quot; -&gt; &quot;Unforce Offroad&quot; to exit Force Offroad mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot이 강제 오프로드 상태입니다. 강제 오프로드가 해제될 때까지 sunnypilot이 시작되지 않습니다. &quot;설정&quot; -&gt; &quot;장치&quot; -&gt; &quot;강제 오프로드 해제&quot;로 이동하여 강제 오프로드를 해제합니다.</translation>
     </message>
 </context>
 <context>
@@ -1028,7 +1029,7 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     <name>OnroadScreenOff</name>
     <message>
         <source>Driving Screen Off Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중 화면 꺼짐 시간</translation>
     </message>
     <message>
         <source>Turn off the device screen or reduce brightness to protect the screen after driving starts. It automatically brightens or turns on when a touch or event occurs.</source>
@@ -1036,22 +1037,22 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>초</translation>
     </message>
     <message>
         <source>min</source>
-        <translation type="unfinished">분</translation>
+        <translation>분</translation>
     </message>
     <message>
         <source>Always On</source>
-        <translation type="unfinished"></translation>
+        <translation>항상 켜짐</translation>
     </message>
 </context>
 <context>
     <name>OnroadScreenOffBrightness</name>
     <message>
         <source>Driving Screen Off Brightness (%)</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중 화면 꺼짐 밝기 (%)</translation>
     </message>
     <message>
         <source>When using the Driving Screen Off feature, the brightness is reduced according to the automatic brightness ratio.</source>
@@ -1059,18 +1060,18 @@ Pause Steering: ALC will be paused after the brake pedal is manually pressed.</s
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>어둡게</translation>
     </message>
 </context>
 <context>
     <name>OnroadSettings</name>
     <message>
         <source>ONROAD OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드 옵션</translation>
     </message>
     <message>
         <source>&lt;b&gt;ONROAD SETTINGS | SUNNYPILOT&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;온로드 설정 | SUNNYPILOT&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -1238,26 +1239,26 @@ Warning: You are on a metered connection!</source>
     <name>ParamControlSP</name>
     <message>
         <source>Enable</source>
-        <translation type="unfinished">활성화</translation>
+        <translation>활성화</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">취소</translation>
+        <translation>취소</translation>
     </message>
 </context>
 <context>
     <name>PathOffset</name>
     <message>
         <source>Path Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>경로 오프셋</translation>
     </message>
     <message>
         <source>Hack to trick the model path to be left or right biased of the lane. Decreasing the value will shift the model more left, increasing will shift the model more right. Changes take effect immediately.</source>
-        <translation type="unfinished"></translation>
+        <translation>해킹을 통해 모델 경로가 차로의 왼쪽 또는 오른쪽 편향이 되도록 속입니다. 값이 감소하면 모델이 왼쪽으로 더 많이 이동하고, 증가하면 모델이 오른쪽으로 더 많이 이동합니다. 변경 사항은 즉시 적용됩니다.</translation>
     </message>
     <message>
         <source> cm</source>
-        <translation type="unfinished"></translation>
+        <translation> cm</translation>
     </message>
 </context>
 <context>
@@ -1268,15 +1269,15 @@ Warning: You are on a metered connection!</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
@@ -1375,27 +1376,27 @@ Warning: You are on a metered connection!</source>
     </message>
     <message>
         <source>sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Update downloaded. Ready to reboot.</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트가 다운로드되었습니다. 재시작할 준비가 되었습니다.</translation>
     </message>
     <message>
         <source>Update: Check and Download Update</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트: 확인 및 업데이트 다운로드</translation>
     </message>
     <message>
         <source>Reboot: Reboot Device</source>
-        <translation type="unfinished"></translation>
+        <translation>재시작: 장치 재시작</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 중...</translation>
     </message>
 </context>
 <context>
@@ -1443,11 +1444,11 @@ This may take up to a minute.</source>
     <name>SPVehiclesTogglesPanel</name>
     <message>
         <source>Hyundai/Kia/Genesis</source>
-        <translation type="unfinished"></translation>
+        <translation>현대/기아/제네시스</translation>
     </message>
     <message>
         <source>HKG CAN: Smoother Stopping Performance (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>HKG CAN: 부드러운 정차 성능 (베타)</translation>
     </message>
     <message>
         <source>Smoother stopping behind a stopped car or desired stopping event. This is only applicable to HKG CAN platforms using openpilot longitudinal control.</source>
@@ -1455,7 +1456,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Subaru</source>
-        <translation type="unfinished"></translation>
+        <translation>스바루</translation>
     </message>
     <message>
         <source>Manual Parking Brake: Stop and Go (Beta)</source>
@@ -1467,7 +1468,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Toyota/Lexus</source>
-        <translation type="unfinished"></translation>
+        <translation>도요타/렉서스</translation>
     </message>
     <message>
         <source>Enable Stock Toyota Longitudinal Control</source>
@@ -1529,7 +1530,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Volkswagen</source>
-        <translation type="unfinished"></translation>
+        <translation>폭스바겐</translation>
     </message>
     <message>
         <source>Enable CC Only support</source>
@@ -1599,55 +1600,55 @@ Reboot Required.</source>
     <name>SettingsWindowSP</name>
     <message>
         <source>×</source>
-        <translation type="unfinished">×</translation>
+        <translation>×</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">장치</translation>
+        <translation>장치</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">네트워크</translation>
+        <translation>네트워크</translation>
     </message>
     <message>
         <source>sunnylink</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnylink</translation>
     </message>
     <message>
         <source>Toggles</source>
-        <translation type="unfinished">토글</translation>
+        <translation>토글</translation>
     </message>
     <message>
         <source>Software</source>
-        <translation type="unfinished">소프트웨어</translation>
+        <translation>소프트웨어</translation>
     </message>
     <message>
         <source>sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM</translation>
     </message>
     <message>
         <source>Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>모니터링</translation>
     </message>
     <message>
         <source>Visuals</source>
-        <translation type="unfinished"></translation>
+        <translation>비주얼</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>화면</translation>
     </message>
     <message>
         <source>Trips</source>
-        <translation type="unfinished"></translation>
+        <translation>트립</translation>
     </message>
     <message>
         <source>Vehicle</source>
-        <translation type="unfinished"></translation>
+        <translation>차량</translation>
     </message>
 </context>
 <context>
@@ -1847,78 +1848,78 @@ Reboot Required.</source>
     <name>SidebarSP</name>
     <message>
         <source>TEMP</source>
-        <translation type="unfinished">온도</translation>
+        <translation>온도</translation>
     </message>
     <message>
         <source>HIGH</source>
-        <translation type="unfinished">높음</translation>
+        <translation>높음</translation>
     </message>
     <message>
         <source>GOOD</source>
-        <translation type="unfinished">좋음</translation>
+        <translation>좋음</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>괜찮음</translation>
     </message>
     <message>
         <source>DISABLED</source>
-        <translation type="unfinished"></translation>
+        <translation>비활성화됨</translation>
     </message>
     <message>
         <source>OFFLINE</source>
-        <translation type="unfinished">연결 안됨</translation>
+        <translation>오프라인</translation>
     </message>
     <message>
         <source>REGIST...</source>
-        <translation type="unfinished"></translation>
+        <translation>등록 중...</translation>
     </message>
     <message>
         <source>ONLINE</source>
-        <translation type="unfinished">온라인</translation>
+        <translation>온라인</translation>
     </message>
     <message>
         <source>ERROR</source>
-        <translation type="unfinished">오류</translation>
+        <translation>오류</translation>
     </message>
     <message>
         <source>SUNNYLINK</source>
-        <translation type="unfinished"></translation>
+        <translation>SUNNYLINK</translation>
     </message>
 </context>
 <context>
     <name>SlcSettings</name>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>User Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 확인</translation>
     </message>
     <message>
         <source>Engage Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>작동 모드</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>고정</translation>
     </message>
     <message>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>비율</translation>
     </message>
     <message>
         <source>Limit Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>제한 대비 값</translation>
     </message>
     <message>
         <source>Set speed limit slightly higher than actual speed limit for a more natural drive.</source>
-        <translation type="unfinished"></translation>
+        <translation>더 자연스러운 주행을 위해 실제 제한 속도보다 약간 높은 속도로 설정합니다.</translation>
     </message>
     <message>
         <source>This platform defaults to &lt;b&gt;Auto&lt;/b&gt; mode. &lt;b&gt;User Confirm&lt;/b&gt; mode is not supported on this platform.</source>
@@ -1926,7 +1927,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Select the desired mode to set the cruising speed to the speed limit:</source>
-        <translation type="unfinished"></translation>
+        <translation>크루즈 속도를 제한 속도로 설정하기 위한 모드를 선택하세요:</translation>
     </message>
     <message>
         <source>Auto: Automatic speed adjustment on motorways based on speed limit data.</source>
@@ -2016,114 +2017,114 @@ Reboot Required.</source>
     <name>SoftwarePanelSP</name>
     <message>
         <source>Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델</translation>
     </message>
     <message>
         <source>SELECT</source>
-        <translation type="unfinished">선택</translation>
+        <translation>선택</translation>
     </message>
     <message>
         <source>PENDING</source>
-        <translation type="unfinished"></translation>
+        <translation>보류 중</translation>
     </message>
     <message>
         <source>Downloading Driving model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델 다운로드 중</translation>
     </message>
     <message>
         <source>(CACHED)</source>
-        <translation type="unfinished"></translation>
+        <translation>(캐시됨)</translation>
     </message>
     <message>
         <source>Driving model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델</translation>
     </message>
     <message>
         <source>downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드됨</translation>
     </message>
     <message>
         <source>Downloading Navigation model</source>
-        <translation type="unfinished"></translation>
+        <translation>내비게이션 모델 다운로드 중</translation>
     </message>
     <message>
         <source>Navigation model</source>
-        <translation type="unfinished"></translation>
+        <translation>내비게이션 모델</translation>
     </message>
     <message>
         <source>Downloading Metadata model</source>
-        <translation type="unfinished"></translation>
+        <translation>메타데이터 모델 다운로드 중</translation>
     </message>
     <message>
         <source>Metadata model</source>
-        <translation type="unfinished"></translation>
+        <translation>메타데이터 모델</translation>
     </message>
     <message>
         <source>Downloads have failed, please try swapping the model!</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드하지 못했습니다. 모델을 교체해 보세요!</translation>
     </message>
     <message>
         <source>Failed:</source>
-        <translation type="unfinished"></translation>
+        <translation>실패함:</translation>
     </message>
     <message>
         <source>Fetching models...</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 가져오는 중...</translation>
     </message>
     <message>
         <source>Select a Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 모델 선택</translation>
     </message>
     <message>
         <source>Download has started in the background.</source>
-        <translation type="unfinished"></translation>
+        <translation>백그라운드에서 다운로드가 시작되었습니다.</translation>
     </message>
     <message>
         <source>We STRONGLY suggest you to reset calibration. Would you like to do that now?</source>
-        <translation type="unfinished"></translation>
+        <translation>보정을 초기화할 것을 강력히 권장합니다. 지금 바로 초기화하시겠습니까?</translation>
     </message>
     <message>
         <source>Reset Calibration</source>
-        <translation type="unfinished">캘리브레이션 초기화</translation>
+        <translation>보정 초기화</translation>
     </message>
     <message>
         <source>Warning: You are on a metered connection!</source>
-        <translation type="unfinished"></translation>
+        <translation>경고: 현재 데이터 요금제를 사용하고 있습니다!</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished">계속</translation>
+        <translation>계속</translation>
     </message>
     <message>
         <source>on Metered</source>
-        <translation type="unfinished"></translation>
+        <translation>, 데이터 사용</translation>
     </message>
 </context>
 <context>
     <name>SpeedLimitPolicySettings</name>
     <message>
         <source>Speed Limit Source Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 소스 정책</translation>
     </message>
     <message>
         <source>Nav</source>
-        <translation type="unfinished"></translation>
+        <translation>내비</translation>
     </message>
     <message>
         <source>Only</source>
-        <translation type="unfinished"></translation>
+        <translation>만</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"></translation>
+        <translation>지도</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>차량</translation>
     </message>
     <message>
         <source>First</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저</translation>
     </message>
     <message>
         <source>Select the precedence order of sources. Utilized by Speed Limit Control and Speed Limit Warning</source>
@@ -2158,34 +2159,34 @@ Reboot Required.</source>
     <name>SpeedLimitValueOffset</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
     <name>SpeedLimitWarningSettings</name>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>표시</translation>
     </message>
     <message>
         <source>Chime</source>
-        <translation type="unfinished"></translation>
+        <translation>알림음</translation>
     </message>
     <message>
         <source>Speed Limit Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 경고</translation>
     </message>
     <message>
         <source>Warning with speed limit flash</source>
-        <translation type="unfinished"></translation>
+        <translation>경고 시 속도 제한 깜빡이기</translation>
     </message>
     <message>
         <source>When Speed Limit Warning is enabled, the speed limit sign will alert the driver when the cruising speed is faster than then speed limit plus the offset.</source>
@@ -2193,19 +2194,19 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>고정</translation>
     </message>
     <message>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>비율</translation>
     </message>
     <message>
         <source>Warning Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>경고 대비 값</translation>
     </message>
     <message>
         <source>Select the desired offset to warn the driver when the vehicle is driving faster than the speed limit.</source>
@@ -2228,15 +2229,15 @@ Reboot Required.</source>
     <name>SpeedLimitWarningValueOffset</name>
     <message>
         <source>N/A</source>
-        <translation type="unfinished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>km/h</source>
-        <translation type="unfinished">km/h</translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mph</source>
-        <translation type="unfinished">mph</translation>
+        <translation>mph</translation>
     </message>
 </context>
 <context>
@@ -2289,107 +2290,107 @@ Reboot Required.</source>
     <name>SunnylinkPanel</name>
     <message>
         <source>Enable sunnylink</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnylink</translation>
     </message>
     <message>
         <source>Device ID </source>
-        <translation type="unfinished"></translation>
+        <translation>장치 ID </translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>This is the master switch, it will allow you to cutoff any sunnylink requests should you want to do that.</source>
-        <translation type="unfinished"></translation>
+        <translation>원할 경우 sunnylink의 요청을 차단할 수 있습니다.</translation>
     </message>
     <message>
         <source>🎉Welcome back! We&apos;re excited to see you&apos;ve enabled sunnylink again! 🚀</source>
-        <translation type="unfinished"></translation>
+        <translation>🎉돌아오신 것을 환영합니다! sunnylink를 다시 활성화해주셔서 기쁩니다! 🚀</translation>
     </message>
     <message>
         <source>👋Not going to lie, it&apos;s sad to see you disabled sunnylink 😢, but we&apos;ll be here when you&apos;re ready to come back 🎉.</source>
-        <translation type="unfinished"></translation>
+        <translation>👋거짓말하지 않고, sunnylink를 비활성화하셔서 슬프지만 😢, 여러분이 돌아올 준비가 되면 저희가 여기에 있도록 하겠습니다 🎉.</translation>
     </message>
     <message>
         <source>Sponsor Status</source>
-        <translation type="unfinished"></translation>
+        <translation>후원 상태</translation>
     </message>
     <message>
         <source>SPONSOR</source>
-        <translation type="unfinished"></translation>
+        <translation>후원</translation>
     </message>
     <message>
         <source>Become a sponsor of sunnypilot to get early access to sunnylink features when they become available.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot의 후원자가 되어 sunnylink의 최신 기능을 미리 사용해보세요.</translation>
     </message>
     <message>
         <source>Pair GitHub Account</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub 계정 연동</translation>
     </message>
     <message>
         <source>PAIR</source>
-        <translation type="unfinished">동기화</translation>
+        <translation>연동</translation>
     </message>
     <message>
         <source>Pair your GitHub account to grant your device sponsor benefits, including API access on sunnylink.</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub 계정을 연동하여 후원자 장치에 sunnylink의 API 액세스를 포함한 다양한 혜택을 제공합니다.</translation>
     </message>
     <message>
         <source>sunnylink Dongle ID not found. This may be due to weak internet connection or sunnylink registration issue. Please reboot and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnylink 동글 ID를 찾을 수 없습니다. 인터넷에 연결되어 있지 않거나 sunnylink 등록에 문제가 있는 걸 수도 있습니다. 재시작후 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>Manage Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>설정 관리</translation>
     </message>
     <message>
         <source>Backup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>설정 백업</translation>
     </message>
     <message>
         <source>Are you sure you want to backup sunnypilot settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot 설정을 백업하시겠습니까?</translation>
     </message>
     <message>
         <source>Back Up</source>
-        <translation type="unfinished"></translation>
+        <translation>백업</translation>
     </message>
     <message>
         <source>Restore Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>설정 복원</translation>
     </message>
     <message>
         <source>Are you sure you want to restore the last backed up sunnypilot settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>마지막으로 백업했던 sunnypilot 설정을 복원하시겠습니까?</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>복원</translation>
     </message>
     <message>
         <source>THANKS</source>
-        <translation type="unfinished"></translation>
+        <translation>감사합니다</translation>
     </message>
     <message>
         <source>Not Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>후원자 아님</translation>
     </message>
     <message>
         <source>Paired</source>
-        <translation type="unfinished"></translation>
+        <translation>연동됨</translation>
     </message>
     <message>
         <source>Not Paired</source>
-        <translation type="unfinished"></translation>
+        <translation>연동되지 않음</translation>
     </message>
     <message>
         <source>Backing up...</source>
-        <translation type="unfinished"></translation>
+        <translation>백업 중...</translation>
     </message>
     <message>
         <source>Restoring...</source>
-        <translation type="unfinished"></translation>
+        <translation>복원 중...</translation>
     </message>
 </context>
 <context>
@@ -2435,51 +2436,51 @@ Reboot Required.</source>
     <name>SunnypilotPanel</name>
     <message>
         <source>Enable M.A.D.S.</source>
-        <translation type="unfinished"></translation>
+        <translation>M.A.D.S.</translation>
     </message>
     <message>
         <source>Enable the beloved M.A.D.S. feature. Disable toggle to revert back to stock openpilot engagement/disengagement.</source>
-        <translation type="unfinished"></translation>
+        <translation>사랑받는 M.A.D.S. 기능입니다. 이 기능을 끄면 기본 openpilot 시작/해제로 되돌아갑니다.</translation>
     </message>
     <message>
         <source>Laneless for Curves in &quot;Auto&quot; Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;자동&quot; 모드시 커브에서 레인리스</translation>
     </message>
     <message>
         <source>While in Auto Lane, switch to Laneless for current/future curves.</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 차로로 설정되어 있는 동안 현재/미래 커브에서 레인리스로 전환합니다.</translation>
     </message>
     <message>
         <source>Speed Limit Control (SLC)</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 제어 (SLC)</translation>
     </message>
     <message>
         <source>When you engage ACC, you will be prompted to set the cruising speed to the speed limit of the road adjusted by the Offset and Source Policy specified, or the current driving speed. The maximum cruising speed will always be the MAX set speed.</source>
-        <translation type="unfinished"></translation>
+        <translation>ACC를 작동시키면 오프셋과 소스 정책에 따라 지정된 도로의 속도 제한 또는 현재 주행 속도로 크루즈 속도를 설정하라는 메시지가 표시됩니다. 최대 크루즈 속도는 항상 MAX 설정 속도입니다.</translation>
     </message>
     <message>
         <source>Enable Vision-based Turn Speed Control (V-TSC)</source>
-        <translation type="unfinished"></translation>
+        <translation>비전 기반 커브 속도 제어 (V-TSC)</translation>
     </message>
     <message>
         <source>Use vision path predictions to estimate the appropriate speed to drive through turns ahead.</source>
-        <translation type="unfinished"></translation>
+        <translation>비전 경로 예측을 사용하여 앞으로의 커브를 통과하는데 적절한 속도를 추정합니다.</translation>
     </message>
     <message>
         <source>Enable Map Data Turn Speed Control (M-TSC) (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>지도 기반 커브 속도 제어 (M-TSC) (베타)</translation>
     </message>
     <message>
         <source>Use curvature information from map data to define speed limits to take turns ahead.</source>
-        <translation type="unfinished"></translation>
+        <translation>지도 데이터의 곡률 정보를 활용하여 앞으로의 커브를 통과하는데 적절한 속도를 설정합니다.</translation>
     </message>
     <message>
         <source>ACC +/-: Long Press Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>ACC +/-: 길게 누르기 반대로</translation>
     </message>
     <message>
         <source>Change the ACC +/- buttons behavior with cruise speed change in sunnypilot.</source>
-        <translation type="unfinished"></translation>
+        <translation>ACC +/- 버튼의 동작을 변경합니다.</translation>
     </message>
     <message>
         <source>Disabled (Stock): Short=1, Long = 5 (imperial) / 10 (metric)</source>
@@ -2491,27 +2492,27 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Custom Offsets</source>
-        <translation type="unfinished"></translation>
+        <translation>커스텀 오프셋</translation>
     </message>
     <message>
         <source>Neural Network Lateral Control (NNLC)</source>
-        <translation type="unfinished"></translation>
+        <translation>신경망 조향 제어 (NNLC)</translation>
     </message>
     <message>
         <source>Enforce Torque Lateral Control</source>
-        <translation type="unfinished"></translation>
+        <translation>강제 토크 조향 제어</translation>
     </message>
     <message>
         <source>Enable this to enforce sunnypilot to steer with Torque lateral control.</source>
-        <translation type="unfinished"></translation>
+        <translation>토크 조향 제어로 sunnypilot이 조향하도록 강제합니다.</translation>
     </message>
     <message>
         <source>Enable Self-Tune</source>
-        <translation type="unfinished"></translation>
+        <translation>셀프 튜닝</translation>
     </message>
     <message>
         <source>Enables self-tune for Torque lateral control for platforms that do not use Torque lateral control by default.</source>
-        <translation type="unfinished"></translation>
+        <translation>기본적으로 토크 조향 제어를 사용하지 않는 플랫폼에 대해 토크 조향 제어를 위한 셀프 튜닝을 켭니다.</translation>
     </message>
     <message>
         <source>Less Restrict Settings for Self-Tune (Beta)</source>
@@ -2519,27 +2520,27 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Less strict settings when using Self-Tune. This allows torqued to be more forgiving when learning values.</source>
-        <translation type="unfinished"></translation>
+        <translation>셀프 튜닝시 덜 엄격한 설정을 사용합니다. 따라서 토크를 학습할 때 더 관대해질 수 있습니다.</translation>
     </message>
     <message>
         <source>Enable Custom Tuning</source>
-        <translation type="unfinished"></translation>
+        <translation>커스텀 튜닝</translation>
     </message>
     <message>
         <source>Enables custom tuning for Torque lateral control. Modifying FRICTION and LAT_ACCEL_FACTOR below will override the offline values indicated in the YAML files within &quot;selfdrive/torque_data&quot;. The values will also be used live when &quot;Override Self-Tune&quot; toggle is enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>토크 조향 제어를 위한 커스텀 튜닝을 켭니다. 아래에서 FRICTION과 LAT_ACCEL_FACTOR를 수정하면 &quot;selfdrive/torque_data&quot; 내의 YAML 파일에 설정된 오프라인 값을 덮어씁니다. 또한 이 값은 &quot;셀프 튜닝 덮어쓰기&quot;가 켜져있을 때 실시간으로 변경됩니다.</translation>
     </message>
     <message>
         <source>Manual Real-Time Tuning</source>
-        <translation type="unfinished"></translation>
+        <translation>수동 실시간 튜닝</translation>
     </message>
     <message>
         <source>Enforces the torque lateral controller to use the fixed values instead of the learned values from Self-Tune. Enabling this toggle overrides Self-Tune values.</source>
-        <translation type="unfinished"></translation>
+        <translation>토크 제어 컨트롤러가 셀프 튜닝에서 학습한 값 대신 고정된 값을 사용하도록 강제합니다. 이 기능을 켜면 셀프 튜닝 값이 덮어씌워집니다.</translation>
     </message>
     <message>
         <source>Quiet Drive 🤫</source>
-        <translation type="unfinished"></translation>
+        <translation>조용한 운전 🤫</translation>
     </message>
     <message>
         <source>sunnypilot will display alerts but only play the most important warning sounds. This feature can be toggled while the car is on.</source>
@@ -2547,7 +2548,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Green Traffic Light Chime (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 신호등 알림 (베타)</translation>
     </message>
     <message>
         <source>A chime will play when the traffic light you are waiting for turns green and you have no vehicle in front of you. If you are waiting behind another vehicle, the chime will play once the vehicle advances unless ACC is engaged.</source>
@@ -2559,7 +2560,7 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Lead Vehicle Departure Alert</source>
-        <translation type="unfinished"></translation>
+        <translation>전방 차량 출발 알림음</translation>
     </message>
     <message>
         <source>Enable this will notify when the leading vehicle drives away.</source>
@@ -2567,63 +2568,63 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Customize M.A.D.S.</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 M.A.D.S.</translation>
     </message>
     <message>
         <source>Customize Lane Change</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 차로 변경</translation>
     </message>
     <message>
         <source>Customize Offsets</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 오프셋</translation>
     </message>
     <message>
         <source>Customize Speed Limit Control</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 속도 제한 제어</translation>
     </message>
     <message>
         <source>Customize Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 경고</translation>
     </message>
     <message>
         <source>Customize Source</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 소스</translation>
     </message>
     <message>
         <source>Laneful</source>
-        <translation type="unfinished"></translation>
+        <translation>레인풀</translation>
     </message>
     <message>
         <source>Laneless</source>
-        <translation type="unfinished"></translation>
+        <translation>레인리스</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>Dynamic Lane Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>동적 차로 프로필</translation>
     </message>
     <message>
         <source>Speed Limit Assist</source>
-        <translation type="unfinished"></translation>
+        <translation>속도 제한 보조</translation>
     </message>
     <message>
         <source>Real-time and Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>실시간 및 오프라인</translation>
     </message>
     <message>
         <source>Offline Only</source>
-        <translation type="unfinished"></translation>
+        <translation>오프라인</translation>
     </message>
     <message>
         <source>Dynamic Lane Profile is not available with the current Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>현재 주행 모델에서는 동적 차로 프로필을 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Custom Offsets is not available with the current Driving Model</source>
-        <translation type="unfinished"></translation>
+        <translation>현재 주행 모델에서는 사용자 지정 오프셋을 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>NNLC is currently not available on this platform.</source>
@@ -2667,15 +2668,15 @@ Reboot Required.</source>
     </message>
     <message>
         <source>Reach out to the sunnypilot team in the following channel at the sunnypilot Discord server with feedback, or to provide log data for your car if your car is currently unsupported: </source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot 디스코드 서버에 있는 다음 채널의 sunnypilot 팀에 피드백을 보내거나 현재 차량이 지원되지 않는 경우 차량에 대한 로그 데이터를 제공해주세요: </translation>
     </message>
     <message>
         <source>Add custom offsets to Camera and Path in sunnypilot.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot의 카메라 및 경로에 사용자 지정 오프셋을 추가합니다.</translation>
     </message>
     <message>
         <source>Default is Laneless. In Auto mode, sunnnypilot dynamically chooses between Laneline or Laneless model based on lane recognition confidence level on road and certain conditions.</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값은 레인리스입니다. 자동 모드에서는 도로 및 특정 조건에서 차로 인식 신뢰도 수준에 따라 레인풀 또는 레인리스 모델 중 하나를 동적으로 선택합니다.</translation>
     </message>
 </context>
 <context>
@@ -2701,15 +2702,15 @@ Reboot Required.</source>
     <name>TermsPageSP</name>
     <message>
         <source>Terms &amp; Conditions</source>
-        <translation type="unfinished">이용약관</translation>
+        <translation>이용약관</translation>
     </message>
     <message>
         <source>Decline</source>
-        <translation type="unfinished">거절</translation>
+        <translation>거절</translation>
     </message>
     <message>
         <source>Scroll to accept</source>
-        <translation type="unfinished">동의하려면 아래로 스크롤하세요</translation>
+        <translation>동의하려면 아래로 스크롤하세요</translation>
     </message>
 </context>
 <context>
@@ -2840,79 +2841,80 @@ Reboot Required.</source>
     </message>
     <message>
         <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner.</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 시각화는 저속 주행 시 도로를 향하는 광각 카메라로 전환되어 몇 가지 회전을 더 잘 보여줍니다. 실험 모드 로고도 오른쪽 상단에 표시됩니다.</translation>
     </message>
     <message>
         <source>Always-On Driver Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>상시 운전자 모니터링</translation>
     </message>
     <message>
         <source>Enable driver monitoring even when openpilot is not engaged.</source>
-        <translation type="unfinished"></translation>
+        <translation>오픈파일럿을 사용하지 않는 경우에도 운전자를 모니터링합니다.</translation>
     </message>
     <message>
         <source>Enable sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Use the sunnypilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>어댑티브 크루즈 컨트롤 및 차선 유지 운전자 보조를 위해 sunnypilot 시스템을 사용하세요. 이 기능을 사용하려면 항상 주의가 필요합니다. 이 설정을 변경하면 차량 전원이 꺼져 있을 때 적용됩니다.</translation>
     </message>
 </context>
 <context>
     <name>TogglesPanelSP</name>
     <message>
         <source>Enable sunnypilot</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot</translation>
     </message>
     <message>
         <source>Use the sunnypilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>어댑티브 크루즈 컨트롤 및 차선 유지 운전자 보조를 위해 sunnypilot 시스템을 사용하세요. 이 기능을 사용하려면 항상 주의가 필요합니다. 이 설정을 변경하면 차량 전원이 꺼져 있을 때 적용됩니다.</translation>
     </message>
     <message>
         <source>openpilot Longitudinal Control (Alpha)</source>
-        <translation type="unfinished">openpilot 가감속 제어 (알파)</translation>
+        <translation>sunnypilot 가감속 제어 (알파)</translation>
     </message>
     <message>
         <source>WARNING: sunnypilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
-        <translation type="unfinished"></translation>
+        <translation>경고: 이 차량의 경우 sunnypilot 가감속 제어가 알파이며 자동 긴급 제동 (AEB)가 비활성화됩니다.</translation>
     </message>
     <message>
         <source>On this car, sunnypilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to sunnypilot longitudinal control. Enabling Experimental mode is recommended when enabling sunnypilot longitudinal control alpha.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 차량에서 sunnypilot은 sunnypilot의 가감속 제어 대신 차량의 내장 ACC로 기본 설정됩니다. 이 기능을 켜면 sunnypilot 가감속 제어로 전환할 수 있습니다. sunnypilot 가감속 제어 알파를 켤 때는 실험 모드를 켜는 것을 권장합니다.</translation>
     </message>
     <message>
         <source>Custom Stock Longitudinal Control</source>
-        <translation type="unfinished"></translation>
+        <translation>커스텀 순정 가감속 제어</translation>
     </message>
     <message>
         <source>When enabled, sunnypilot will attempt to control stock longitudinal control with ACC button presses.
 This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot이 ACC 버튼을 눌러 순정 가감속 제어를 시도합니다.
+이 기능은 SLC, V-TSC 및/또는 M-TSC와 함꼐 사용해야 합니다.</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
-        <translation type="unfinished">실험 모드</translation>
+        <translation>실험 모드</translation>
     </message>
     <message>
         <source>Enable Dynamic Experimental Control</source>
-        <translation type="unfinished"></translation>
+        <translation>동적 실험 제어</translation>
     </message>
     <message>
         <source>Enable toggle to allow the model to determine when to use sunnypilot ACC or sunnypilot End to End Longitudinal.</source>
-        <translation type="unfinished"></translation>
+        <translation>모델이 sunnypilot ACC 또는 sunnypilot 종단 간 가감속을 사용할지 결정합니다.</translation>
     </message>
     <message>
         <source>Enable Dynamic Personality</source>
-        <translation type="unfinished"></translation>
+        <translation>동적 주행 성격</translation>
     </message>
     <message>
         <source>Enable this to allow sunnypilot to dynamically adjust following distance and reaction based on your &quot;Driving Personality&quot; setting. Instead of predefined settings for each personality, every personality now adapts dynamically according to your speed and the distance to the lead car.</source>
-        <translation type="unfinished"></translation>
+        <translation>sunnypilot이 &quot;운전 성격&quot; 설정에 따라 다음 거리와 반응을 동적으로 조정할 수 있습니다. 이제 각 성격에 대해 미리 정의된 설정 대신 모든 성격이 속도와 선두 차량까지의 거리에 따라 동적으로 조정됩니다.</translation>
     </message>
     <message>
         <source>Disengage on Accelerator Pedal</source>
-        <translation type="unfinished">가속페달 조작 시 해제</translation>
+        <translation>가속 페달 조작 시 해제</translation>
     </message>
     <message>
         <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
@@ -2920,7 +2922,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
-        <translation type="unfinished">차선 이탈 경고 활성화</translation>
+        <translation>차로 이탈 경고 활성화</translation>
     </message>
     <message>
         <source>Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31 mph (50 km/h).</source>
@@ -2928,11 +2930,11 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Always-On Driver Monitoring</source>
-        <translation type="unfinished"></translation>
+        <translation>상시 운전자 모니터링</translation>
     </message>
     <message>
         <source>Enable driver monitoring even when sunnypilot is not engaged.</source>
-        <translation type="unfinished"></translation>
+        <translation>오픈파일럿을 사용하지 않는 경우에도 운전자를 모니터링합니다.</translation>
     </message>
     <message>
         <source>Record and Upload Driver Camera</source>
@@ -2944,11 +2946,11 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Disable Onroad Uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드 업로드 끄기</translation>
     </message>
     <message>
         <source>Disable uploads completely when onroad. Necessary to avoid high data usage when connected to Wi-Fi hotspot. Turn on this feature if you are looking to utilize map-based features, such as Speed Limit Control (SLC) and Map-based Turn Speed Control (MTSC).</source>
-        <translation type="unfinished"></translation>
+        <translation>주행 중에는 업로드를 완전히 끕니다. Wi-Fi 핫스팟에 연결되어 있을 때 높은 데이터 사용량을 방지합니다. 속도 제한 제어 (SLC) 및 지도 기반 회전 속도 제어 (M-TSC)와 같은 지도 기반 기능을 사용하려는 경우 이 기능을 켜세요.</translation>
     </message>
     <message>
         <source>Use Metric System</source>
@@ -2976,51 +2978,51 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Aggressive</source>
-        <translation type="unfinished">공격적</translation>
+        <translation>공격적</translation>
     </message>
     <message>
         <source>Moderate</source>
-        <translation type="unfinished"></translation>
+        <translation>적당한</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished">표준</translation>
+        <translation>표준</translation>
     </message>
     <message>
         <source>Relaxed</source>
-        <translation type="unfinished">편안한</translation>
+        <translation>편안한</translation>
     </message>
     <message>
         <source>Driving Personality</source>
-        <translation type="unfinished">주행 모드</translation>
+        <translation>주행 성격</translation>
     </message>
     <message>
         <source>Standard is recommended. In moderate/aggressive mode, sunnypilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode sunnypilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
-        <translation type="unfinished"></translation>
+        <translation>표준을 권장합니다. 적당한/공격적 모드에서는 sunnypilot이 전방 차량을 더 가까이 따라가고 가속과 감속을 더 공격적으로 합니다. 편안한 모드에서는 sunnypilot이 전방 차량을 더 멀리 따라갑니다. 지원되는 차량의 경우 스티어링 휠의 거리 버튼으로 이러한 특성을 변경할 수 있습니다.</translation>
     </message>
     <message>
         <source>Sport</source>
-        <translation type="unfinished"></translation>
+        <translation>스포츠</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>노말</translation>
     </message>
     <message>
         <source>Eco</source>
-        <translation type="unfinished"></translation>
+        <translation>에코</translation>
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>Acceleration Personality</source>
-        <translation type="unfinished"></translation>
+        <translation>가속 성격</translation>
     </message>
     <message>
         <source>Normal is recommended. In sport mode, sunnypilot will provide aggressive acceleration for a dynamic driving experience. In eco mode, sunnypilot will apply smoother and more relaxed acceleration. On supported cars, you can cycle through these acceleration personality within Onroad Settings on the driving screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>노말을 권장합니다. 스포츠 모드에서는 sunnypilot이 공격적인 가속을 하며 역동적인 주행 경험을 선사합니다. 에코 모드에서는 sunnypilot이 더 부드럽고 편안한 가속을 합니다. 지원되는 차량의 경우 주행 화면의 온로드 설정에서 이러한 가속 성격을 변경할 수 있습니다.</translation>
     </message>
     <message>
         <source>openpilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
@@ -3056,14 +3058,14 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Enable the sunnypilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>실험 모드를 사용하려면 sunnypilot 가감속 제어 (알파)를 켜야 합니다.</translation>
     </message>
 </context>
 <context>
     <name>TorqueFriction</name>
     <message>
         <source>FRICTION</source>
-        <translation type="unfinished"></translation>
+        <translation>FRICTION</translation>
     </message>
     <message>
         <source>Adjust Friction for the Torque Lateral Controller. &lt;b&gt;Live&lt;/b&gt;: Override self-tune values; &lt;b&gt;Offline&lt;/b&gt;: Override self-tune offline values at car restart.</source>
@@ -3071,30 +3073,30 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Real-time and Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>실시간 및 오프라인</translation>
     </message>
     <message>
         <source>Offline Only</source>
-        <translation type="unfinished"></translation>
+        <translation>오프라인</translation>
     </message>
 </context>
 <context>
     <name>TorqueMaxLatAccel</name>
     <message>
         <source>LAT_ACCEL_FACTOR</source>
-        <translation type="unfinished"></translation>
+        <translation>LAT_ACCEL_FACTOR</translation>
     </message>
     <message>
         <source>Adjust Max Lateral Acceleration for the Torque Lateral Controller. &lt;b&gt;Live&lt;/b&gt;: Override self-tune values; &lt;b&gt;Offline&lt;/b&gt;: Override self-tune offline values at car restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>토크 조향 컨트롤러의 최대 조향 가속도를 조정합니다. &lt;b&gt;실시간&lt;/b&gt;: 셀프 튜닝 값 덮어쓰기; &lt;b&gt;오프라인&lt;/b&gt;: 차량 재시작시 셀프 튜닝 오프라인 값 덮어쓰기.</translation>
     </message>
     <message>
         <source>Real-time and Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>실시간 및 오프라인</translation>
     </message>
     <message>
         <source>Offline Only</source>
-        <translation type="unfinished"></translation>
+        <translation>오프라인</translation>
     </message>
 </context>
 <context>
@@ -3136,34 +3138,34 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     <name>VehiclePanel</name>
     <message>
         <source>Updating this setting takes effect when the car is powered off.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 설정을 변경하려면 차량의 시동을 껐다가 다시 켜야합니다.</translation>
     </message>
     <message>
         <source>Select your car</source>
-        <translation type="unfinished"></translation>
+        <translation>차를 선택해주세요</translation>
     </message>
 </context>
 <context>
     <name>VisualsPanel</name>
     <message>
         <source>Display Braking Status</source>
-        <translation type="unfinished"></translation>
+        <translation>제동 상태 표시</translation>
     </message>
     <message>
         <source>Enable this will turn the current speed value to red while the brake is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>제동 시 현재 주행 속도 값이 빨간색으로 바뀝니다.</translation>
     </message>
     <message>
         <source>Display Stand Still Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>정차 시간 표시</translation>
     </message>
     <message>
         <source>Enable this will display time spent at a stop (i.e., at a stop lights, stop signs, traffic congestions).</source>
-        <translation type="unfinished"></translation>
+        <translation>정지 신고, 정지 표지판, 교통 체증 등 상황에서 정차 시간이 표시됩니다.</translation>
     </message>
     <message>
         <source>Display DM Camera in Reverse Gear</source>
-        <translation type="unfinished"></translation>
+        <translation>후진 시 DM 카메라 표시</translation>
     </message>
     <message>
         <source>Show Driver Monitoring camera while the car is in reverse gear.</source>
@@ -3179,7 +3181,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Display Feature Status</source>
-        <translation type="unfinished"></translation>
+        <translation>기능 상태 표시</translation>
     </message>
     <message>
         <source>Display the statuses of certain features on the driving screen.</source>
@@ -3187,7 +3189,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Enable Onroad Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>온로드 설정</translation>
     </message>
     <message>
         <source>Display the Onroad Settings button on the driving screen to adjust feature options on the driving screen, without navigating into the settings menu.</source>
@@ -3195,7 +3197,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Speedometer: Display True Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도계: 실제 속도 표시</translation>
     </message>
     <message>
         <source>Display the true vehicle current speed from wheel speed sensors.</source>
@@ -3203,11 +3205,11 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Speedometer: Hide from Onroad Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>속도계: 온로드 화면에서 숨기기</translation>
     </message>
     <message>
         <source>Display End-to-end Longitudinal Status (Beta)</source>
-        <translation type="unfinished"></translation>
+        <translation>종단 간 가감속 상태 표시 (베타)</translation>
     </message>
     <message>
         <source>Enable this will display an icon that appears when the End-to-end model decides to start or stop.</source>
@@ -3231,7 +3233,7 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <source>5 Metrics</source>
@@ -3243,55 +3245,55 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     </message>
     <message>
         <source>Developer UI</source>
-        <translation type="unfinished"></translation>
+        <translation>개발자 UI</translation>
     </message>
     <message>
         <source>Display real-time parameters and metrics from various sources.</source>
-        <translation type="unfinished"></translation>
+        <translation>다양한 소스의 실시간 매개변수와 메트릭을 표시합니다.</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Display Metrics Below Chevron</source>
-        <translation type="unfinished"></translation>
+        <translation>삼각형 아래에 메트릭 표시</translation>
     </message>
     <message>
         <source>Display useful metrics below the chevron that tracks the lead car (only applicable to cars with openpilot longitudinal control).</source>
-        <translation type="unfinished"></translation>
+        <translation>전방 차량을 추적하는 삼각형 아래에 유용한 메트릭을 표시합니다 (openpilot 가감속 제어가 적용된 차량에서만 나타남).</translation>
     </message>
     <message>
         <source>RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>RAM</translation>
     </message>
     <message>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <source>GPU</source>
-        <translation type="unfinished"></translation>
+        <translation>GPU</translation>
     </message>
     <message>
         <source>Max</source>
-        <translation type="unfinished"></translation>
+        <translation>최대</translation>
     </message>
     <message>
         <source>Display Temperature on Sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation>사이드바에 온도 표시</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>시간</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>전체</translation>
     </message>
 </context>
 <context>
@@ -3344,23 +3346,23 @@ This feature must be used along with SLC, and/or V-TSC, and/or M-TSC.</source>
     <name>WifiUISP</name>
     <message>
         <source>Scanning for networks...</source>
-        <translation type="unfinished">네트워크 검색 중...</translation>
+        <translation>네트워크 검색 중...</translation>
     </message>
     <message>
         <source>CONNECTING...</source>
-        <translation type="unfinished">연결 중...</translation>
+        <translation>연결 중...</translation>
     </message>
     <message>
         <source>FORGET</source>
-        <translation type="unfinished">삭제</translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>Forget Wi-Fi Network &quot;%1&quot;?</source>
-        <translation type="unfinished">Wi-Fi &quot;%1&quot;에 자동으로 연결하지 않겠습니까?</translation>
+        <translation>Wi-Fi 네트워크 &quot;%1&quot;을(를) 삭제하시겠습니까?</translation>
     </message>
     <message>
         <source>Forget</source>
-        <translation type="unfinished">삭제</translation>
+        <translation>삭제</translation>
     </message>
 </context>
 </TS>
