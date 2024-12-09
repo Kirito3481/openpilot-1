@@ -145,13 +145,13 @@ typedef enum OMX_QCOMFramePackingFormat
   OMX_QCOM_FramePacking_Arbitrary,
 
   /*  2 - Multiple complete frames per buffer (integer number)
-   *  OMX IL 1.1.1 Figure 2-11: Case 2—Each Buffer Filled with
+   *  OMX IL 1.1.1 Figure 2-11: Case 2ï¿½Each Buffer Filled with
    *  Only Complete Frames of Data
    */
   OMX_QCOM_FramePacking_CompleteFrames,
 
   /*  3 - Only one complete frame per buffer, no partial frame
-   *  OMX IL 1.1.1 Figure 2-12: Case 3—Each Buffer Filled with
+   *  OMX IL 1.1.1 Figure 2-12: Case 3ï¿½Each Buffer Filled with
    *  Only One Frame of Compressed Data. Usually at least one
    *  complete unit of data will be delivered in a buffer for
    *  uncompressed data formats.
@@ -160,7 +160,7 @@ typedef enum OMX_QCOMFramePackingFormat
 
   /*  4 - Only one complete subframe per buffer, no partial subframe
    *  Example: In H264, one complete NAL per buffer, where one frame
-   *  can contatin multiple NAL
+   *  can contain multiple NAL
    */
   OMX_QCOM_FramePacking_OnlyOneCompleteSubFrame,
 
@@ -629,7 +629,7 @@ typedef struct QOMX_EXTNINDEX_VIDEO_HIER_P_LAYERS {
 * nTemporalLayerBitrateRatio[OMX_VIDEO_MAX_HP_LAYERS] : Bitrate to
 *                    be set for each enhancement layer
 * nMinQuantizer  : minimum session QP
-* nMaxQuantizer  : Maximun session QP
+* nMaxQuantizer  : Maximum session QP
 */
 
 typedef struct QOMX_EXTNINDEX_VIDEO_HYBRID_HP_MODE {

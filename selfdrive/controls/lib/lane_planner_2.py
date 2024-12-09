@@ -1,12 +1,11 @@
 import math
 import numpy as np
 from cereal import log
-from common.filter_simple import FirstOrderFilter
-from common.numpy_fast import interp, clip
-from common.realtime import DT_MDL
-from common.swaglog import cloudlog
-#from common.logger import sLogger
-from common.params import Params
+from openpilot.common.filter_simple import FirstOrderFilter
+from openpilot.common.numpy_fast import interp, clip
+from openpilot.common.realtime import DT_MDL
+#from openpilot.common.logger import sLogger
+from openpilot.common.params import Params
 
 TRAJECTORY_SIZE = 33
 # positive numbers go right
@@ -171,8 +170,8 @@ class LanePlanner:
       offset_lane = interp(self.lane_width, [2.5, 2.9], [0.0, -self.adjustLaneOffset]) # 차선이 좁으면 안함..
 
     #select lane path
-    # 차선이 좁아지면, 도로경계쪽에 있는 차선 위주로 따라가도록함. 
-    if self.lane_width < 2.5: 
+    # 차선이 좁아지면, 도로경계쪽에 있는 차선 위주로 따라가도록함.
+    if self.lane_width < 2.5:
       if r_prob > 0.5 and self.lane_width_right_filtered.x < self.lane_width_left_filtered.x:
         lane_path_y = path_from_right_lane
       elif l_prob > 0.5 and self.lane_width_left_filtered.x < 2.0:
@@ -241,4 +240,3 @@ class LanePlanner:
     self.offset_total = self.lane_offset_filtered.x
 
     return path_xyz
-
