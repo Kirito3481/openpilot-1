@@ -286,7 +286,10 @@ MultiOptionDialog::MultiOptionDialog(const QString &prompt_text, const QStringLi
   confirm_btn->setObjectName("confirm_btn");
   confirm_btn->setEnabled(false);
 
+  int total_buttons = 0;
+  int current_selected_button = 0;
   for (const QString &s : l) {
+    if (s == current) current_selected_button = total_buttons;
     QPushButton *selectionLabel = new QPushButton(s);
     selectionLabel->setCheckable(true);
     selectionLabel->setChecked(s == current);
@@ -301,12 +304,17 @@ MultiOptionDialog::MultiOptionDialog(const QString &prompt_text, const QStringLi
 
     group->addButton(selectionLabel);
     listLayout->addWidget(selectionLabel);
+    total_buttons++;
   }
   // add stretch to keep buttons spaced correctly
   listLayout->addStretch(1);
 
   ScrollView *scroll_view = new ScrollView(listWidget, this);
   scroll_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+  // 선택된 버튼으로 자동 스크롤
+  QWidget *target_btn = listLayout->itemAt(current_selected_button)->widget();
+  scroll_view->ensureWidgetVisible(target_btn, 0, -300);
 
   main_layout->addWidget(scroll_view);
   main_layout->addSpacing(35);
