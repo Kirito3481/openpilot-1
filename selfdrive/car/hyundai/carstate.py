@@ -46,6 +46,8 @@ class CarState(CarStateBase):
     self.buttons_counter = 0
 
     self.cruise_info = {}
+    self.msg_161 = {}
+    self.msg_162 = {}
 
     # On some cars, CLU15->CF_Clu_VehicleSpeed can oscillate faster than the dash updates. Sample at 5 Hz
     self.cluster_speed = 0
@@ -270,8 +272,9 @@ class CarState(CarStateBase):
     ret.leftBlinker, ret.rightBlinker = ret.leftBlinkerOn, ret.rightBlinkerOn = self.update_blinker_from_lamp(
       50, cp.vl["BLINKERS"][left_blinker_sig], cp.vl["BLINKERS"][right_blinker_sig])
     if self.CP.enableBsm:
-      ret.leftBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"]["FL_INDICATOR"] != 0
-      ret.rightBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"]["FR_INDICATOR"] != 0
+      alt = "_ALT" if self.CP.carFingerprint == CAR.HYUNDAI_SONATA_2024 else ""
+      ret.leftBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"][f"FL_INDICATOR{alt}"] != 0
+      ret.rightBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"][f"FR_INDICATOR{alt}"] != 0
 
     # cruise state
     # CAN FD cars enable on main button press, set available if no TCS faults preventing engagement
@@ -314,6 +317,10 @@ class CarState(CarStateBase):
     if self.CP.spFlags & HyundaiFlagsSP.SP_NAV_MSG:
       self._update_traffic_signals(cp, cp_cam)
       ret.cruiseState.speedLimit = self._calculate_speed_limit() * speed_factor
+
+    if self.CP.carFingerprint in (CAR.HYUNDAI_SONATA_2024,):
+      self.msg_161 = copy.copy(cp.vl["MSG_161"])
+      self.msg_162 = copy.copy(cp.vl["MSG_162"])
 
     return ret
 
@@ -477,5 +484,11 @@ class CarState(CarStateBase):
 
     if not (CP.flags & HyundaiFlags.CANFD_HDA2) and CP.spFlags & HyundaiFlagsSP.SP_NAV_MSG:
       messages.append(("CLUSTER_SPEED_LIMIT", 10))
+
+    if CP.carFingerprint in (CAR.HYUNDAI_SONATA_2024,):
+      messages += [
+        ("MSG_161", 20),
+        ("MSG_162", 20),
+      ]
 
     return CANParser(DBC[CP.carFingerprint]["pt"], messages, CanBus(CP).CAM)
