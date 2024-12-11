@@ -319,8 +319,8 @@ class CarState(CarStateBase):
       ret.cruiseState.speedLimit = self._calculate_speed_limit() * speed_factor
 
     if self.CP.carFingerprint in (CAR.HYUNDAI_SONATA_2024,):
-      self.msg_161 = copy.copy(cp.vl["MSG_161"])
-      self.msg_162 = copy.copy(cp.vl["MSG_162"])
+      self.msg_161 = copy.copy(cp_cam.vl["MSG_161"])
+      self.msg_162 = copy.copy(cp_cam.vl["MSG_162"])
 
     return ret
 
