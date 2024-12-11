@@ -167,7 +167,7 @@ def create_msg_161(packer, CAN, enabled, msg_161, car_params, hud_control, car_s
     # SETSPEED
     values["SETSPEED"] = 3 if enabled else 1
     values["SETSPEED_HUD"] = 2 if enabled else 1
-    values["SETSPEED_SPEED"] = 25 if (s := round(car_state.out.vCruiseCluster * CV.KPH_TO_MPH)) > 100 else s
+    # values["SETSPEED_SPEED"] = 25 if (s := round(car_state.out.vCruiseCluster * CV.KPH_TO_MPH)) > 100 else s
     # DISTANCE
     if 1 <= hud_control.leadDistanceBars <= 3:
       values["DISTANCE"] = hud_control.leadDistanceBars
