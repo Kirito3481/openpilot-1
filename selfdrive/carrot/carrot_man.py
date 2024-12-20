@@ -658,7 +658,7 @@ class CarrotMan:
       s.listen()
 
       while True:
-        print("################# waiting conntection from CarrotMan route #####################")
+        print("################# waiting connection from CarrotMan route #####################")
         conn, addr = s.accept()
         with conn:
           print(f"Connected by {addr}")
