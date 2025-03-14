@@ -55,6 +55,7 @@ class Controls:
 
     self.carrot_filter = 20
     self.curvature_history = deque(maxlen=self.carrot_filter)
+    self.car_curvature_history = deque(maxlen=self.carrot_filter)
 
 
 
@@ -156,6 +157,7 @@ class Controls:
       if carrot_lat_control2 != self.carrot_filter:
         self.carrot_filter = carrot_lat_control2
         self.curvature_history = deque(maxlen=self.carrot_filter)
+        self.car_curvature_history = deque(maxlen=self.carrot_filter)
       if len(lat_plan.curvatures) != CONTROL_N:
         desired_curvature = 0.0
       else:
@@ -165,8 +167,9 @@ class Controls:
         future_curvatures = np.interp(future_times, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
 
         self.curvature_history.append(future_curvatures)
+        self.car_curvature_history.append(car_curvature)
         if len(self.curvature_history) == self.carrot_filter:
-          avg_curvature_list = [self.curvature_history[i][i] for i in range(self.carrot_filter)]
+          avg_curvature_list = [self.curvature_history[i][i] - (car_curvature - self.car_curvature_history[i]) for i in range(self.carrot_filter)]
           avg_curvature = np.mean(avg_curvature_list)
           #print(f"t_since_plan = {t_since_plan}, car_curvature = {car_curvature:.5f}, avg_curvature = {avg_curvature:.5f}")
         else:
