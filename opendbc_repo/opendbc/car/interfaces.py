@@ -498,8 +498,8 @@ class RadarInterfaceBase(ABC):
           new_tracks[track_id] = self.tracks[track_id]
           new_tracks[track_id].update(radar_point, self.dt)
 
-        radar_point.aLead = new_tracks[track_id].aLead
-        radar_point.jLead = new_tracks[track_id].jLead
+        radar_point.aLead = float(new_tracks[track_id].aLead)
+        radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
     return ret
