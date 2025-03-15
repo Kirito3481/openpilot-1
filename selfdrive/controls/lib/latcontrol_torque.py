@@ -141,7 +141,7 @@ class LatControlTorque(LatControl):
     self.torque_params.latAccelOffset = latAccelOffset
     self.torque_params.friction = friction
 
-  def update(self, active, CS, VM, params, steer_limited_by_controls, desired_curvature, desired_curvature_ff, llk, curvature_limited, model_data=None):
+  def update(self, active, CS, VM, params, steer_limited_by_controls, desired_curvature, llk, curvature_limited, model_data=None):
     self.frame += 1
     if self.frame % 10 == 0:
       lateralTorqueCustom = self.params.get_int("LateralTorqueCustom")
@@ -164,74 +164,6 @@ class LatControlTorque(LatControl):
         self.torque_params.latAccelOffset = self.latAccelOffset_default
       self.lateralTorqueCustom = lateralTorqueCustom
 
-    if self.use_nnff or self.use_nnff_lite:
-      return self.update(active, CS, VM, params, steer_limited_by_controls, desired_curvature_ff, llk, curvature_limited, model_data)
-
-    pid_log = log.ControlsState.LateralTorqueState.new_message()
-    steeringRate = math.radians(CS.steeringRateDeg)
-    if not active:
-      output_torque = 0.0
-      pid_log.active = False
-      angle_steers_des = float(CS.steeringAngleDeg)
-    else:
-      angle_steers_des = math.degrees(VM.get_steer_from_curvature(-desired_curvature, CS.vEgo, params.roll))
-      angle_steers_des += params.angleOffsetDeg
-
-      actual_curvature_vm = -VM.calc_curvature(math.radians(CS.steeringAngleDeg - params.angleOffsetDeg), CS.vEgo, params.roll)
-      roll_compensation = params.roll * ACCELERATION_DUE_TO_GRAVITY
-      if self.use_steering_angle:
-        actual_curvature = actual_curvature_vm
-        curvature_deadzone = abs(VM.calc_curvature(math.radians(self.steering_angle_deadzone_deg), CS.vEgo, 0.0))
-      else:
-        actual_curvature_llk = llk.angularVelocityCalibrated.value[2] / CS.vEgo
-        actual_curvature = np.interp(CS.vEgo, [2.0, 5.0], [actual_curvature_vm, actual_curvature_llk])
-        curvature_deadzone = 0.0
-      desired_lateral_accel = desired_curvature * CS.vEgo ** 2
-      desired_lateral_accel_ff = desired_curvature_ff * CS.vEgo ** 2
-
-      # desired rate is the desired rate of change in the setpoint, not the absolute desired curvature
-      # desired_lateral_jerk = desired_curvature_rate * CS.vEgo ** 2
-      actual_lateral_accel = actual_curvature * CS.vEgo ** 2
-      lateral_accel_deadzone = curvature_deadzone * CS.vEgo ** 2
-
-      low_speed_factor = np.interp(CS.vEgo, LOW_SPEED_X, LOW_SPEED_Y)**2
-      setpoint = desired_lateral_accel + low_speed_factor * desired_curvature
-      measurement = actual_lateral_accel + low_speed_factor * actual_curvature
-      gravity_adjusted_lateral_accel = desired_lateral_accel - roll_compensation
-      torque_from_setpoint = self.torque_from_lateral_accel(LatControlInputs(setpoint, roll_compensation, CS.vEgo, CS.aEgo), self.torque_params,
-                                                            setpoint, lateral_accel_deadzone, friction_compensation=False, gravity_adjusted=False)
-      torque_from_measurement = self.torque_from_lateral_accel(LatControlInputs(measurement, roll_compensation, CS.vEgo, CS.aEgo), self.torque_params,
-                                                               measurement, lateral_accel_deadzone, friction_compensation=False, gravity_adjusted=False)
-      pid_log.error = float(torque_from_setpoint - torque_from_measurement)
-      ff = self.torque_from_lateral_accel(LatControlInputs(gravity_adjusted_lateral_accel, roll_compensation, CS.vEgo, CS.aEgo), self.torque_params,
-                                          #desired_lateral_accel - actual_lateral_accel, lateral_accel_deadzone, friction_compensation=True,
-                                          desired_lateral_accel_ff, lateral_accel_deadzone, friction_compensation=True,
-                                          gravity_adjusted=True)
-
-      freeze_integrator = steer_limited_by_controls or CS.steeringPressed or CS.vEgo < 5
-      output_torque = self.pid.update(pid_log.error,
-                                      error_rate=pid_log.error - self.error_last,
-                                      feedforward=ff,
-                                      speed=CS.vEgo,
-                                      freeze_integrator=freeze_integrator)
-
-      damping_torque = - self.dampingFactor * steeringRate
-      output_torque += damping_torque
-
-      pid_log.active = True
-      pid_log.p = float(self.pid.p)
-      pid_log.i = float(self.pid.i)
-      pid_log.d = float(self.pid.d)
-      pid_log.f = float(self.pid.f)
-      pid_log.output = float(-output_torque)
-      pid_log.actualLateralAccel = float(actual_lateral_accel)
-      pid_log.desiredLateralAccel = float(desired_lateral_accel)
-      pid_log.saturated = bool(self._check_saturation(self.steer_max - abs(output_torque) < 1e-3, CS, steer_limited_by_controls, curvature_limited))
-
-    # TODO left is positive in this convention
-    return -output_torque,angle_steers_des, pid_log
-
-  def update_nnff(self, active, CS, VM, params, steer_limited_by_controls, desired_curvature, llk, curvature_limited, model_data=None):
     pid_log = log.ControlsState.LateralTorqueState.new_message()
     nn_log = None
 
