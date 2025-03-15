@@ -169,7 +169,8 @@ class Controls:
         self.curvature_history.append(future_curvatures)
         self.car_curvature_history.append(car_curvature)
         if len(self.curvature_history) == self.carrot_filter:
-          avg_curvature_list = [self.curvature_history[i][i] - (car_curvature - self.car_curvature_history[i]) for i in range(self.carrot_filter)]
+          #avg_curvature_list = [self.curvature_history[i][i] - (car_curvature - self.car_curvature_history[i]) for i in range(self.carrot_filter)]
+          avg_curvature_list = [self.curvature_history[i][i] for i in range(self.carrot_filter)]
           avg_curvature = np.mean(avg_curvature_list)
           #print(f"t_since_plan = {t_since_plan}, car_curvature = {car_curvature:.5f}, avg_curvature = {avg_curvature:.5f}")
         else:
