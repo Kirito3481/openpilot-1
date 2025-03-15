@@ -164,11 +164,11 @@ class Controls:
         desired_curvature = 0.0
         desired_curvature_now = 0.0
       else:
-        model_delay = 0.3
-        t0 = model_delay + lat_actuator_delay + t_since_plan
+        
+        t0 = lat_actuator_delay + t_since_plan
         future_times = [t0 + i * DT_CTRL for i in range(self.carrot_filter)]
         future_curvatures = np.interp(future_times, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
-        curvature_now = np.interp(model_delay, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
+        curvature_now = lat_plan.curvatures[0]
 
         self.curvature_history.append(future_curvatures)
         self.curvature_now_history.append(curvature_now)
