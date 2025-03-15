@@ -368,8 +368,8 @@ class CarState(CarStateBase):
       #ret.leftBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"]["FL_INDICATOR"] != 0
       #ret.rightBlindspot = cp.vl["BLINDSPOTS_REAR_CORNERS"]["FR_INDICATOR"] != 0
       if self.CP.extFlags & HyundaiExtFlags.BSM_IN_ADAS.value:
-        ret.leftBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_LEFT_FOUR"] != 0
-        ret.rightBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_RIGHT_FOUR"] != 0
+        ret.leftBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_LEFT_FOUR"] != 0 or cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_LEFT_THREE"] != 0
+        ret.rightBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_RIGHT_FOUR"] != 0 or cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_RIGHT_THREE"] != 0
       else:
         ret.leftBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["FL_INDICATOR"] != 0 or cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_LEFT_TWO"] != 0
         ret.rightBlindspot = cp_.vl["BLINDSPOTS_REAR_CORNERS"]["FR_INDICATOR"] != 0 or cp_.vl["BLINDSPOTS_REAR_CORNERS"]["INDICATOR_RIGHT_TWO"] != 0
