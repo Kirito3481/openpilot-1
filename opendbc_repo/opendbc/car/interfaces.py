@@ -404,13 +404,29 @@ class CarInterfaceBase(ABC):
 
     return ret
 
-class RadarConfig:
-  ALPHA = 0.15
-  MAX_VLEAD_DIFF = 20.0
-  MAX_DREL_DIFF = 5.0
+class KalmanParams:
+  def __init__(self, dt: float):
+    """Kalman Filter Gain Lookup Table"""
+    assert dt > 0.01 and dt < 0.2, "Radar time step must be between 0.01s and 0.2s"
+    self.A = np.array([[1.0, dt], [0.0, 1.0]])  # State transition matrix
+    self.C = np.array([[1.0, 0.0]])  # Measurement matrix
+        
+    dts = [i * 0.01 for i in range(1, 21)]
+    K0 = [0.12287673, 0.14556536, 0.16522756, 0.18281627, 0.1988689,  0.21372394,
+          0.22761098, 0.24069424, 0.253096,   0.26491023, 0.27621103, 0.28705801,
+          0.29750003, 0.30757767, 0.31732515, 0.32677158, 0.33594201, 0.34485814,
+          0.35353899, 0.36200124]
+    K1 = [0.29666309, 0.29330885, 0.29042818, 0.28787125, 0.28555364, 0.28342219,
+          0.28144091, 0.27958406, 0.27783249, 0.27617149, 0.27458948, 0.27307714,
+          0.27162685, 0.27023228, 0.26888809, 0.26758976, 0.26633338, 0.26511557,
+          0.26393339, 0.26278425]
+
+    # Interpolated Kalman Gain
+    self.K = np.array([[np.interp(dt, dts, K0)], [np.interp(dt, dts, K1)]])
 
 class MyTrack:
-  def __init__(self, track_id: int, radar_point):
+  def __init__(self, track_id: int, radar_point, dt: float):
+    """Initialize the Kalman Filter with given dt"""
     self.track_id = track_id
     self.dRel = radar_point.dRel
     self.vRel = radar_point.vRel
@@ -418,54 +434,34 @@ class MyTrack:
     self.vLead = radar_point.vLead
     self.aLead = 0.0
     self.jLead = 0.0
-    self.filtered_vLead = self.vLead
-    self.filtered_aLead = 0.0
-    self.filtered_jLead = 0.0
-    self.cnt = 0  # 초기값 0
-    
+        
+    # Kalman Filter Setup
+    self.kf_params = KalmanParams(dt)
+    self.x = np.array([[self.vLead], [0.0]])  # Initial state [vLead, aLead]
+        
   def update(self, radar_point, dt: float):
+    """Update track using Kalman Filter"""
     self.yRel = radar_point.yRel
-    #new_vLead = v_ego + new_vRel    
     dRel_diff = abs(radar_point.dRel - self.dRel)
-    vLead_diff = abs(radar_point.vLead - self.vLead) * dt
 
-    if dRel_diff > RadarConfig.MAX_DREL_DIFF:
-      self.filtered_vLead = radar_point.vLead
-      self.filtered_aLead = 0.0
-      self.filtered_jLead = 0.0
-      self.cnt = 0  # 거리 변화가 크면 초기화
+    if dRel_diff > 5.0:  # Large distance jump, reset filter
+      self.x = np.array([[radar_point.vLead], [0.0]])
     else:
-      if vLead_diff > RadarConfig.MAX_VLEAD_DIFF:
-        self.filtered_vLead = radar_point.vLead
-        self.cnt = 0
-      else:
-        self.filtered_vLead = RadarConfig.ALPHA * radar_point.vLead + (1 - RadarConfig.ALPHA) * self.filtered_vLead
+      # Kalman Prediction Step
+      self.x = self.kf_params.A @ self.x
 
-      self.cnt += 1  # cnt 증가
+      # Measurement Update
+      y = np.array([[radar_point.vLead]])  # Measurement vector
+      self.x += self.kf_params.K @ (y - self.kf_params.C @ self.x)
 
-      if self.cnt > 2:  # 2 이상일 때 가속도 계산 (원래 1이상인데.. 이해못할 vLead초기 에러값이 있음, 아래 전반적으로 1씩 안정cnt를 증가함.)
-        aLead_new = (self.filtered_vLead - self.vLead) / dt
-        if self.cnt > 3:  # 2
-          self.filtered_aLead = RadarConfig.ALPHA * aLead_new + (1 - RadarConfig.ALPHA) * self.filtered_aLead
-        else:
-          self.filtered_aLead = aLead_new
-        
-        if self.cnt > 4:  # 3
-          jLead_new = (self.filtered_aLead - self.aLead) / dt
-          self.filtered_jLead = RadarConfig.ALPHA * jLead_new + (1 - RadarConfig.ALPHA) * self.filtered_jLead
-        else:
-          jLead_new = 0.0
-      else:
-        self.filtered_aLead = 0.0
-        self.filtered_jLead = 0.0
+    # Update states
+    self.vLead = self.x[0, 0]
+    self.aLead = self.x[1, 0]
+    self.jLead = (self.aLead - self.jLead) / dt  # Approximate jerk
 
-        
-    self.vLead = self.filtered_vLead
-    self.aLead = self.filtered_aLead
-    self.jLead = self.filtered_jLead
+    # Store latest values
     self.dRel = radar_point.dRel
     self.vRel = radar_point.vRel
-
     
 
 class RadarInterfaceBase(ABC):
