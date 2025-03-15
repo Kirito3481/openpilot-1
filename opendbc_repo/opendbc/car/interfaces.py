@@ -493,7 +493,7 @@ class RadarInterfaceBase(ABC):
       for addr, radar_point in self.pts.items():
         track_id = radar_point.trackId
         if track_id not in self.tracks:
-          new_tracks[track_id] = MyTrack(track_id, radar_point)
+          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt)
         else:
           new_tracks[track_id] = self.tracks[track_id]
           new_tracks[track_id].update(radar_point, self.dt)
