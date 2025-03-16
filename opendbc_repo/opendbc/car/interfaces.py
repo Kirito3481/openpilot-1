@@ -455,7 +455,7 @@ class MyTrack:
       self.kf.update(self.vLead)
 
     # Update states
-    aLead = float(self.kf.x[1, 0])
+    aLead = float(self.kf.x[1][0])
     jLead = np.clip((aLead - self.aLead) / self.dt, -10.0, 10.0)
     
     alpha = 0.2
