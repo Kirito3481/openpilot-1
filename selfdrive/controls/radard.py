@@ -62,7 +62,7 @@ class Track:
     self.dRel = 0.0
     self.vRel = 0.0
     self.vLead = v_lead
-    self.aLead = 0.0
+    self.aLead = self.aLeadK = 0.0
     self.jLead = 0.0
     self.radar_reaction_factor = Params().get_float("RadarReactionFactor") * 0.01
 
