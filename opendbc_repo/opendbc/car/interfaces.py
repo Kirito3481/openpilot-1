@@ -478,14 +478,24 @@ class RadarInterfaceBase(ABC):
     delay = CP.radarDelay
     self.v_ego_hist = deque([0.0], maxlen=int(round(delay / DT_CTRL)) + 1)
     self.v_ego = 0.0
-    self.last_timestamp = time.time()
-    self.dt = 0.05
-    self.kalman_params = KalmanParams(self.dt)
+    self.last_timestamp = None
+    self.dt = None
+    self.kalman_params = None
+
+    self.init_samples = []
+    self.init_done = False
+
+  def estimate_dt(self, rcv_time):
+    if len(self.init_samples) > 10:
+      estimated_dt = np.mean(np.diff(self.init_samples))
+      self.dt = estimated_dt
+      self.kalman_params = KalmanParams(self.dt)
+      self.init_done = True
+      print(f"Estimated radar dt: {self.dt} sec")
+    else:
+      self.init_samples.append(rcv_time)
      
   def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
-
-    self.last_timestamp = rcv_time
-    
     self.v_ego_hist.append(v_ego)
     self.v_ego = self.v_ego_hist[0]
     ret = self.update(can_packets)
@@ -497,6 +507,10 @@ class RadarInterfaceBase(ABC):
     # 동기를 맞추거나, 다른 방법을 찾아야 한다.(SCC의 경우 10msec 주기이기때문에 별 문제가 없을것 같긴하다.)
     # 차라리 여기에서 radard의 처리를 하여 radarState를 만들어서 보내주는게 나을수도 있다.(하지만, cpu사용량이 늘어날것이다.)
     if ret is not None:
+      if not self.init_done:
+        self.estimate_dt(rcv_time)
+        return None
+      
       new_tracks = {}
 
       for addr, radar_point in self.pts.items():
@@ -511,6 +525,11 @@ class RadarInterfaceBase(ABC):
         radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
+
+      #if self.last_timestamp is None or (rcv_time - self.last_timestamp) > (self.dt - 0.005):
+      #  self.last_timestamp = rcv_time
+      #  return ret
+      #return None
     return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
