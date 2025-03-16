@@ -486,9 +486,6 @@ class RadarInterfaceBase(ABC):
      
   def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
 
-    if (rcv_time - self.last_timestamp) < (self.dt - 0.005):
-      return self.last_radar_data
-
     self.last_timestamp = rcv_time
     
     self.v_ego_hist.append(v_ego)
