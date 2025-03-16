@@ -434,12 +434,13 @@ class MyTrack:
     self.vLead = radar_point.vLead
     self.aLead = 0.0
     self.jLead = 0.0
+    self.dt = dt
         
     # Kalman Filter Setup
     self.kf_params = KalmanParams(dt)
     self.x = np.array([[self.vLead], [0.0]])  # Initial state [vLead, aLead]
         
-  def update(self, radar_point, dt: float):
+  def update(self, radar_point):
     """Update track using Kalman Filter"""
     self.yRel = radar_point.yRel
     dRel_diff = abs(radar_point.dRel - self.dRel)
@@ -457,7 +458,7 @@ class MyTrack:
     # Update states
     self.vLead = self.x[0, 0]
     self.aLead = self.x[1, 0]
-    self.jLead = (self.aLead - self.jLead) / dt  # Approximate jerk
+    self.jLead = (self.aLead - self.jLead) / self.dt  # Approximate jerk
 
     # Store latest values
     self.dRel = radar_point.dRel
@@ -476,18 +477,21 @@ class RadarInterfaceBase(ABC):
     self.v_ego = 0.0
     self.last_timestamp = time.time()
     self.dt = 0.05
+
+    self.last_radar_data: structs.RadarDataT | None = None
      
   def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
+
+    if (rcv_time - self.last_timestamp) < (self.dt - 0.002):
+      return self.last_radar_data
+
+    self.last_timestamp = rcv_time
+    
     self.v_ego_hist.append(v_ego)
     self.v_ego = self.v_ego_hist[0]
     ret = self.update(can_packets)
 
     if ret is not None:
-      current_time = rcv_time #time.time()
-      dt = max(current_time - self.last_timestamp, 1e-3)
-      self.dt = self.dt * 0.98 + dt * 0.02
-      self.last_timestamp = current_time
-      #print(f"{rcv_time:.6f}, dt: {self.dt:.5f}")
       new_tracks = {}
 
       for addr, radar_point in self.pts.items():
@@ -496,12 +500,13 @@ class RadarInterfaceBase(ABC):
           new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt)
         else:
           new_tracks[track_id] = self.tracks[track_id]
-          new_tracks[track_id].update(radar_point, self.dt)
+          new_tracks[track_id].update(radar_point)
 
         radar_point.aLead = float(new_tracks[track_id].aLead)
         radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
+    self.last_radar_data = ret
     return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
