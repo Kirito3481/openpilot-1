@@ -408,8 +408,8 @@ class KalmanParams:
   def __init__(self, dt: float):
     """Kalman Filter Gain Lookup Table"""
     assert dt > 0.01 and dt < 0.2, "Radar time step must be between 0.01s and 0.2s"
-    self.A = np.array([[1.0, dt], [0.0, 1.0]])  # State transition matrix
-    self.C = np.array([[1.0, 0.0]])  # Measurement matrix
+    self.A = [[1.0, dt], [0.0, 1.0]]
+    self.C = [1.0, 0.0]
         
     dts = [i * 0.01 for i in range(1, 21)]
     K0 = [0.12287673, 0.14556536, 0.16522756, 0.18281627, 0.1988689,  0.21372394,
