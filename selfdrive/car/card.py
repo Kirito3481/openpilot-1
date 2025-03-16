@@ -171,6 +171,8 @@ class Car:
     can_strs = messaging.drain_sock_raw(self.can_sock, wait_for_one=True)
     can_list = can_capnp_to_list(can_strs)
 
+    rcv_time = time.time()
+
     # Update carState from CAN
     CS = self.CI.update(can_list)
     if self.CP.brand == 'mock':
@@ -190,7 +192,7 @@ class Car:
     if can_rcv_valid and REPLAY:
       self.can_log_mono_time = messaging.log_from_bytes(can_strs[0]).logMonoTime
 
-    RD: structs.RadarDataT | None = self.RI.update_carrot(CS.vEgo, can_list)
+    RD: structs.RadarDataT | None = self.RI.update_carrot(CS.vEgo, rcv_time, can_list)
 
     #self.v_cruise_helper.update_v_cruise(CS, self.sm['carControl'].enabled, self.is_metric)
     self.v_cruise_helper.update_v_cruise(CS, self.sm, self.is_metric)

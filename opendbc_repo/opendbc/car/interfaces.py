@@ -404,21 +404,114 @@ class CarInterfaceBase(ABC):
 
     return ret
 
+class KalmanParams:
+  def __init__(self, dt: float):
+    """Kalman Filter Gain Lookup Table"""
+    assert dt > 0.01 and dt < 0.2, "Radar time step must be between 0.01s and 0.2s"
+    self.A = [[1.0, dt], [0.0, 1.0]]
+    self.C = [1.0, 0.0]
+        
+    dts = [i * 0.01 for i in range(1, 21)]
+    K0 = [0.12287673, 0.14556536, 0.16522756, 0.18281627, 0.1988689,  0.21372394,
+          0.22761098, 0.24069424, 0.253096,   0.26491023, 0.27621103, 0.28705801,
+          0.29750003, 0.30757767, 0.31732515, 0.32677158, 0.33594201, 0.34485814,
+          0.35353899, 0.36200124]
+    K1 = [0.29666309, 0.29330885, 0.29042818, 0.28787125, 0.28555364, 0.28342219,
+          0.28144091, 0.27958406, 0.27783249, 0.27617149, 0.27458948, 0.27307714,
+          0.27162685, 0.27023228, 0.26888809, 0.26758976, 0.26633338, 0.26511557,
+          0.26393339, 0.26278425]
+
+    # Interpolated Kalman Gain
+    self.K = np.array([[np.interp(dt, dts, K0)], [np.interp(dt, dts, K1)]])
+
+class MyTrack:
+  def __init__(self, track_id: int, radar_point, dt: float, kalman_params: KalmanParams):
+    """Initialize the Kalman Filter with given dt"""
+    self.track_id = track_id
+    self.cnt = 0
+    self.dRel = radar_point.dRel
+    self.vRel = radar_point.vRel
+    self.yRel = radar_point.yRel
+    self.vLead = radar_point.vLead
+    self.aLead = 0.0
+    self.jLead = 0.0
+    self.dt = dt
+
+    self.K_A = kalman_params.A
+    self.K_C = kalman_params.C
+    self.K_K = kalman_params.K
+    self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
+        
+  def update(self, radar_point):
+    self.vLead = radar_point.vLead
+    if abs(radar_point.dRel - self.dRel) > 3.0 or abs(self.vRel - radar_point.vRel) > 20.0 * self.dt:
+      self.cnt = 0
+      self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
+      self.jLead = 0.0
+      self.aLead = 0.0
+
+    self.yRel = radar_point.yRel
+    if self.cnt > 0:
+      self.kf.update(self.vLead)
+
+    # Update states
+    aLead = float(self.kf.x[1][0])
+    jLead = np.clip((aLead - self.aLead) / self.dt, -10.0, 10.0)
+    
+    alpha = 0.2
+    self.jLead = alpha * jLead + (1 - alpha) * self.jLead
+    self.aLead = aLead
+
+    # Store latest values
+    self.dRel = radar_point.dRel
+    self.vRel = radar_point.vRel
+    self.cnt += 1
+    
+
 class RadarInterfaceBase(ABC):
   def __init__(self, CP: structs.CarParams):
     self.CP = CP
     self.rcp = None
+    self.tracks: dict[int, MyTrack] = {}
     self.pts: dict[int, structs.RadarData.RadarPoint] = {}
     self.frame = 0
     delay = CP.radarDelay
     self.v_ego_hist = deque([0.0], maxlen=int(round(delay / DT_CTRL)) + 1)
     self.v_ego = 0.0
+    self.last_timestamp = time.time()
+    self.dt = 0.05
+    self.kalman_params = KalmanParams(self.dt)
+
+    self.last_radar_data: structs.RadarDataT | None = None
      
-  def update_carrot(self, v_ego, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
+  def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
+
+    if (rcv_time - self.last_timestamp) < (self.dt - 0.005):
+      return self.last_radar_data
+
+    self.last_timestamp = rcv_time
     
     self.v_ego_hist.append(v_ego)
     self.v_ego = self.v_ego_hist[0]
-    return  self.update(can_packets)
+    ret = self.update(can_packets)
+
+    if ret is not None:
+      new_tracks = {}
+
+      for addr, radar_point in self.pts.items():
+        track_id = radar_point.trackId
+        if track_id not in self.tracks:
+          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt, self.kalman_params)
+        else:
+          new_tracks[track_id] = self.tracks[track_id]
+        new_tracks[track_id].update(radar_point)
+
+        radar_point.aLead = float(new_tracks[track_id].aLead)
+        radar_point.jLead = float(new_tracks[track_id].jLead)
+                
+      self.tracks = new_tracks
+    self.last_radar_data = ret
+    return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
     self.frame += 1
