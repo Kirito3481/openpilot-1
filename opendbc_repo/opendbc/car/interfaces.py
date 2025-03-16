@@ -481,8 +481,6 @@ class RadarInterfaceBase(ABC):
     self.last_timestamp = time.time()
     self.dt = 0.05
     self.kalman_params = KalmanParams(self.dt)
-
-    self.last_radar_data: structs.RadarDataT | None = None
      
   def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
 
@@ -492,6 +490,12 @@ class RadarInterfaceBase(ABC):
     self.v_ego = self.v_ego_hist[0]
     ret = self.update(can_packets)
 
+    # radar points 들이 다 모였을때. None이 아닌값이 나온다.
+    # SCC의 경우 10msec 주기로 매번 radar points가 들어온다.
+    # RadarTrack의 경우 50msec 주기로 radar points가 들어온다. 따라서, 4번은 None이 나온다.
+    # comma는 radard에서 model을 poll하여 데이터를 처리하는데, 주기가 매치되지 않는경우가 있다.
+    # 동기를 맞추거나, 다른 방법을 찾아야 한다.(SCC의 경우 10msec 주기이기때문에 별 문제가 없을것 같긴하다.)
+    # 차라리 여기에서 radard의 처리를 하여 radarState를 만들어서 보내주는게 나을수도 있다.(하지만, cpu사용량이 늘어날것이다.)
     if ret is not None:
       new_tracks = {}
 
@@ -507,7 +511,6 @@ class RadarInterfaceBase(ABC):
         radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
-    self.last_radar_data = ret
     return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
