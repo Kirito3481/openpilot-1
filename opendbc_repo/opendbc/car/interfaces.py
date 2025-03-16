@@ -425,9 +425,10 @@ class KalmanParams:
     self.K = np.array([[np.interp(dt, dts, K0)], [np.interp(dt, dts, K1)]])
 
 class MyTrack:
-  def __init__(self, track_id: int, radar_point, dt: float):
+  def __init__(self, track_id: int, radar_point, dt: float, kalman_params: KalmanParams):
     """Initialize the Kalman Filter with given dt"""
     self.track_id = track_id
+    self.cnt = 0
     self.dRel = radar_point.dRel
     self.vRel = radar_point.vRel
     self.yRel = radar_point.yRel
@@ -435,34 +436,36 @@ class MyTrack:
     self.aLead = 0.0
     self.jLead = 0.0
     self.dt = dt
-        
-    # Kalman Filter Setup
-    self.kf_params = KalmanParams(dt)
-    self.x = np.array([[self.vLead], [0.0]])  # Initial state [vLead, aLead]
+
+    self.K_A = kalman_params.A
+    self.K_C = kalman_params.C
+    self.K_K = kalman_params.K
+    self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
         
   def update(self, radar_point):
-    """Update track using Kalman Filter"""
+    self.vLead = radar_point.vLead
+    if abs(radar_point.dRel - self.dRel) > 3.0 or abs(self.vRel - radar_point.vRel) > 20.0 * self.dt:
+      self.cnt = 0
+      self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
+      self.jLead = 0.0
+      self.aLead = 0.0
+
     self.yRel = radar_point.yRel
-    dRel_diff = abs(radar_point.dRel - self.dRel)
-
-    if dRel_diff > 5.0:  # Large distance jump, reset filter
-      self.x = np.array([[radar_point.vLead], [0.0]])
-    else:
-      # Kalman Prediction Step
-      self.x = self.kf_params.A @ self.x
-
-      # Measurement Update
-      y = np.array([[radar_point.vLead]])  # Measurement vector
-      self.x += self.kf_params.K @ (y - self.kf_params.C @ self.x)
+    if self.cnt > 0:
+      self.kf.update(self.vLead)
 
     # Update states
-    self.vLead = self.x[0, 0]
-    self.aLead = self.x[1, 0]
-    self.jLead = (self.aLead - self.jLead) / self.dt  # Approximate jerk
+    aLead = float(self.kf.x[1, 0])
+    jLead = np.clip((aLead - self.aLead) / self.dt, -10.0, 10.0)
+    
+    alpha = 0.2
+    self.jLead = alpha * jLead + (1 - alpha) * self.jLead
+    self.aLead = aLead
 
     # Store latest values
     self.dRel = radar_point.dRel
     self.vRel = radar_point.vRel
+    self.cnt += 1
     
 
 class RadarInterfaceBase(ABC):
@@ -477,6 +480,7 @@ class RadarInterfaceBase(ABC):
     self.v_ego = 0.0
     self.last_timestamp = time.time()
     self.dt = 0.05
+    self.kalman_params = KalmanParams(self.dt)
 
     self.last_radar_data: structs.RadarDataT | None = None
      
@@ -497,10 +501,10 @@ class RadarInterfaceBase(ABC):
       for addr, radar_point in self.pts.items():
         track_id = radar_point.trackId
         if track_id not in self.tracks:
-          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt)
+          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt, self.kalman_params)
         else:
           new_tracks[track_id] = self.tracks[track_id]
-          new_tracks[track_id].update(radar_point)
+        new_tracks[track_id].update(radar_point)
 
         radar_point.aLead = float(new_tracks[track_id].aLead)
         radar_point.jLead = float(new_tracks[track_id].jLead)
