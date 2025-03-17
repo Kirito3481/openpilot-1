@@ -404,6 +404,9 @@ class CarInterfaceBase(ABC):
 
     return ret
 
+_LEAD_ACCEL_TAU = 1.5
+RADAR_TO_CAMERA = 1.52  # RADAR is ~ 1.5m ahead from center of mesh frame
+
 class KalmanParams:
   def __init__(self, dt: float):
     """Kalman Filter Gain Lookup Table"""
@@ -465,8 +468,8 @@ class MyTrack:
     # Store latest values
     self.dRel = radar_point.dRel
     self.vRel = radar_point.vRel
+
     self.cnt += 1
-    
 
 class RadarInterfaceBase(ABC):
   def __init__(self, CP: structs.CarParams):
@@ -486,7 +489,7 @@ class RadarInterfaceBase(ABC):
     self.init_done = False
 
   def estimate_dt(self, rcv_time):
-    if len(self.init_samples) > 10:
+    if len(self.init_samples) > 20:
       estimated_dt = np.mean(np.diff(self.init_samples))
       self.dt = estimated_dt
       self.kalman_params = KalmanParams(self.dt)
@@ -494,25 +497,19 @@ class RadarInterfaceBase(ABC):
       print(f"Estimated radar dt: {self.dt} sec")
     else:
       self.init_samples.append(rcv_time)
+
      
   def update_carrot(self, v_ego, rcv_time, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
     self.v_ego_hist.append(v_ego)
     self.v_ego = self.v_ego_hist[0]
     ret = self.update(can_packets)
 
-    # radar points 들이 다 모였을때. None이 아닌값이 나온다.
-    # SCC의 경우 10msec 주기로 매번 radar points가 들어온다.
-    # RadarTrack의 경우 50msec 주기로 radar points가 들어온다. 따라서, 4번은 None이 나온다.
-    # comma는 radard에서 model을 poll하여 데이터를 처리하는데, 주기가 매치되지 않는경우가 있다.
-    # 동기를 맞추거나, 다른 방법을 찾아야 한다.(SCC의 경우 10msec 주기이기때문에 별 문제가 없을것 같긴하다.)
-    # 차라리 여기에서 radard의 처리를 하여 radarState를 만들어서 보내주는게 나을수도 있다.(하지만, cpu사용량이 늘어날것이다.)
     if ret is not None:
       if not self.init_done:
         self.estimate_dt(rcv_time)
         return None
-      
-      new_tracks = {}
 
+      new_tracks = {}
       for addr, radar_point in self.pts.items():
         track_id = radar_point.trackId
         if track_id not in self.tracks:
@@ -526,10 +523,10 @@ class RadarInterfaceBase(ABC):
                 
       self.tracks = new_tracks
 
-      #if self.last_timestamp is None or (rcv_time - self.last_timestamp) > (self.dt - 0.005):
-      #  self.last_timestamp = rcv_time
-      #  return ret
-      #return None
+      if self.last_timestamp is not None and (rcv_time - self.last_timestamp) < 0.045:  # 0.05 - 0.005 
+        return None
+      self.last_timestamp = rcv_time
+      
     return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
