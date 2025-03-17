@@ -522,7 +522,7 @@ class RadarInterfaceBase(ABC):
         radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
-
+      """
       if self.last_timestamp is not None:
         print(f"dt1 = {rcv_time - self.last_timestamp:.6f}")
       if self.last_timestamp is not None and (rcv_time - self.last_timestamp) < 0.045:  # 0.05 - 0.005
@@ -532,7 +532,7 @@ class RadarInterfaceBase(ABC):
       if self.last_timestamp is not None:
         print(f"dt2 = {rcv_time - self.last_timestamp:.6f}")
       self.last_timestamp = rcv_time
-      
+      """
     return ret
 
   def update(self, can_packets: list[tuple[int, list[CanData]]]) -> structs.RadarDataT | None:
