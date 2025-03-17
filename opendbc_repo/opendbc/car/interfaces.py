@@ -523,10 +523,14 @@ class RadarInterfaceBase(ABC):
                 
       self.tracks = new_tracks
 
-      if self.last_timestamp is not None and (rcv_time - self.last_timestamp) < 0.045:  # 0.05 - 0.005 
+      if self.last_timestamp is not None:
+        print(f"dt1 = {rcv_time - self.last_timestamp:.6f}")
+      if self.last_timestamp is not None and (rcv_time - self.last_timestamp) < 0.045:  # 0.05 - 0.005
+        if self.last_timestamp is not None:
+          print(f"dt3 = {rcv_time - self.last_timestamp:.6f}")
         return None
       if self.last_timestamp is not None:
-        print(f"dt = {rcv_time - self.last_timestamp:.6f}")
+        print(f"dt2 = {rcv_time - self.last_timestamp:.6f}")
       self.last_timestamp = rcv_time
       
     return ret
