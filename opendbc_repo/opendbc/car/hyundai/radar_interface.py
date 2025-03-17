@@ -6,6 +6,7 @@ from opendbc.car.interfaces import RadarInterfaceBase
 from opendbc.car.hyundai.values import DBC, HyundaiFlags
 from openpilot.common.params import Params
 from opendbc.car.hyundai.hyundaicanfd import CanBus
+from openpilot.common.filter_simple import MyMovingAverage
 
 RADAR_START_ADDR = 0x500
 RADAR_MSG_COUNT = 32
@@ -47,6 +48,9 @@ class RadarInterface(RadarInterfaceBase):
 
     self.radar_tracks = Params().get_int("EnableRadarTracks") >= 1
     self.rcp = get_radar_can_parser(CP, self.radar_tracks)
+
+    self.dRel_filter = MyMovingAverage(3)
+    self.vRel_filter = MyMovingAverage(3)
 
 
     self.canfd = True if CP.flags & HyundaiFlags.CANFD else False
@@ -127,6 +131,11 @@ class RadarInterface(RadarInterfaceBase):
           if ii not in self.pts:
             self.pts[ii] = structs.RadarData.RadarPoint()
             self.pts[ii].trackId = 0 #self.track_id
+            dRel = self.dRel_filter.set(dRel)
+            vRel = self.vRel_filter.set(vRel)
+          else:
+            dRel = self.dRel_filter.process(dRel)
+            vRel = self.vRel_filter.process(vRel)
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = 0
           self.pts[ii].vRel = vRel
@@ -146,6 +155,11 @@ class RadarInterface(RadarInterfaceBase):
           if ii not in self.pts:
             self.pts[ii] = structs.RadarData.RadarPoint()
             self.pts[ii].trackId = 0 #self.track_id
+            dRel = self.dRel_filter.set(dRel)
+            vRel = self.vRel_filter.set(vRel)
+          else:
+            dRel = self.dRel_filter.process(dRel)
+            vRel = self.vRel_filter.process(vRel)
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = -cpt["SCC11"]['ACC_ObjLatPos']  # in car frame's y axis, left is negative
           self.pts[ii].vRel = vRel
