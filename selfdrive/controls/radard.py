@@ -90,7 +90,7 @@ def laplacian_pdf(x: float, mu: float, b: float):
   diff = abs(x - mu) / max(b, 1e-4)
   return 0.0 if diff > 50.0 else math.exp(-diff)
 
-def match_vision_to_track(self, lead: capnp._DynamicStructReader, tracks: dict[int, MyTrack], dt: float) -> MyTrack | None:
+def match_vision_to_track(v_ego: float, lead: capnp._DynamicStructReader, tracks: dict[int, Track]):
   offset_vision_dist = lead.dRel - RADAR_TO_CAMERA
   vel_tolerance = 25.0 if lead.prob > 0.99 else 10.0
   max_offset_vision_dist = max(offset_vision_dist * 0.35, 5.0)    
