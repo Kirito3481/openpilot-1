@@ -525,6 +525,7 @@ class RadarInterfaceBase(ABC):
 
       if self.last_timestamp is not None and (rcv_time - self.last_timestamp) < 0.045:  # 0.05 - 0.005 
         return None
+      print(f"dt = {rcv_time - self.last_timestamp:.6f}")
       self.last_timestamp = rcv_time
       
     return ret
