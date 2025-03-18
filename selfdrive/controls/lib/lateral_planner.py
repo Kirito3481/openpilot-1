@@ -201,12 +201,11 @@ class LateralPlanner:
     else:
       self.solution_invalid_cnt = 0
 
-  def shift(self, arr, shift_amount):
-    if shift_amount == 0:
-      return arr.copy()
-    shifted = np.roll(arr, -shift_amount)
-    shifted[-shift_amount:] = shifted[-shift_amount - 1]
-    return shifted
+  def shift(self, arr, time_shift):
+    new_t_idxs = self.t_idxs + time_shift
+
+    shifted_arr = np.interp(new_t_idxs, self.t_idxs, arr, left=arr[0], right=arr[-1])
+    return shifted_arr
   
   def update_curvature(self):
     curvatures = self.lat_mpc.x_sol[:, 3]/self.v_ego
@@ -218,7 +217,9 @@ class LateralPlanner:
 
     self.curvatures_history.append(curvatures)
     if len(self.curvatures_history) == self.carrotLat3:
-      shifted_curvatures = [self.shift(self.curvatures_history[i], i) for i in range(self.carrotLat3)]
+      shifted_curvatures = [
+        self.shift(self.curvature_history[i], i  * DT_MDL) for i in range(self.carrotLat3)
+      ]
       avg_curvatures = np.mean(shifted_curvatures, axis=0)
     else:
       return self.curvatures_history[0]
