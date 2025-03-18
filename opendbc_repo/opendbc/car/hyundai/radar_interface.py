@@ -54,12 +54,8 @@ class RadarInterface(RadarInterfaceBase):
       self.rcp = get_radar_can_parser_scc(CP)
       self.trigger_msg = 416 if self.canfd else 0x420
 
-    if self.canfd:
-      self.dRel_filter = MyMovingAverage(5)
-      self.vRel_filter = MyMovingAverage(5)
-    else:
-      self.dRel_filter = MyMovingAverage(3)
-      self.vRel_filter = MyMovingAverage(3)
+    self.dRel_filter = MyMovingAverage(5)
+    self.vRel_filter = MyMovingAverage(5)
 
 
   def update(self, can_strings):
