@@ -218,7 +218,7 @@ class LateralPlanner:
     self.curvatures_history.append(curvatures)
     if len(self.curvatures_history) == self.carrotLat3:
       shifted_curvatures = [
-        self.shift(self.curvature_history[i], i  * DT_MDL) for i in range(self.carrotLat3)
+        self.shift(self.curvatures_history[i], i  * DT_MDL) for i in range(self.carrotLat3)
       ]
       avg_curvatures = np.mean(shifted_curvatures, axis=0)
     else:
