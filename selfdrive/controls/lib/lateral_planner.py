@@ -213,7 +213,7 @@ class LateralPlanner:
     carrotLat3 = self.params.get_int("CarrotLatControl3")
     if carrotLat3 != self.carrotLat3:
       self.carrotLat3 = carrotLat3
-      self.curvatures_history = deque(maxlen=self.carrotLat3)
+      self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
 
     self.curvatures_history.append(curvatures)
     if len(self.curvatures_history) == self.carrotLat3:
