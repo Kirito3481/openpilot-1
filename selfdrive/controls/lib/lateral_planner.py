@@ -72,8 +72,8 @@ class LateralPlanner:
     self.reset_mpc(np.zeros(4))
     self.curve_speed = 0
 
-    self.carrotLat3 = max(self.params.get_int("CarrotLatControl3"), 1)
-    self.curvatures_history = deque(maxlen=self.carrotLat3)
+    self.carrotLat3 = self.params.get_int("CarrotLatControl3")
+    self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
     
 
   def reset_mpc(self, x0=None):
