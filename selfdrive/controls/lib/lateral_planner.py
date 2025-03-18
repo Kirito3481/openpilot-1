@@ -71,6 +71,9 @@ class LateralPlanner:
     self.lat_mpc = LateralMpc()
     self.reset_mpc(np.zeros(4))
     self.curve_speed = 0
+
+    self.carrotLat3 = max(self.params.get_int("CarrotLatControl3"), 1)
+    self.curvatures_history = deque(maxlen=self.carrotLat3)
     
 
   def reset_mpc(self, x0=None):
@@ -198,6 +201,29 @@ class LateralPlanner:
     else:
       self.solution_invalid_cnt = 0
 
+  def shift(self, arr, shift_amount):
+    if shift_amount == 0:
+      return arr.copy()
+    shifted = np.roll(arr, -shift_amount)
+    shifted[-shift_amount:] = shifted[-shift_amount - 1]
+    return shifted
+  
+  def update_curvature(self):
+    curvatures = self.lat_mpc.x_sol[:, 3]/self.v_ego
+
+    carrotLat3 = self.params.get_int("CarrotLatControl3")
+    if carrotLat3 != self.carrotLat3:
+      self.carrotLat3 = carrotLat3
+      self.curvatures_history = deque(maxlen=self.carrotLat3)
+
+    self.curvatures_history.append(curvatures)
+    if len(self.curvatures_history) == self.carrotLat3:
+      shifted_curvatures = [self.shift(self.curvatures_history[i], i) for i in range(self.carrotLat3)]
+      avg_curvatures = np.mean(shifted_curvatures, axis=0)
+    else:
+      return self.curvatures_history[0]
+    return avg_curvatures
+  
   def publish(self, sm, pm, carrot):
     plan_solution_valid = self.solution_invalid_cnt < 2
     plan_send = messaging.new_message('lateralPlan')
@@ -214,7 +240,10 @@ class LateralPlanner:
     lateralPlan.dPathPoints = self.y_pts.tolist()
     lateralPlan.psis = self.lat_mpc.x_sol[0:CONTROL_N, 2].tolist()
 
-    lateralPlan.curvatures = (self.lat_mpc.x_sol[0:CONTROL_N, 3]/self.v_ego).tolist()
+    if self.carrotLat3 == 0:
+      lateralPlan.curvatures = (self.lat_mpc.x_sol[0:CONTROL_N, 3]/self.v_ego).tolist()
+    else:
+      lateralPlan.curvatures = self.update_curvature()[0:CONTROL_N].tolist()
     lateralPlan.curvatureRates = [float(x.item() / self.v_ego) for x in self.lat_mpc.u_sol[0:CONTROL_N - 1]] + [0.0]
 
     lateralPlan.mpcSolutionValid = bool(plan_solution_valid)
