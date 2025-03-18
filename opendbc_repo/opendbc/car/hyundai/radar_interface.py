@@ -49,14 +49,18 @@ class RadarInterface(RadarInterfaceBase):
     self.radar_tracks = Params().get_int("EnableRadarTracks") >= 1
     self.rcp = get_radar_can_parser(CP, self.radar_tracks)
 
-    self.dRel_filter = MyMovingAverage(3)
-    self.vRel_filter = MyMovingAverage(3)
-
-
     self.canfd = True if CP.flags & HyundaiFlags.CANFD else False
     if not self.radar_tracks:
       self.rcp = get_radar_can_parser_scc(CP)
       self.trigger_msg = 416 if self.canfd else 0x420
+
+    if self.canfd:
+      self.dRel_filter = MyMovingAverage(5)
+      self.vRel_filter = MyMovingAverage(5)
+    else:
+      self.dRel_filter = MyMovingAverage(3)
+      self.vRel_filter = MyMovingAverage(3)
+
 
   def update(self, can_strings):
     if self.radar_off_can or (self.rcp is None):
