@@ -450,9 +450,8 @@ class MyTrack:
     self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
         
   def update(self, radar_point):
-    vLead = (radar_point.vLead + self.vLead) / 2.0
-    accel_raw = (vLead - self.vLead) / self.dt
-    self.vLead = vLead
+    accel_raw = (radar_point.vLead - self.vLead) / self.dt
+    self.vLead = radar_point.vLead
     if abs(radar_point.dRel - self.dRel) > 3.0 or abs(self.vRel - radar_point.vRel) > 20.0 * self.dt:
       self.cnt = 0
       self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
@@ -462,15 +461,13 @@ class MyTrack:
       accel_raw = 0.0
       self.vLead_history.clear()
       self.aLead_history.clear()
-      self.vLead = radar_point.vLead
 
     self.yRel = radar_point.yRel
     if self.cnt > 0:
       self.kf.update(self.vLead)
-
         
     self.vLead_history.append(self.vLead)
-    if len(self.vLead_history) == self.N and accel_raw == 0.0:
+    if len(self.vLead_history) >= 2:
       accel_raw = np.clip(np.mean(np.diff(self.vLead_history)), -2.0, 2.0) / self.dt
 
     alpha = 0.15
