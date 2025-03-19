@@ -479,7 +479,7 @@ class MyTrack:
 
     self.aLead_history.append(self.aLead)
     if len(self.aLead_history) == self.N:
-      self.jLead = np.clip(np.mean(np.diff(self.aLead_history)) / self.dt, -5.0, 5.0)
+      jLead = np.clip(np.mean(np.diff(self.aLead_history)) / self.dt, -5.0, 5.0)
     else:
       jLead = 0.0
 
