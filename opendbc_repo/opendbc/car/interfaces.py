@@ -442,6 +442,7 @@ class MyTrack:
     self.dt = dt
     self.N = 7
     self.vLead_history = deque(maxlen=self.N)
+    self.aLead_history = deque(maxlen=self.N)
 
     self.K_A = kalman_params.A
     self.K_C = kalman_params.C
@@ -459,6 +460,7 @@ class MyTrack:
       self.aLead = 0.0
       accel_raw = 0.0
       self.vLead_history.clear()
+      self.aLead_history.clear()
 
     self.yRel = radar_point.yRel
     if self.cnt > 0:
@@ -471,11 +473,16 @@ class MyTrack:
 
     alpha = 0.2
     self.aLead = alpha * accel_raw + (1 - alpha) * self.aLead
-    aLeadK = float(self.kf.x[1][0])
-    jLead = np.clip((aLeadK - self.aLeadK) / self.dt, -10.0, 10.0)
-    
-    self.jLead = alpha * jLead + (1 - alpha) * self.jLead
-    self.aLeadK = aLeadK
+    self.aLeadK = float(self.kf.x[1][0])
+
+    self.aLead_history.append(self.aLead)
+    if len(self.aLead_history) >= 2:
+      jLead = np.clip(np.mean(np.diff(self.aLead_history)), -2.0, 2.0) / self.dt
+    else:
+      jLead = 0.0
+
+    #self.jLead = alpha * jLead + (1 - alpha) * self.jLead
+    self.jLead = jLead  
 
     # Store latest values
     self.dRel = radar_point.dRel
@@ -530,7 +537,7 @@ class RadarInterfaceBase(ABC):
           new_tracks[track_id] = self.tracks[track_id]
         new_tracks[track_id].update(radar_point)
 
-        radar_point.aLead = float(new_tracks[track_id].aLeadK)
+        radar_point.aLead = float(new_tracks[track_id].aLead)
         radar_point.jLead = float(new_tracks[track_id].jLead)
                 
       self.tracks = new_tracks
