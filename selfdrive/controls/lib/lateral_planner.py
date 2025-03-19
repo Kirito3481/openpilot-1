@@ -216,13 +216,11 @@ class LateralPlanner:
       self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
 
     self.curvatures_history.append(curvatures)
-    if len(self.curvatures_history) == self.carrotLat3:
-      shifted_curvatures = [
-        self.shift(self.curvatures_history[i], i  * DT_MDL) for i in range(self.carrotLat3)
-      ]
-      avg_curvatures = np.mean(shifted_curvatures, axis=0)
-    else:
-      return self.curvatures_history[0]
+    length = len(self.curvatures_history)
+    shifted_curvatures = [
+      self.shift(self.curvatures_history[i], (length - 1 - i)  * DT_MDL) for i in range(length)
+    ]
+    avg_curvatures = np.mean(shifted_curvatures, axis=0)
     return avg_curvatures
   
   def publish(self, sm, pm, carrot):
