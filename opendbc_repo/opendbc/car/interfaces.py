@@ -415,11 +415,12 @@ class MyTrack:
     self.aLead = 0.0
     self.jLead = 0.0
     self.dt = dt
-    self.vN = 7
-    self.aN = 12
-    self.ema_alpha = 0.3
+    self.vN = 8
+    self.aN = 15
+    self.jN = 10
     self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
     self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
+    self.jLead_history = deque([self.jLead] * self.jN, maxlen=self.jN)
         
   def update(self, radar_point):
     self.vLead = radar_point.vLead
@@ -429,23 +430,19 @@ class MyTrack:
       self.aLead = 0.0
       self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
       self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
+      self.jLead_history = deque([self.jLead] * self.jN, maxlen=self.jN)
 
     self.yRel = radar_point.yRel
         
     self.vLead_history.append(self.vLead)
     
-    a_raw = (self.vLead - self.vLead_history[-2]) / self.dt
-    a_moving_avg = np.mean(np.diff(self.vLead_history)) / self.dt
-    a_ema = (self.ema_alpha * a_raw) + ((1 - self.ema_alpha) * a_moving_avg)
+    aLead_raw = (self.vLead - self.vLead_history[-2]) / self.dt
+    self.aLead_history.append(aLead_raw)
+    self.aLead = np.mean(self.aLead_history)
 
-    self.aLead = a_ema  # 최종 가속도 반영
-    self.aLead_history.append(self.aLead)
-
-    j_raw = (self.aLead - self.aLead_history[-2]) / self.dt
-    j_moving_avg = np.mean(np.diff(self.aLead_history)) / self.dt
-    j_ema = (self.ema_alpha * j_raw) + ((1 - self.ema_alpha) * j_moving_avg)
-
-    self.jLead = j_ema 
+    jLead_raw = (self.aLead - self.aLead_history[-2]) / self.dt
+    self.jLead_history.append(jLead_raw)
+    self.jLead = np.mean(self.jLead_history)
 
     # Store latest values
     self.dRel = radar_point.dRel
