@@ -22,7 +22,7 @@ from opendbc.car.values import PLATFORMS
 from opendbc.can.parser import CANParser
 
 from openpilot.common.params import Params
-from openpilot.common.filter_simple import MyMovingAverage
+from openpilot.common.filter_simple import FirstOrderFilter
 
 GearShifter = structs.CarState.GearShifter
 ButtonType = structs.CarState.ButtonEvent.Type
@@ -417,9 +417,9 @@ class MyTrack:
     self.aLead = 0.0
     self.jLead = 0.0
     self.dt = dt
-    self.vLead_avg = MyMovingAverage(int(0.2 / self.dt), self.vLead)
-    self.aLead_avg = MyMovingAverage(int(0.2 / self.dt), self.aLead)
-    self.jLead_avg = MyMovingAverage(int(0.2 / self.dt), self.jLead)
+    self.vLead_avg = FirstOrderFilter(self.vLead, 0.1, self.dt)
+    self.aLead_avg = FirstOrderFilter(self.aLead, 0.2, self.dt)
+    self.jLead_avg = FirstOrderFilter(self.jLead, 0.5, self.dt)
         
   def update(self, radar_point):
     self.vLead = radar_point.vLead
@@ -427,22 +427,22 @@ class MyTrack:
       self.cnt = 0
       self.jLead = 0.0
       self.aLead = 0.0
-      self.vLead_avg.set_all(self.vLead)
-      self.aLead_avg.set_all(self.aLead)
-      self.jLead_avg.set_all(self.jLead)
+      self.vLead_avg.x = self.vLead
+      self.aLead_avg.x = self.aLead
+      self.jLead_avg.x = self.jLead
       self.vLead_averaged = self.vLead
 
     self.yRel = radar_point.yRel
 
-    v_lead = self.vLead_avg.process(self.vLead)
+    v_lead = self.vLead_avg.update(self.vLead)
 
     a_raw = (v_lead - self.vLead_averaged) / self.dt
     self.vLead_averaged = v_lead
-    a_lead = self.aLead_avg.process(a_raw)
+    a_lead = self.aLead_avg.update(a_raw)
 
     j_lead = (self.aLead - a_lead) / self.dt
     self.aLead = a_lead
-    self.jLead = self.jLead_avg.process(j_lead)
+    self.jLead = self.jLead_avg.update(j_lead)
 
     # Store latest values
     self.dRel = radar_point.dRel
