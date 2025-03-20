@@ -22,6 +22,7 @@ from opendbc.car.values import PLATFORMS
 from opendbc.can.parser import CANParser
 
 from openpilot.common.params import Params
+from openpilot.common.filter_simple import MyMovingAverage
 
 GearShifter = structs.CarState.GearShifter
 ButtonType = structs.CarState.ButtonEvent.Type
@@ -412,15 +413,13 @@ class MyTrack:
     self.vRel = radar_point.vRel
     self.yRel = radar_point.yRel
     self.vLead = radar_point.vLead
+    self.vLead_averaged = self.vLead
     self.aLead = 0.0
     self.jLead = 0.0
     self.dt = dt
-    self.vN = 8
-    self.aN = 15
-    self.jN = 10
-    self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
-    self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
-    self.jLead_history = deque([self.jLead] * self.jN, maxlen=self.jN)
+    self.vLead_avg = MyMovingAverage(int(0.2 / self.dt), self.vLead)
+    self.aLead_avg = MyMovingAverage(int(0.2 / self.dt), self.aLead)
+    self.jLead_avg = MyMovingAverage(int(0.2 / self.dt), self.jLead)
         
   def update(self, radar_point):
     self.vLead = radar_point.vLead
@@ -428,21 +427,22 @@ class MyTrack:
       self.cnt = 0
       self.jLead = 0.0
       self.aLead = 0.0
-      self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
-      self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
-      self.jLead_history = deque([self.jLead] * self.jN, maxlen=self.jN)
+      self.vLead_avg.set_all(self.vLead)
+      self.aLead_avg.set_all(self.aLead)
+      self.jLead_avg.set_all(self.jLead)
+      self.vLead_averaged = self.vLead
 
     self.yRel = radar_point.yRel
-        
-    self.vLead_history.append(self.vLead)
-    
-    aLead_raw = (self.vLead - self.vLead_history[-2]) / self.dt
-    self.aLead_history.append(aLead_raw)
-    self.aLead = np.mean(self.aLead_history)
 
-    jLead_raw = (self.aLead - self.aLead_history[-2]) / self.dt
-    self.jLead_history.append(jLead_raw)
-    self.jLead = np.mean(self.jLead_history)
+    v_lead = self.vLead_avg.process(self.vLead)
+
+    a_raw = (v_lead - self.vLead_averaged) / self.dt
+    self.vLead_averaged = v_lead
+    a_lead = self.aLead_avg.process(a_raw)
+
+    j_lead = (self.aLead - a_lead) / self.dt
+    self.aLead = a_lead
+    self.jLead = self.jLead_avg.process(j_lead)
 
     # Store latest values
     self.dRel = radar_point.dRel
