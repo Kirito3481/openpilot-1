@@ -404,32 +404,8 @@ class CarInterfaceBase(ABC):
 
     return ret
 
-_LEAD_ACCEL_TAU = 1.5
-RADAR_TO_CAMERA = 1.52  # RADAR is ~ 1.5m ahead from center of mesh frame
-
-class KalmanParams:
-  def __init__(self, dt: float):
-    """Kalman Filter Gain Lookup Table"""
-    assert dt > 0.01 and dt < 0.2, "Radar time step must be between 0.01s and 0.2s"
-    self.A = [[1.0, dt], [0.0, 1.0]]
-    self.C = [1.0, 0.0]
-        
-    dts = [i * 0.01 for i in range(1, 21)]
-    K0 = [0.12287673, 0.14556536, 0.16522756, 0.18281627, 0.1988689,  0.21372394,
-          0.22761098, 0.24069424, 0.253096,   0.26491023, 0.27621103, 0.28705801,
-          0.29750003, 0.30757767, 0.31732515, 0.32677158, 0.33594201, 0.34485814,
-          0.35353899, 0.36200124]
-    K1 = [0.29666309, 0.29330885, 0.29042818, 0.28787125, 0.28555364, 0.28342219,
-          0.28144091, 0.27958406, 0.27783249, 0.27617149, 0.27458948, 0.27307714,
-          0.27162685, 0.27023228, 0.26888809, 0.26758976, 0.26633338, 0.26511557,
-          0.26393339, 0.26278425]
-
-    # Interpolated Kalman Gain
-    self.K = np.array([[np.interp(dt, dts, K0)], [np.interp(dt, dts, K1)]])
-
 class MyTrack:
-  def __init__(self, track_id: int, radar_point, dt: float, kalman_params: KalmanParams):
-    """Initialize the Kalman Filter with given dt"""
+  def __init__(self, track_id: int, radar_point, dt: float):
     self.track_id = track_id
     self.cnt = 0
     self.dRel = radar_point.dRel
@@ -437,50 +413,28 @@ class MyTrack:
     self.yRel = radar_point.yRel
     self.vLead = radar_point.vLead
     self.aLead = 0.0
-    self.aLeadK = 0.0
     self.jLead = 0.0
     self.dt = dt
-    self.N = 7
-    self.vLead_history = deque(maxlen=self.N)
-    self.aLead_history = deque(maxlen=self.N)
-
-    self.K_A = kalman_params.A
-    self.K_C = kalman_params.C
-    self.K_K = kalman_params.K
-    self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
+    self.vN = 7
+    self.aN = 12
+    self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
+    self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
         
   def update(self, radar_point):
-    accel_raw = (radar_point.vLead - self.vLead) / self.dt
     self.vLead = radar_point.vLead
     if abs(radar_point.dRel - self.dRel) > 3.0 or abs(self.vRel - radar_point.vRel) > 20.0 * self.dt:
       self.cnt = 0
-      self.kf = KF1D([[self.vLead], [0.0]], self.K_A, self.K_C, self.K_K)
       self.jLead = 0.0
-      self.aLeadK = 0.0
       self.aLead = 0.0
-      accel_raw = 0.0
-      self.vLead_history.clear()
-      self.aLead_history.clear()
+      self.vLead_history = deque([self.vLead] * self.vN, maxlen=self.vN)
+      self.aLead_history = deque([self.aLead] * self.aN, maxlen=self.aN)
 
     self.yRel = radar_point.yRel
-    if self.cnt > 0:
-      self.kf.update(self.vLead)
         
     self.vLead_history.append(self.vLead)
-    if len(self.vLead_history) >= 2:
-      accel_raw = np.clip(np.mean(np.diff(self.vLead_history)), -2.0, 2.0) / self.dt
-
-    alpha = 0.15
-    self.aLead = alpha * accel_raw + (1 - alpha) * self.aLead
-    self.aLeadK = float(self.kf.x[1][0])
-
+    self.aLead = np.mean(np.diff(self.vLead_history)) / self.dt
     self.aLead_history.append(self.aLead)
-    if len(self.aLead_history) == self.N:
-      jLead = np.clip(np.mean(np.diff(self.aLead_history)) / self.dt, -5.0, 5.0)
-    else:
-      jLead = 0.0
-
-    self.jLead = alpha * jLead + (1 - alpha) * self.jLead
+    self.jLead = np.mean(np.diff(self.aLead_history)) / self.dt
 
     # Store latest values
     self.dRel = radar_point.dRel
@@ -500,7 +454,6 @@ class RadarInterfaceBase(ABC):
     self.v_ego = 0.0
     self.last_timestamp = None
     self.dt = None
-    self.kalman_params = None
 
     self.init_samples = []
     self.init_done = False
@@ -509,7 +462,6 @@ class RadarInterfaceBase(ABC):
     if len(self.init_samples) > 20:
       estimated_dt = np.mean(np.diff(self.init_samples))
       self.dt = estimated_dt
-      self.kalman_params = KalmanParams(self.dt)
       self.init_done = True
       print(f"Estimated radar dt: {self.dt} sec")
     else:
@@ -530,7 +482,7 @@ class RadarInterfaceBase(ABC):
       for addr, radar_point in self.pts.items():
         track_id = radar_point.trackId
         if track_id not in self.tracks:
-          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt, self.kalman_params)
+          new_tracks[track_id] = MyTrack(track_id, radar_point, self.dt)
         else:
           new_tracks[track_id] = self.tracks[track_id]
         new_tracks[track_id].update(radar_point)
