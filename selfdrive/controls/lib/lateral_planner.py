@@ -215,7 +215,7 @@ class LateralPlanner:
       self.carrotLat3 = carrotLat3
       self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
 
-    self.curvatures_history.append(curvatures)
+    self.curvatures_history.append(curvatures.copy())
     length = len(self.curvatures_history)
     shifted_curvatures = [
       self.shift(self.curvatures_history[i], (length - 1 - i)  * DT_MDL) for i in range(length)
