@@ -203,8 +203,12 @@ class LateralPlanner:
 
   def shift(self, arr, time_shift):
     new_t_idxs = self.t_idxs + time_shift
-
+    print(f"New t idxs: {new_t_idxs[:5]}")
+    print(f"Org t idxs: {self.t_idxs[:5]}")    
     shifted_arr = np.interp(new_t_idxs, self.t_idxs, arr, left=arr[0], right=arr[-1])
+    print(f"Shifted arr: {shifted_arr[:5]}")
+    print(f"Original arr: {arr[:5]}")
+    
     return shifted_arr
   
   def update_curvature(self):
