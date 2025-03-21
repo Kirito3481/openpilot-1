@@ -440,7 +440,7 @@ class MyTrack:
     self.vLead_averaged = v_lead
     a_lead = self.aLead_avg.update(a_raw)
 
-    j_lead = (self.aLead - a_lead) / self.dt
+    j_lead = (a_lead - self.aLead) / self.dt
     self.aLead = a_lead
     self.jLead = self.jLead_avg.update(j_lead)
 
