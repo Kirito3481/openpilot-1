@@ -72,10 +72,6 @@ class LateralPlanner:
     self.reset_mpc(np.zeros(4))
     self.curve_speed = 0
 
-    self.carrotLat3 = self.params.get_int("CarrotLatControl3")
-    self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
-    
-
   def reset_mpc(self, x0=None):
     if x0 is None:
       x0 = np.zeros(4)
@@ -200,28 +196,6 @@ class LateralPlanner:
       self.solution_invalid_cnt += 1
     else:
       self.solution_invalid_cnt = 0
-
-  def shift(self, arr, time_shift):
-    new_t_idxs = self.t_idxs + time_shift
-    shifted_arr = np.interp(new_t_idxs, self.t_idxs, arr, left=arr[0], right=arr[-1])
-    return shifted_arr
-  
-  def update_curvature(self):
-    curvatures = self.lat_mpc.x_sol[:, 3]/self.v_ego
-
-    self.curvatures_history.append(curvatures.copy())
-    length = len(self.curvatures_history)
-    shifted_curvatures = [
-      self.shift(self.curvatures_history[i], (length - 1 - i)  * DT_MDL) for i in range(length)
-    ]
-    #avg_curvatures = np.mean(shifted_curvatures, axis=0)
-    #return avg_curvatures
-    alpha = 0.2
-    ema_curvatures = shifted_curvatures[0]
-    for i in range(1, len(shifted_curvatures)):
-        ema_curvatures = (1 - alpha) * ema_curvatures + alpha * shifted_curvatures[i]
-
-    return ema_curvatures    
   
   def publish(self, sm, pm, carrot):
     plan_solution_valid = self.solution_invalid_cnt < 2
@@ -239,16 +213,7 @@ class LateralPlanner:
     lateralPlan.dPathPoints = self.y_pts.tolist()
     lateralPlan.psis = self.lat_mpc.x_sol[0:CONTROL_N, 2].tolist()
 
-    carrotLat3 = self.params.get_int("CarrotLatControl3")
-    if carrotLat3 != self.carrotLat3 or sm['carState'].steeringPressed:
-      self.carrotLat3 = carrotLat3
-      self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
-
-
-    if self.carrotLat3 == 0:
-      lateralPlan.curvatures = (self.lat_mpc.x_sol[0:CONTROL_N, 3]/self.v_ego).tolist()
-    else:
-      lateralPlan.curvatures = self.update_curvature()[0:CONTROL_N].tolist()
+    lateralPlan.curvatures = (self.lat_mpc.x_sol[0:CONTROL_N, 3]/self.v_ego).tolist()
     lateralPlan.curvatureRates = [float(x.item() / self.v_ego) for x in self.lat_mpc.u_sol[0:CONTROL_N - 1]] + [0.0]
 
     lateralPlan.mpcSolutionValid = bool(plan_solution_valid)

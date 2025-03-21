@@ -127,20 +127,7 @@
       "etitle": "*CarrotLatControl2(0)",
       "edescr": "",
       "min": 0,
-      "max": 90,
-      "default": 1,
-      "unit": 1
-    },
-    {
-      "group": "조향튜닝",
-      "name": "CarrotLatControl3",
-      "title": "*당근조향제어3(0)",
-      "descr": "0:Default, 1:당근제어3",
-      "egroup": "LAT",
-      "etitle": "*CarrotLatControl3(0)",
-      "edescr": "",
-      "min": 0,
-      "max": 15,
+      "max": 1000,
       "default": 1,
       "unit": 1
     },
@@ -299,19 +286,6 @@
       "max": 300,
       "default": 40,
       "unit": 1
-    },
-    {
-      "group": "조향튜닝",
-      "name": "ModelTurnDelay",
-      "title": "*ModelTurnDelay(90)",
-      "descr": "",
-      "egroup": "LAT",
-      "etitle": "ModelTurnDelay(90)",
-      "edescr": "",
-      "min": 1,
-      "max": 300,
-      "default": 40,
-      "unit": 10
     },
     {
       "group": "크루즈",
