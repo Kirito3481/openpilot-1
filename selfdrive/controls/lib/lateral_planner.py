@@ -227,6 +227,13 @@ class LateralPlanner:
     for i in range(1, len(shifted_curvatures)):
         ema_curvatures = (1 - alpha) * ema_curvatures + alpha * shifted_curvatures[i]
 
+    ema = shifted_curvatures[0].copy()
+    print(f"EMA init: {ema[:5]}")
+    for i in range(1, len(shifted_curvatures)):
+        ema = (1 - alpha) * ema + alpha * shifted_curvatures[i]
+        print(f"EMA step {i}: {shifted_curvatures[i][:5]}")
+    print(f"Final EMA: {ema[:5]}")
+
     return ema_curvatures    
   
   def publish(self, sm, pm, carrot):
