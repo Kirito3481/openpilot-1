@@ -203,12 +203,7 @@ class LateralPlanner:
 
   def shift(self, arr, time_shift):
     new_t_idxs = self.t_idxs + time_shift
-    print(f"New t idxs: {new_t_idxs[:5]}")
-    print(f"Org t idxs: {self.t_idxs[:5]}")    
     shifted_arr = np.interp(new_t_idxs, self.t_idxs, arr, left=arr[0], right=arr[-1])
-    print(f"Shifted arr: {shifted_arr[:5]}")
-    print(f"Original arr: {arr[:5]}")
-    
     return shifted_arr
   
   def update_curvature(self):
@@ -225,14 +220,6 @@ class LateralPlanner:
     ema_curvatures = shifted_curvatures[0]
     for i in range(1, len(shifted_curvatures)):
         ema_curvatures = (1 - alpha) * ema_curvatures + alpha * shifted_curvatures[i]
-
-    ema = shifted_curvatures[0].copy()
-    print(f"EMA init: {ema[:5]}")
-    for i in range(1, len(shifted_curvatures)):
-        ema = (1 - alpha) * ema + alpha * shifted_curvatures[i]
-        print(f"Original step {i}: {self.curvatures_history[i][:5]}")
-        print(f"EMA step {i}: {shifted_curvatures[i][:5]}")
-    print(f"Final EMA: {ema[:5]}")
 
     return ema_curvatures    
   
