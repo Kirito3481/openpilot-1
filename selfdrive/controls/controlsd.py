@@ -148,11 +148,11 @@ class Controls:
       if len(lat_plan.curvatures) == 0:
         desired_curvature = 0.0
       else:
-        print(f"length = {len(lat_plan.curvatures)}")
         curvature = np.interp(steer_actuator_delay + t_since_plan, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
         alpha = carrot_lat_control2 * 0.001
         desired_curvature = curvature * alpha + self.desired_curvature * (1.0 - alpha)
       self.desired_curvature, curvature_limited = clip_curvature(CS.vEgo, self.desired_curvature, desired_curvature, lp.roll)
+      print("desired_curvature: ", self.desired_curvature)
 
     actuators.curvature = float(self.desired_curvature)
     steer, steeringAngleDeg, lac_log = self.LaC.update(CC.latActive, CS, self.VM, lp,
