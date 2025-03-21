@@ -145,7 +145,7 @@ class Controls:
           self.desired_curvature, curvature_limited = clip_curvature(CS.vEgo, self.desired_curvature, model_v2.action.desiredCurvature, lp.roll)
     else:
       t_since_plan = (self.sm.frame - self.sm.recv_frame['lateralPlan']) * DT_CTRL
-      if len(lat_plan.curvatures) == 0:
+      if len(lat_plan.curvatures) == 0 or not CC.latActive:
         desired_curvature = 0.0
       else:
         curvature = np.interp(steer_actuator_delay + t_since_plan, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
