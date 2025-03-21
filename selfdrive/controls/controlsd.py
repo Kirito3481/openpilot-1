@@ -146,7 +146,7 @@ class Controls:
     else:
       t_since_plan = (self.sm.frame - self.sm.recv_frame['lateralPlan']) * DT_CTRL
       if len(lat_plan.curvatures) == 0:
-        self.desired_curvature = 0.0
+        desired_curvature = 0.0
       else:
         print(f"length = {len(lat_plan.curvatures)}")
         curvature = np.interp(steer_actuator_delay + t_since_plan, ModelConstants.T_IDXS[:CONTROL_N], lat_plan.curvatures)
