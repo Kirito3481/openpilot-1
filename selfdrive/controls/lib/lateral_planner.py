@@ -220,8 +220,14 @@ class LateralPlanner:
     shifted_curvatures = [
       self.shift(self.curvatures_history[i], (length - 1 - i)  * DT_MDL) for i in range(length)
     ]
-    avg_curvatures = np.mean(shifted_curvatures, axis=0)
-    return avg_curvatures
+    #avg_curvatures = np.mean(shifted_curvatures, axis=0)
+    #return avg_curvatures
+    alpha = 0.2
+    ema_curvatures = shifted_curvatures[0]
+    for i in range(1, len(shifted_curvatures)):
+        ema_curvatures = (1 - alpha) * ema_curvatures + alpha * shifted_curvatures[i]
+
+    return ema_curvatures    
   
   def publish(self, sm, pm, carrot):
     plan_solution_valid = self.solution_invalid_cnt < 2
