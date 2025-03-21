@@ -207,13 +207,8 @@ class LateralPlanner:
     shifted_arr = np.interp(new_t_idxs, self.t_idxs, arr, left=arr[0], right=arr[-1])
     return shifted_arr
   
-  def update_curvature(self, carState):
+  def update_curvature(self):
     curvatures = self.lat_mpc.x_sol[:, 3]/self.v_ego
-
-    carrotLat3 = self.params.get_int("CarrotLatControl3")
-    if carrotLat3 != self.carrotLat3 or carState.steeringPressed:
-      self.carrotLat3 = carrotLat3
-      self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
 
     self.curvatures_history.append(curvatures.copy())
     length = len(self.curvatures_history)
@@ -231,6 +226,7 @@ class LateralPlanner:
     print(f"EMA init: {ema[:5]}")
     for i in range(1, len(shifted_curvatures)):
         ema = (1 - alpha) * ema + alpha * shifted_curvatures[i]
+        print(f"Original step {i}: {self.curvatures_history[i][:5]}")
         print(f"EMA step {i}: {shifted_curvatures[i][:5]}")
     print(f"Final EMA: {ema[:5]}")
 
@@ -252,10 +248,16 @@ class LateralPlanner:
     lateralPlan.dPathPoints = self.y_pts.tolist()
     lateralPlan.psis = self.lat_mpc.x_sol[0:CONTROL_N, 2].tolist()
 
+    carrotLat3 = self.params.get_int("CarrotLatControl3")
+    if carrotLat3 != self.carrotLat3 or sm['carState'].steeringPressed:
+      self.carrotLat3 = carrotLat3
+      self.curvatures_history = deque(maxlen=max(self.carrotLat3, 1))
+
+
     if self.carrotLat3 == 0:
       lateralPlan.curvatures = (self.lat_mpc.x_sol[0:CONTROL_N, 3]/self.v_ego).tolist()
     else:
-      lateralPlan.curvatures = self.update_curvature(sm['carState'])[0:CONTROL_N].tolist()
+      lateralPlan.curvatures = self.update_curvature()[0:CONTROL_N].tolist()
     lateralPlan.curvatureRates = [float(x.item() / self.v_ego) for x in self.lat_mpc.u_sol[0:CONTROL_N - 1]] + [0.0]
 
     lateralPlan.mpcSolutionValid = bool(plan_solution_valid)
