@@ -6,6 +6,7 @@ from opendbc.car.interfaces import RadarInterfaceBase
 from opendbc.car.hyundai.values import DBC, HyundaiFlags
 from openpilot.common.params import Params
 from opendbc.car.hyundai.hyundaicanfd import CanBus
+from openpilot.common.filter_simple import FirstOrderFilter
 
 RADAR_START_ADDR = 0x500
 RADAR_MSG_COUNT = 32
@@ -52,6 +53,10 @@ class RadarInterface(RadarInterfaceBase):
     if not self.radar_tracks:
       self.rcp = get_radar_can_parser_scc(CP)
       self.trigger_msg = 416 if self.canfd else 0x420
+
+    # 50Hz (SCC), 20Hz (RadarTracks)
+    self.vRel_filter = FirstOrderFilter(0.0, 0.1, 0.02) # for SCC radar 0.1 unit
+
 
   def update(self, can_strings):
     if self.radar_off_can or (self.rcp is None):
@@ -126,10 +131,11 @@ class RadarInterface(RadarInterfaceBase):
           if ii not in self.pts:
             self.pts[ii] = structs.RadarData.RadarPoint()
             self.pts[ii].trackId = 0 #self.track_id
+            self.vRel_filter.x = vRel
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = 0
-          self.pts[ii].vRel = vRel
-          self.pts[ii].vLead = vRel + self.v_ego
+          self.pts[ii].vRel = self.vRel_filter.update(vRel)
+          self.pts[ii].vLead = self.pts[ii].vRel + self.v_ego
           self.pts[ii].aRel = 0 #float('nan')
           self.pts[ii].yvRel = float('nan')
           self.pts[ii].measured = True
@@ -145,10 +151,11 @@ class RadarInterface(RadarInterfaceBase):
           if ii not in self.pts:
             self.pts[ii] = structs.RadarData.RadarPoint()
             self.pts[ii].trackId = 0 #self.track_id
+            self.vRel_filter.x = vRel
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = -cpt["SCC11"]['ACC_ObjLatPos']  # in car frame's y axis, left is negative
-          self.pts[ii].vRel = vRel
-          self.pts[ii].vLead = vRel + self.v_ego
+          self.pts[ii].vRel = self.vRel_filter.update(vRel)
+          self.pts[ii].vLead = self.pts[ii].vRel + self.v_ego
           self.pts[ii].aRel = 0 #float('nan')
           self.pts[ii].yvRel = float('nan')
           self.pts[ii].measured = True

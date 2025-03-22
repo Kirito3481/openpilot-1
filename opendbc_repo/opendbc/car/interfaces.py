@@ -417,9 +417,9 @@ class MyTrack:
     self.aLead = 0.0
     self.jLead = 0.0
     self.dt = dt
-    self.vLead_avg = FirstOrderFilter(self.vLead, 0.1, self.dt)
-    self.aLead_avg = FirstOrderFilter(self.aLead, 0.2, self.dt)
-    self.jLead_avg = FirstOrderFilter(self.jLead, 0.5, self.dt)
+    self.vLead_avg = FirstOrderFilter(self.vLead, 0.05, self.dt)
+    self.aLead_avg = FirstOrderFilter(self.aLead, 0.08, self.dt)
+    self.jLead_avg = FirstOrderFilter(self.jLead, 0.2, self.dt)
         
   def update(self, radar_point):
     self.vLead = radar_point.vLead
