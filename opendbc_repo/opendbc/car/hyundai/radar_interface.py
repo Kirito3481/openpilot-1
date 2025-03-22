@@ -55,7 +55,7 @@ class RadarInterface(RadarInterfaceBase):
       self.trigger_msg = 416 if self.canfd else 0x420
 
     # 50Hz (SCC), 20Hz (RadarTracks)
-    self.vRel_filter = MyMovingAverage(5) # for SCC radar 0.1 unit
+    self.vRel_filter = MyMovingAverage(13) # for SCC radar 0.1 unit
 
 
   def update(self, can_strings):
