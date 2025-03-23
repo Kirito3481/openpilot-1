@@ -418,6 +418,14 @@ def create_fca_warning_light(CP, packer, CAN, frame):
     ret.append(packer.make_can_msg("ADRV_0x160", CAN.ECAN, values))
   return ret
 
+def create_tcs_messages(packer, CAN, CS):
+  ret = []
+  if CS.tcs_info_373 is not None:
+    values = CS.tcs_info_373
+    values["DriverBraking"] = 0
+    values["DriverBrakingLowSens"] = 0
+    ret.append(packer.make_can_msg("TCS", CAN.CAM, values))
+  return ret
 
 def create_adrv_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle, left_lane_warning, right_lane_warning, canfd_debug):
   # messages needed to car happy after disabling
