@@ -140,7 +140,7 @@ class RadarInterface(RadarInterfaceBase):
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = 0
           self.pts[ii].vRel = vRel
-          self.pts[ii].vLead = self.vRLead_filter.process(vLead)
+          self.pts[ii].vLead = self.vLead_filter.process(vLead)
           self.pts[ii].aRel = 0 #float('nan')
           self.pts[ii].yvRel = float('nan')
           self.pts[ii].measured = True
@@ -159,7 +159,7 @@ class RadarInterface(RadarInterfaceBase):
             self.pts[ii] = structs.RadarData.RadarPoint()
             self.pts[ii].trackId = self.track_id
             self.track_id = min(1 - self.track_id, 1)
-            self.vRel_filter.set_all(vRel)
+            self.vLead_filter.set_all(vLead)
           self.pts[ii].dRel = dRel
           self.pts[ii].yRel = -cpt["SCC11"]['ACC_ObjLatPos']  # in car frame's y axis, left is negative
           self.pts[ii].vRel = vRel
