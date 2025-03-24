@@ -227,6 +227,7 @@ bool safety_rx_hook(const CANPacket_t *to_push) {
   return valid;
 }
 
+int _prev_not_allowed_addr = -1;
 static bool tx_msg_safety_check(const CANPacket_t *to_send, const CanMsg msg_list[], int len) {
   int addr = GET_ADDR(to_send);
   int bus = GET_BUS(to_send);
@@ -239,7 +240,7 @@ static bool tx_msg_safety_check(const CANPacket_t *to_send, const CanMsg msg_lis
       break;
     }
   }
-  if (!allowed) {
+  if (!allowed && _prev_not_allowed_addr != addr) {
     print("allowed addr = ");
     for(int i=0;i<len;i++) {putui((uint32_t)msg_list[i].addr); print(",");}
     print("\nbus = ");
@@ -247,6 +248,7 @@ static bool tx_msg_safety_check(const CANPacket_t *to_send, const CanMsg msg_lis
     print("\nlen = ");
     for(int i=0;i<len;i++) {putui((uint32_t)msg_list[i].len); print(",");}
     print("\n");
+    _prev_not_allowed_addr = addr;
   }
   return allowed;
 }
