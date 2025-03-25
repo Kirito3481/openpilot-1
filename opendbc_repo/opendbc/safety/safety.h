@@ -240,7 +240,7 @@ static bool tx_msg_safety_check(const CANPacket_t *to_send, const CanMsg msg_lis
       break;
     }
   }
-  if (!allowed && _prev_not_allowed_addr != addr) {
+  if (!allowed && _prev_not_allowed_addr != addr && len > 0) {
     print("allowed addr = ");
     for(int i=0;i<len;i++) {putui((uint32_t)msg_list[i].addr); print(",");}
     print("\nbus = ");
