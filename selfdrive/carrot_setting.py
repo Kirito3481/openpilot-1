@@ -23,5 +23,5 @@ sorted_data = sorted(result, key=lambda x: x['filename'])
 with open(output_file, "w") as f:
     json.dump(sorted_data, f, indent=2, ensure_ascii=False)
 
-with open(output_file, "r", encoding="utf-8") as f:
+with open(output_file, encoding="utf-8") as f:
     print(f.read())

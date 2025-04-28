@@ -10,7 +10,6 @@ from openpilot.common.filter_simple import FirstOrderFilter
 from openpilot.common.params import Params
 from openpilot.common.realtime import DT_MDL, Priority, config_realtime_process
 from openpilot.common.swaglog import cloudlog
-from openpilot.common.simple_kalman import KF1D
 
 
 # Default lead acceleration decay set to 50% at 1s
@@ -43,7 +42,7 @@ class Track:
     self.vLead = self.vLeadK = v_lead
     self.aLead = self.aLeadK = a_lead
     self.jLead = j_lead
-    
+
     self.measured = measured   # measured or estimate
 
     if abs(self.aLead) < 0.5 * self.radar_reaction_factor:
@@ -93,7 +92,7 @@ def laplacian_pdf(x: float, mu: float, b: float):
 def match_vision_to_track(v_ego: float, lead: capnp._DynamicStructReader, tracks: dict[int, Track]):
   offset_vision_dist = lead.x[0] - RADAR_TO_CAMERA
   vel_tolerance = 25.0 if lead.prob > 0.99 else 10.0
-  max_offset_vision_dist = max(offset_vision_dist * 0.35, 5.0)    
+  max_offset_vision_dist = max(offset_vision_dist * 0.35, 5.0)
 
   def prob(c):
     if abs(c.dRel - offset_vision_dist) > max_offset_vision_dist:
@@ -142,7 +141,7 @@ def get_lead_side(v_ego, tracks, md, lane_width, model_v_ego):
   leadRight = {'status': False}
 
   ## SCC레이더는 일단 보관하고 리스트에서 삭제...
-  track_scc = tracks.get(0)
+  # track_scc = tracks.get(0)
   #if track_scc is not None:
   #  del tracks[0]
 
@@ -470,7 +469,7 @@ class RadarD:
 
     ### 240807, SCC레이더가 옆차선의것을 많이 가져옴... 사용하지 말아야겠다...
     # 250415: scc radar정보가 있지만.. vision 미검출시, 오류
-    if self.enable_radar_tracks in [-1, 2]:  
+    if self.enable_radar_tracks in [-1, 2]:
       if track_scc is not None and track is None:
         track = track_scc
     #  if self.vision_tracks[index].prob > .5:
