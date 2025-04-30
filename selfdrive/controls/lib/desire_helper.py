@@ -227,11 +227,11 @@ class DesireHelper:
 
     desire_enabled = driver_desire_enabled or atc_desire_enabled
     blinker_state = driver_blinker_state if driver_desire_enabled else atc_blinker_state
-    
+
     ##### check lane state
     self.check_lane_state(modeldata)
     self.check_desire_state(modeldata)
-    
+
     if desire_enabled:
       lane_available = self.available_left_lane if blinker_state == BLINKER_LEFT else self.available_right_lane
       edge_available = self.available_left_edge if blinker_state == BLINKER_LEFT else self.available_right_edge

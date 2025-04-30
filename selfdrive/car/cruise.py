@@ -440,8 +440,8 @@ class VCruiseCarrot:
           speed_kph = int(self.carrot_arg)
           if 0 < speed_kph < 200:
             v_cruise_kph = speed_kph
-            self._add_log(f"Cruise speed set to {v_cruise_kph} (carrot command)")       
-    
+            self._add_log(f"Cruise speed set to {v_cruise_kph} (carrot command)")
+
     return v_cruise_kph, button_type, long_pressed
 
   def _update_cruise_buttons(self, CS, CC, v_cruise_kph):
