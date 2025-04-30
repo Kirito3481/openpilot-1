@@ -410,8 +410,6 @@ def create_tcs_messages(packer, CAN, CS):
 def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
   ret = []
 
-  values = {
-  }
   if CP.flags & HyundaiFlags.CAMERA_SCC.value:
     if frame % 2 == 0:
       if CS.adrv_info_160 is not None:
@@ -459,7 +457,7 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle
           values = CS.adrv_info_161
           #print("adrv_info_161 = ", CS.adrv_info_161)
 
-          values["SETSPEED"] = 6 if hdp_active else 3 if main_enabled else 0
+          values["SETSPEED"] = 6 if hdp_active else 3 if cruise_enabled else 1 if main_enabled else 0
           values["SETSPEED_HUD"] = 5 if hdp_active else 2 if cruise_enabled else 1
           values["vSetDis"] = int(hud_control.setSpeed * 3.6 + 0.5)
 
