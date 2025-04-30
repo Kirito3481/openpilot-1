@@ -443,6 +443,7 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle
         if CS.adrv_info_161 is not None:
           main_enabled = CS.out.cruiseState.available
           cruise_enabled = CC.enabled
+          lat_enabled = CS.out.latEnabled
           lat_active = CC.latActive
           nav_active = hud_control.activeCarrot > 1
 
@@ -476,7 +477,7 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle
 
           values["NAV_ICON"] = 2 if nav_active else 1
           values["HDA_ICON"] = 5 if hdp_active else 2 if lat_active else 1
-          values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1
+          values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1 if lat_enabled else 0
           values["LKA_ICON"] = 4 if lat_active else 3
           values["FCA_ALT_ICON"] = 0
 
