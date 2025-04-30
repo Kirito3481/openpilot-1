@@ -413,7 +413,7 @@ def create_tcs_messages(packer, CAN, CS):
 
 def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
   meta = sm['modelV2'].meta
-  print(meta)
+  # print(meta)
 
   ret = []
 
@@ -473,7 +473,7 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_a
           values["DISTANCE_CAR"] = 3 if hdp_active else 2 if cruise_enabled else 1 if main_enabled else 0
           values["DISTANCE_SPACING"] = 5 if hdp_active else 1 if cruise_enabled else 0
 
-          values["TARGET"] = 1 if cruise_enabled else 0
+          values["TARGET"] = 1
           values["TARGET_DISTANCE"] = int(hud_control.leadDistance)
 
           values["BACKGROUND"] = 6 if CS.paddle_button_prev > 0 else 1 if cruise_enabled else 3 if main_enabled else 7
