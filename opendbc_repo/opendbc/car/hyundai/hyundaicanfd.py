@@ -1,8 +1,12 @@
 import copy
 import numpy as np
+from cereal import log
 from opendbc.car import CanBusBase
 from opendbc.car.hyundai.values import HyundaiFlags, HyundaiExtFlags
 from openpilot.common.params import Params
+
+LaneChangeState = log.LaneChangeState
+LaneChangeDirection = log.LaneChangeDirection
 
 def hyundai_crc8(data: bytes) -> int:
   poly = 0x2F
@@ -477,6 +481,8 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle
           values["HDA_ICON"] = 5 if hdp_active else 2 if lat_active else 1
           values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1 if lat_enabled else 0
           values["LKA_ICON"] = 4 if lat_active else 3
+          values["LCA_LEFT_ICON"] = 2 if (frame // 50) % 2 == 0 else 4
+          values["LCA_RIGHT_ICON"] = 2 if (frame // 50) % 2 == 0 else 4
           values["FCA_ALT_ICON"] = 0
 
           if values["ALERTS_2"] in [1, 2, 5]:
@@ -514,9 +520,6 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, disp_angle
 
           values["LCA_LEFT_ARROW"] = 2 if CS.out.leftBlinker else 0
           values["LCA_RIGHT_ARROW"] = 2 if CS.out.rightBlinker else 0
-
-          values["LCA_LEFT_ICON"] = 1 if CS.out.leftBlindspot else 2
-          values["LCA_RIGHT_ICON"] = 1 if CS.out.rightBlindspot else 2
 
           ret.append(packer.make_can_msg("ADRV_0x161", CAN.ECAN, values))
         else:
