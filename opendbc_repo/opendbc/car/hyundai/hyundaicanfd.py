@@ -412,10 +412,11 @@ def create_tcs_messages(packer, CAN, CS):
   return ret
 
 def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
+  meta = sm['modelV2'].meta
+
   ret = []
 
   if CP.flags & HyundaiFlags.CAMERA_SCC.value:
-    meta = sm['modelV2'].meta
     if frame % 2 == 0:
       if CS.adrv_info_160 is not None:
         values = CS.adrv_info_160
@@ -482,8 +483,8 @@ def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_a
           values["HDA_ICON"] = 5 if hdp_active else 2 if lat_active else 1
           values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1 if lat_enabled else 0
           values["LKA_ICON"] = 4 if lat_active else 3
-          values["LCA_LEFT_ICON"] = (2 if (frame // 50) % 2 == 0 else 4)
-          values["LCA_RIGHT_ICON"] = 2 if (frame // 50) % 2 == 0 else 4
+          values["LCA_LEFT_ICON"] = (2 if (frame // 50) % 2 == 0 else 4) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.left else 2
+          values["LCA_RIGHT_ICON"] = (2 if (frame // 50) % 2 == 0 else 4) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.right else 2
           values["FCA_ALT_ICON"] = 0
 
           if values["ALERTS_2"] in [1, 2, 5]:
