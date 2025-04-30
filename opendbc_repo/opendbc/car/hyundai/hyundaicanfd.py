@@ -413,6 +413,7 @@ def create_tcs_messages(packer, CAN, CS):
 
 def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
   meta = sm['modelV2'].meta
+  print(meta)
 
   ret = []
 
