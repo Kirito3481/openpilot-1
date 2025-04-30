@@ -769,6 +769,19 @@
       "unit": 1
     },
     {
+      "group": "시작",
+      "name": "ParkingShutdownButton",
+      "title": "주차 기어 상태에서 크루즈 취소 버튼 클릭시 콤마 전원 종료 사용",
+      "descr": "",
+      "egroup": "START",
+      "etitle": "Comma power off when pressing Cancel button on cruise while in park gear",
+      "edescr": "",
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "unit": 1
+    },
+    {
       "group": "크루즈",
       "name": "AutoSpeedUptoRoadSpeedLimit",
       "title": "자동속도증가 (100)%",

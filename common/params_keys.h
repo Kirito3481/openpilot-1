@@ -261,6 +261,7 @@ inline static std::unordered_map<std::string, uint32_t> keys = {
     {"CustomSR", PERSISTENT},
     {"SteerRatioRate", PERSISTENT},
     {"SoftRestartTriggered", CLEAR_ON_MANAGER_START},
+    {"ParkingShutdownButton", PERSISTENT},
 
     {"NNFF", PERSISTENT},
     {"NNFFLite", PERSISTENT},

@@ -216,9 +216,12 @@ class CarSpecificEvents:
       # TODO: only check the cancel button with openpilot longitudinal on all brands to match panda safety
       if b.type == ButtonType.cancel and (allow_button_cancel or not self.CP.pcmCruise):
         events.add(EventName.buttonCancel)
-        if CS.gearShifter == GearShifter.park and not self.do_shutdown:
-          self.do_shutdown = True
-          Params().put_bool("DoShutdown", True)
+
+        if Params().get_bool("ParkingShutdownButton"):
+          # 차량이 Park 상태에 있고 Cancel 버튼을 누르면 기기를 종료
+          if CS.gearShifter == GearShifter.park and not self.do_shutdown:
+            self.do_shutdown = True
+            Params().put_bool("DoShutdown", True)
 
     # Handle permanent and temporary steering faults
     self.steering_unpressed = 0 if CS.steeringPressed else self.steering_unpressed + 1
