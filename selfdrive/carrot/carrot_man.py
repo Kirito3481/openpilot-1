@@ -9,9 +9,10 @@ import threading
 import time
 import numpy as np
 import zmq
+import traceback
 from datetime import datetime
-
 from ftplib import FTP
+
 from cereal import log
 import cereal.messaging as messaging
 from openpilot.common.realtime import Ratekeeper
@@ -94,20 +95,20 @@ V_CRUVE_LOOKUP_VALS = [300, 150, 120, 110, 100, 90, 80, 70, 60, 50, 40, 15, 5]
 # Haversine formula to calculate distance between two GPS coordinates
 #haversine_cache = {}
 def haversine(lon1, lat1, lon2, lat2):
-    #key = (lon1, lat1, lon2, lat2)
-    #if key in haversine_cache:
-    #    return haversine_cache[key]
+  #key = (lon1, lat1, lon2, lat2)
+  #if key in haversine_cache:
+  #    return haversine_cache[key]
 
-    R = 6371000  # Radius of Earth in meters
-    phi1, phi2 = math.radians(lat1), math.radians(lat2)
-    dphi = math.radians(lat2 - lat1)
-    dlambda = math.radians(lon2 - lon1)
+  R = 6371000  # Radius of Earth in meters
+  phi1, phi2 = math.radians(lat1), math.radians(lat2)
+  dphi = math.radians(lat2 - lat1)
+  dlambda = math.radians(lon2 - lon1)
 
-    a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
-    distance = 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+  a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+  distance = 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
-    #haversine_cache[key] = distance
-    return distance
+  #haversine_cache[key] = distance
+  return distance
 
 
 # Get the closest point on a segment between two coordinates
@@ -133,105 +134,105 @@ def closest_point_on_segment(p1, p2, current_position):
 
 # Get path after a certain distance from the current position
 def get_path_after_distance(start_index, coordinates, current_position, distance_m):
-    total_distance = 0
-    path_after_distance = []
-    closest_index = -1
-    closest_point = None
-    min_distance = float('inf')
+  total_distance = 0
+  path_after_distance = []
+  closest_index = -1
+  closest_point = None
+  min_distance = float('inf')
 
-    start_index = max(0, start_index - 2)
+  start_index = max(0, start_index - 2)
 
-    # 가까운 점만 탐색하도록 수정
-    for i in range(start_index, len(coordinates) - 1):
-        p1 = coordinates[i]
-        p2 = coordinates[i + 1]
-        candidate_point = closest_point_on_segment(p1, p2, current_position)
-        distance = haversine(current_position[0], current_position[1], candidate_point[0], candidate_point[1])
+  # 가까운 점만 탐색하도록 수정
+  for i in range(start_index, len(coordinates) - 1):
+      p1 = coordinates[i]
+      p2 = coordinates[i + 1]
+      candidate_point = closest_point_on_segment(p1, p2, current_position)
+      distance = haversine(current_position[0], current_position[1], candidate_point[0], candidate_point[1])
 
-        if distance < min_distance:
-            min_distance = distance
-            closest_point = candidate_point
-            closest_index = i
-        elif distance > min_distance and min_distance < 10:
-            break
+      if distance < min_distance:
+          min_distance = distance
+          closest_point = candidate_point
+          closest_index = i
+      elif distance > min_distance and min_distance < 10:
+          break
 
-    start_index = closest_index
-    # Start from the closest point and calculate the path after the specified distance
-    if closest_index != -1:
-        path_after_distance.append(closest_point)
+  start_index = closest_index
+  # Start from the closest point and calculate the path after the specified distance
+  if closest_index != -1:
+      path_after_distance.append(closest_point)
 
-        path_after_distance.append(coordinates[closest_index + 1])
-        total_distance = haversine(closest_point[0], closest_point[1], coordinates[closest_index + 1][0],
-                                   coordinates[closest_index + 1][1])
+      path_after_distance.append(coordinates[closest_index + 1])
+      total_distance = haversine(closest_point[0], closest_point[1], coordinates[closest_index + 1][0],
+                                  coordinates[closest_index + 1][1])
 
-        # Traverse the path forward from the next point
-        for i in range(closest_index + 1, len(coordinates) - 1):
-            coord1 = coordinates[i]
-            coord2 = coordinates[i + 1]
-            segment_distance = haversine(coord1[0], coord1[1], coord2[0], coord2[1])
+      # Traverse the path forward from the next point
+      for i in range(closest_index + 1, len(coordinates) - 1):
+          coord1 = coordinates[i]
+          coord2 = coordinates[i + 1]
+          segment_distance = haversine(coord1[0], coord1[1], coord2[0], coord2[1])
 
-            if total_distance + segment_distance >= distance_m and segment_distance > 0:
-                remaining_distance = distance_m - total_distance
-                ratio = remaining_distance / segment_distance
-                interpolated_lon = coord1[0] + ratio * (coord2[0] - coord1[0])
-                interpolated_lat = coord1[1] + ratio * (coord2[1] - coord1[1])
-                path_after_distance.append((interpolated_lon, interpolated_lat))
-                break
+          if total_distance + segment_distance >= distance_m and segment_distance > 0:
+              remaining_distance = distance_m - total_distance
+              ratio = remaining_distance / segment_distance
+              interpolated_lon = coord1[0] + ratio * (coord2[0] - coord1[0])
+              interpolated_lat = coord1[1] + ratio * (coord2[1] - coord1[1])
+              path_after_distance.append((interpolated_lon, interpolated_lat))
+              break
 
-            total_distance += segment_distance
-            path_after_distance.append(coord2)
+          total_distance += segment_distance
+          path_after_distance.append(coord2)
 
-    return path_after_distance, start_index, closest_point
-
+  return path_after_distance, start_index, closest_point
 
 def calculate_angle(point1, point2):
-    delta_lon = point2[0] - point1[0]
-    delta_lat = point2[1] - point1[1]
-    return math.degrees(math.atan2(delta_lat, delta_lon))
+  delta_lon = point2[0] - point1[0]
+  delta_lat = point2[1] - point1[1]
+  return math.degrees(math.atan2(delta_lat, delta_lon))
 
 # Convert GPS coordinates to relative x, y coordinates based on a reference point and heading
 def gps_to_relative_xy(gps_path, reference_point, heading_deg):
-    ref_lon, ref_lat = reference_point
-    relative_coordinates = []
+  ref_lon, ref_lat = reference_point
+  relative_coordinates = []
 
-    # Convert heading from degrees to radians
-    heading_rad = math.radians(heading_deg)
+  # Convert heading from degrees to radians
+  heading_rad = math.radians(heading_deg)
 
-    for lon, lat in gps_path:
-        # Convert lat/lon differences to meters (assuming small distances for simple approximation)
-        x = (lon - ref_lon) * 40008000 * math.cos(math.radians(ref_lat)) / 360
-        y = (lat - ref_lat) * 40008000 / 360
+  for lon, lat in gps_path:
+      # Convert lat/lon differences to meters (assuming small distances for simple approximation)
+      x = (lon - ref_lon) * 40008000 * math.cos(math.radians(ref_lat)) / 360
+      y = (lat - ref_lat) * 40008000 / 360
 
-        # Rotate coordinates based on the heading angle to align with the car's direction
-        x_rot = x * math.cos(heading_rad) - y * math.sin(heading_rad)
-        y_rot = x * math.sin(heading_rad) + y * math.cos(heading_rad)
+      # Rotate coordinates based on the heading angle to align with the car's direction
+      x_rot = x * math.cos(heading_rad) - y * math.sin(heading_rad)
+      y_rot = x * math.sin(heading_rad) + y * math.cos(heading_rad)
 
-        relative_coordinates.append((y_rot, x_rot))
+      relative_coordinates.append((y_rot, x_rot))
 
-    return relative_coordinates
+  return relative_coordinates
 
 
 # Calculate curvature given three points using a faster vector-based method
 #curvature_cache = {}
 def calculate_curvature(p1, p2, p3):
-    #key = (p1, p2, p3)
-    #if key in curvature_cache:
-    #    return curvature_cache[key]
+  #key = (p1, p2, p3)
+  #if key in curvature_cache:
+  #    return curvature_cache[key]
 
-    v1 = (p2[0] - p1[0], p2[1] - p1[1])
-    v2 = (p3[0] - p2[0], p3[1] - p2[1])
+  v1 = (p2[0] - p1[0], p2[1] - p1[1])
+  v2 = (p3[0] - p2[0], p3[1] - p2[1])
 
-    cross_product = v1[0] * v2[1] - v1[1] * v2[0]
-    len_v1 = math.sqrt(v1[0] ** 2 + v1[1] ** 2)
-    len_v2 = math.sqrt(v2[0] ** 2 + v2[1] ** 2)
+  cross_product = v1[0] * v2[1] - v1[1] * v2[0]
+  len_v1 = math.sqrt(v1[0] ** 2 + v1[1] ** 2)
+  len_v2 = math.sqrt(v2[0] ** 2 + v2[1] ** 2)
 
-    if len_v1 * len_v2 == 0:
-        curvature = 0
-    else:
-        curvature = cross_product / (len_v1 * len_v2 * len_v1)
+  if len_v1 * len_v2 == 0:
+      curvature = 0
+  else:
+      curvature = cross_product / (len_v1 * len_v2 * len_v1)
 
-    #curvature_cache[key] = curvature
-    return curvature
+  #curvature_cache[key] = curvature
+  return curvature
+
 
 class CarrotMan:
   def __init__(self):
@@ -1520,7 +1521,7 @@ class CarrotServ:
       #   f"Atc2:{atc_desired_next:.1f}," +
       #   f"{self.xTurnInfoNext},{self.xDistToTurnNext:.1f}"
       # )
-      #self.debugText = "" #f" {self.nSdiType}/{self.nSdiSpeedLimit}/{self.nSdiDist},BLOCK:{self.nSdiBlockType}/{self.nSdiBlockSpeed}/{self.nSdiBlockDist}, PLUS:{self.nSdiPlusType}/{self.nSdiPlusSpeedLimit}/{self.nSdiPlusDist}"
+      # self.debugText = "" #f" {self.nSdiType}/{self.nSdiSpeedLimit}/{self.nSdiDist},BLOCK:{self.nSdiBlockType}/{self.nSdiBlockSpeed}/{self.nSdiBlockDist}, PLUS:{self.nSdiPlusType}/{self.nSdiPlusSpeedLimit}/{self.nSdiPlusDist}"
     #elif self.nGoPosDist > 0 and self.active_carrot > 1:
     #  self.debugText = " 목적지:{:.1f}km/{:.1f}분 남음".format(self.nGoPosDist/1000., self.nGoPosTime / 60)
     else:
@@ -1851,10 +1852,9 @@ class CarrotServ:
         self.last_update_gps_time_phone = self.last_calculate_gps_time = now
         self.gps_accuracy_phone = float(json.get("accuracy", 0))
         self.nPosSpeed = float(json.get("gps_speed", 0))
-        print(f"phone gps: {self.vpPosPointLatNavi}, {self.vpPosPointLonNavi}, {self.gps_accuracy_phone}, {self.nPosSpeed}")
+        # print(f"phone gps: {self.vpPosPointLatNavi}, {self.vpPosPointLonNavi}, {self.gps_accuracy_phone}, {self.nPosSpeed}")
 
 
-import traceback
 
 def main():
   print("CarrotManager Started")
