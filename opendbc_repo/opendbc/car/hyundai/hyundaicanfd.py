@@ -1,6 +1,6 @@
-import copy
 import numpy as np
-from cereal import log
+from cereal import car, log, messaging
+from opendbc.can.packer import CANPacker
 from opendbc.car import CanBusBase
 from opendbc.car.hyundai.values import HyundaiFlags, HyundaiExtFlags
 from openpilot.common.params import Params
@@ -411,7 +411,8 @@ def create_tcs_messages(packer, CAN, CS):
     ret.append(packer.make_can_msg("TCS", CAN.CAM, values))
   return ret
 
-def create_ccnc_messages(CP, packer, CAN, frame, CC, CS, hud_control, sm, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
+def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, frame: int, CC: car.CarControl, CS: car.CarState, hud_control, sm: messaging.SubMaster, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
+  sm.update(0)
   meta = sm['modelV2'].meta
   # print(meta)
 
