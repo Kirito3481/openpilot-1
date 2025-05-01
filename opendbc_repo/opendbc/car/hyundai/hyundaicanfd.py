@@ -7,6 +7,7 @@ from openpilot.common.params import Params
 
 LaneChangeState = log.LaneChangeState
 LaneChangeDirection = log.LaneChangeDirection
+ConfidenceClass = log.ModelDataV2.ConfidenceClass
 
 def hyundai_crc8(data: bytes) -> int:
   poly = 0x2F
@@ -414,7 +415,7 @@ def create_tcs_messages(packer, CAN, CS):
 def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, frame: int, CC: car.CarControl, CS: car.CarState, hud_control, sm: messaging.SubMaster, disp_angle, left_lane_warning, right_lane_warning, canfd_debug, MainMode_ACC_trigger, LFA_trigger):
   sm.update(0)
   meta = sm['modelV2'].meta
-  # print(meta)
+  lane_confidence = sm['modelV2'].confidence
 
   ret = []
 
@@ -514,11 +515,14 @@ def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, fram
           if hud_control.leftLaneDepart:
             values["LANELINE_LEFT"] = 4 if (frame // 50) % 2 == 0 else 1
           else:
-            values["LANELINE_LEFT"] = 2 if hud_control.leftLaneVisible else 0
+            # values["LANELINE_LEFT"] = 2 if hud_control.leftLaneVisible else 0
+            values["LANELINE_LEFT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
           if hud_control.rightLaneDepart:
             values["LANELINE_RIGHT"] = 4 if (frame // 50) % 2 == 0 else 1
           else:
-            values["LANELINE_RIGHT"] = 2 if hud_control.rightLaneVisible else 0
+            # values["LANELINE_RIGHT"] = 2 if hud_control.rightLaneVisible else 0
+            values["LANELINE_RIGHT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
+
           values["LANELINE_LEFT_POSITION"] = 15
           values["LANELINE_RIGHT_POSITION"] = 15
 
