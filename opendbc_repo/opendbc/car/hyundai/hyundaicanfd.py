@@ -480,14 +480,14 @@ def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, fram
 
           values["BACKGROUND"] = 6 if CS.paddle_button_prev > 0 else 1 if cruise_enabled else 3 if main_enabled else 7
           values["CENTERLINE"] = 1 if lat_active else 0
-          values["CAR_CIRCLE"] = 2 if hdp_active else 1 if lat_active else 0
+          values["CAR_CIRCLE"] = 2 if hdp_active else 1 if cruise_enabled else 0
 
           values["NAV_ICON"] = 2 if nav_active else 1
           values["HDA_ICON"] = 5 if hdp_active else 2 if lat_active else 1
           values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1 if lat_enabled else 0
           values["LKA_ICON"] = 4 if lat_active else 3
-          values["LCA_LEFT_ICON"] = (2 if (frame // 50) % 2 == 0 else 4) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.left else 2
-          values["LCA_RIGHT_ICON"] = (2 if (frame // 50) % 2 == 0 else 4) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.right else 2
+          values["LCA_LEFT_ICON"] = (2 if (frame // 50) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.left else 2
+          values["LCA_RIGHT_ICON"] = (2 if (frame // 50) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.right else 2
           values["FCA_ALT_ICON"] = 0
 
           if values["ALERTS_2"] in [1, 2, 5]:
@@ -515,21 +515,20 @@ def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, fram
           if hud_control.leftLaneDepart:
             values["LANELINE_LEFT"] = 4 if (frame // 50) % 2 == 0 else 1
           else:
-            # values["LANELINE_LEFT"] = 2 if hud_control.leftLaneVisible else 0
-            values["LANELINE_LEFT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
+            values["LANELINE_LEFT"] = 2 if hud_control.leftLaneVisible else 0
+            # values["LANELINE_LEFT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
+            # values["LANELINE_LEFT"] = 1 if values["LEFT_LANE_LINE"] == 3 else 0 if values["LEFT_LANE_LINE"] == 4 else 1 if values["LEFT_LANE_LINE"] == 5 else 0
           if hud_control.rightLaneDepart:
             values["LANELINE_RIGHT"] = 4 if (frame // 50) % 2 == 0 else 1
           else:
-            # values["LANELINE_RIGHT"] = 2 if hud_control.rightLaneVisible else 0
-            values["LANELINE_RIGHT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
+            values["LANELINE_RIGHT"] = 2 if hud_control.rightLaneVisible else 0
+            # values["LANELINE_RIGHT"] = 6 if lane_confidence == ConfidenceClass.green else 4 if lane_confidence == ConfidenceClass.yellow else 0 if lane_confidence == ConfidenceClass.red else 1
 
           values["LANELINE_LEFT_POSITION"] = 15
           values["LANELINE_RIGHT_POSITION"] = 15
 
           values["LCA_LEFT_ARROW"] = 2 if CS.out.leftBlinker else 0
           values["LCA_RIGHT_ARROW"] = 2 if CS.out.rightBlinker else 0
-
-          values["SOUNDS_1"] = 3
 
           ret.append(packer.make_can_msg("ADRV_0x161", CAN.ECAN, values))
         else:
