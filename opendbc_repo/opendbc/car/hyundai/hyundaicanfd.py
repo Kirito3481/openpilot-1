@@ -486,8 +486,8 @@ def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, fram
           values["HDA_ICON"] = 5 if hdp_active else 2 if cruise_enabled and nav_active else 3 if cruise_enabled else 1 if main_enabled else 0
           values["LFA_ICON"] = 5 if hdp_active else 2 if lat_active else 1 if lat_enabled else 0
           values["LKA_ICON"] = 4 if lat_active else 3
-          values["LCA_LEFT_ICON"] = (2 if (frame // 25) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.left else 2
-          values["LCA_RIGHT_ICON"] = (2 if (frame // 25) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.right else 2
+          values["LCA_LEFT_ICON"] = (2 if (frame // 25) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.left else 2 if lat_active else 1 if lat_enabled else 0
+          values["LCA_RIGHT_ICON"] = (2 if (frame // 25) % 2 == 0 else 0) if meta.laneChangeState == LaneChangeState.laneChangeStarting and meta.laneChangeDirection == LaneChangeDirection.right else 2 if lat_active else 1 if lat_enabled else 0
           values["FCA_ALT_ICON"] = 0
 
           if values["ALERTS_2"] in [1, 2, 5]:
