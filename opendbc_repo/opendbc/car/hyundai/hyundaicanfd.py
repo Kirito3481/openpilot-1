@@ -529,6 +529,8 @@ def create_ccnc_messages(CP: car.CarParams, packer: CANPacker, CAN: CanBus, fram
           values["LCA_LEFT_ARROW"] = 2 if CS.out.leftBlinker else 0
           values["LCA_RIGHT_ARROW"] = 2 if CS.out.rightBlinker else 0
 
+          values["SOUNDS_1"] = 3
+
           ret.append(packer.make_can_msg("ADRV_0x161", CAN.ECAN, values))
         else:
           print("no adrv_info_161")
