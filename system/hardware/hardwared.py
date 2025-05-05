@@ -70,30 +70,33 @@ def touch_thread(end_event):
   event_size = struct.calcsize(event_format)
   event_frame = []
 
-  with open("/dev/input/by-path/platform-894000.i2c-event", "rb") as event_file:
-    fcntl.fcntl(event_file, fcntl.F_SETFL, os.O_NONBLOCK)
-    while not end_event.is_set():
-      if (count % int(1. / DT_HW)) == 0:
-        event = event_file.read(event_size)
-        if event:
-          (sec, usec, etype, code, value) = struct.unpack(event_format, event)
-          if etype != 0 or code != 0 or value != 0:
-            touch = log.Touch.new_message()
-            touch.sec = sec
-            touch.usec = usec
-            touch.type = etype
-            touch.code = code
-            touch.value = value
-            event_frame.append(touch)
-          else: # end of frame, push new log
-            msg = messaging.new_message('touch', len(event_frame), valid=True)
-            msg.touch = event_frame
-            pm.send('touch', msg)
-            event_frame = []
-          continue
+  try:
+    with open("/dev/input/by-path/platform-894000.i2c-event", "rb") as event_file:
+      fcntl.fcntl(event_file, fcntl.F_SETFL, os.O_NONBLOCK)
+      while not end_event.is_set():
+        if (count % int(1. / DT_HW)) == 0:
+          event = event_file.read(event_size)
+          if event:
+            (sec, usec, etype, code, value) = struct.unpack(event_format, event)
+            if etype != 0 or code != 0 or value != 0:
+              touch = log.Touch.new_message()
+              touch.sec = sec
+              touch.usec = usec
+              touch.type = etype
+              touch.code = code
+              touch.value = value
+              event_frame.append(touch)
+            else: # end of frame, push new log
+              msg = messaging.new_message('touch', len(event_frame), valid=True)
+              msg.touch = event_frame
+              pm.send('touch', msg)
+              event_frame = []
+            continue
 
-      count += 1
-      time.sleep(DT_HW)
+        count += 1
+        time.sleep(DT_HW)
+  except FileNotFoundError:
+    print("Touch device not found, skipping touch thread")
 
 
 def hw_state_thread(end_event, hw_queue):
@@ -172,7 +175,7 @@ def update_restart_condition(current_time, restart_triggered_ts, params, onroad_
       if softRestartTriggered == 2:
         print("Parameter set to default")
         set_default_params()
-        
+
       params.put_int("SoftRestartTriggered", 0)
       restart_triggered_ts = current_time
   return restart_triggered_ts
